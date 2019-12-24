@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+http://www.liquibase.org/xml/ns/dbchangelog
+http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet author="larin" id="1">
+        <sqlFile dbms="postgresql"
+                 path="/scrypt_v1.1.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="larin" id="6">
+        <sqlFile dbms="postgresql"
+                 path="/insertScript v1.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="larin" id="7">
+        <sqlFile dbms="postgresql"
+                 path="/insertScript v2.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="larin" id="8">
+        <sqlFile dbms="postgresql"
+                 path="/insertScript v3.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="larin" id="9">
+        <sqlFile dbms="postgresql"
+                 path="/insertScript v4.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="larin" id="10">
+        <sqlFile dbms="postgresql"
+                 path="/insertScript v5.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
+
+<!--    <changeSet author="larin" id="11">-->
+<!--        <sqlFile dbms="postgresql"-->
+<!--                 path="/insertSequence.sql"-->
+<!--                 relativeToChangelogFile="true"/>-->
+<!--    </changeSet>-->
+
+</databaseChangeLog>
+
+

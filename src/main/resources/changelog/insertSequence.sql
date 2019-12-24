@@ -1,0 +1,5 @@
+-- CREATE SEQUENCE color_id_seq
+--     INCREMENT BY 1
+--     NO MAXVALUE
+--     NO MINVALUE
+--     CACHE 1;

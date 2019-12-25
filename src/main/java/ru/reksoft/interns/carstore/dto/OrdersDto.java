@@ -22,7 +22,7 @@ public class OrdersDto {
     @NotNull
     private UsersDto users;
 
-    @NotNull
+  //  @NotNull
     private Integer id;
 
     @NotNull

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Getter
 public class AutoInStockDto {
 
-    @NotNull
+  //  @NotNull
     private Integer id;
 
     @NotNull

@@ -27,17 +27,6 @@ public class ColorDTO {
 
     private Boolean removed;
 
-//     ColorDTO(Integer id, String name, BigDecimal price, Boolean removed) {
-//        this.id=id;
-//        this.name=name;
-//        this.price=price;
-//        this.removed=removed;
-//    }
-
-//    public ColorDTO( String name, BigDecimal price) {
-//        this.name=name;
-//        this.price=price;
-//    }
 
     public Integer getId() {
         return id;

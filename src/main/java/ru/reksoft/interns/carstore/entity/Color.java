@@ -36,12 +36,6 @@ public class Color {
     @Column(name = "removed")
     private Boolean removed;
 
-//    Color(String name, BigDecimal price, Boolean removed) {
-//        //this.id-id;
-//        this.name=name;
-//        this.price=price;
-//        this.removed=removed;
-//    }
 
     public Integer getId() {
         return id;

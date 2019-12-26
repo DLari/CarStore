@@ -6,11 +6,6 @@ import org.springframework.stereotype.Repository;
 import ru.reksoft.interns.carstore.entity.Model;
 
 @Repository
-public interface ModelRepository extends JpaRepository<Model, Long>,
-       // CrudRepository<Model,Long>,
-        //QuerydslPredicateExecutor<Model>
-        JpaSpecificationExecutor<Model>
-        {
-
+public interface ModelRepository extends JpaRepository<Model, Long>,JpaSpecificationExecutor<Model> {
     Model getById (Integer id);
 }

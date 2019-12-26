@@ -10,45 +10,39 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
     <changeSet author="larin" id="1">
         <sqlFile dbms="postgresql"
-                 path="/scrypt_v1.1.sql"
+                 path="/insertScrypt_v1.sql"
                  relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet author="larin" id="6">
-        <sqlFile dbms="postgresql"
-                 path="/insertScript v1.sql"
-                 relativeToChangelogFile="true"/>
-    </changeSet>
-
-    <changeSet author="larin" id="7">
+    <changeSet author="larin" id="2">
         <sqlFile dbms="postgresql"
                  path="/insertScript v2.sql"
                  relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet author="larin" id="8">
+    <changeSet author="larin" id="3">
         <sqlFile dbms="postgresql"
                  path="/insertScript v3.sql"
                  relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet author="larin" id="9">
+    <changeSet author="larin" id="4">
         <sqlFile dbms="postgresql"
                  path="/insertScript v4.sql"
                  relativeToChangelogFile="true"/>
     </changeSet>
 
-    <changeSet author="larin" id="10">
+    <changeSet author="larin" id="5">
         <sqlFile dbms="postgresql"
-                 path="/insertScript v5.sql"
+                 path="/insertScript v6.sql"
                  relativeToChangelogFile="true"/>
     </changeSet>
 
-<!--    <changeSet author="larin" id="11">-->
-<!--        <sqlFile dbms="postgresql"-->
-<!--                 path="/insertSequence.sql"-->
-<!--                 relativeToChangelogFile="true"/>-->
-<!--    </changeSet>-->
+    <changeSet author="larin" id="6">
+        <sqlFile dbms="postgresql"
+                 path="/insertSequence.sql"
+                 relativeToChangelogFile="true"/>
+    </changeSet>
 
 </databaseChangeLog>
 

@@ -1,30 +1,37 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.*;
+
 
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Data
 
-//@Setter
-//@Getter
-@AllArgsConstructor
+/**
+ * цвет
+ */
 public class ColorDTO {
 
-   // @NotNull(message = "не должно быть пустым")
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * название цвета
+     */
     @NotBlank(message = "размер от 4 до 20")
     @Size(min = 4,max=20)
     private String name;
 
+    /**
+     * цена за цвет
+     */
     @NotNull
     @DecimalMin(value = "10.0", inclusive = true)
-   // @DecimalMax(value = "9.9", inclusive = true)
     private BigDecimal price;
 
+    /**
+     * наличие
+     */
     private Boolean removed;
 
 

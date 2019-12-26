@@ -19,16 +19,10 @@ public class DictOrderStatusService {
     private DictOrderStatusMapper dictOrderStatusMapper;
 
     public DictOrderStatusDto getDictCarcass(Integer id) {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(id));
     }
 
     public List<DictOrderStatusDto> findDictCarcassAll() {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return dictOrderStatusRepository.findAll().stream().map(dictOrderStatusMapper::toDto).collect(Collectors.toList());
     }
 

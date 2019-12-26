@@ -27,16 +27,6 @@ public class AutoInStockController {
         return autoInStockService.getAuto(id);
     }
 
-
-    @GetMapping("")
-    public PageDto<AutoInStockDto> read( @RequestParam (name = "size") Integer size,
-
-                                      @RequestParam( name = "number") Integer number ){
-//        if(id==0)
-//            throw new IdNotFoundException();
-        return autoInStockService.findAutoAll(size,number);
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "search")
     @ResponseBody
     public PageDto<AutoInStockDto> searchCars(
@@ -62,9 +52,16 @@ public class AutoInStockController {
     }
 
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody AutoInStockDto autoInStockDto) {
-        Integer updateId= autoInStockService.update(id, autoInStockDto);
-        return updateId;
+    public Integer update(@PathVariable Integer id, @RequestBody @Valid AutoInStockDto autoInStockDto,
+                          BindingResult bindingResult) throws NotValidException {
+        bindingResult.getAllErrors();
+        if (bindingResult.hasErrors()) {
+            throw new NotValidException(bindingResult);
+        }
+        else {
+            Integer updateId = autoInStockService.update(id, autoInStockDto);
+            return updateId;
+        }
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)

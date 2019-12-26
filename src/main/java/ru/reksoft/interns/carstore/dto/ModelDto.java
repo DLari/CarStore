@@ -1,36 +1,55 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-@Setter
-@Getter
+/**
+ * модель
+ */
 public class ModelDto {
 
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * название модели
+     */
     @NotBlank
     @Size(min=2, max=50)
     private String name;
 
+    /**
+     * цена модели
+     */
     @NotBlank
     @DecimalMin(value = "10.0", inclusive = true)
     private BigDecimal price;
 
+    /**
+     * ширина модели
+     */
     @NotBlank
     private String widthCarcass;
 
+    /**
+     * длина модели
+     */
     @NotBlank
     private String lenghtCarcass;
 
-
+    /**
+     * наличие
+     */
     private Boolean removed;
 
+    /**
+     * ссылка на соответствующий кузов
+     */
     @NotBlank
     private DictCarcassDto dictCarcass;
 

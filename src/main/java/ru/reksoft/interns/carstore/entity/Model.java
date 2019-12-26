@@ -1,47 +1,71 @@
 package ru.reksoft.interns.carstore.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 import java.util.List;
 
-
+/**
+ * модель
+ */
 @Entity
-@Setter
-@Getter
 @Table(name="model")
 public class Model {
 
+    /**
+     * связь с таблицей авто на складе
+     */
     @OneToMany(mappedBy = "model")
     private List<AutoInStock> autoInStocks;
 
+    /**
+     * связь с таблицей кузов
+     */
     @ManyToOne
     @JoinColumn(name = "dict_carcass_id")
     private DictCarcass dictCarcass;
 
+    /**
+     * связь с таблицей двигатель
+     */
     @OneToMany(mappedBy = "model")
     private List<Engine> engines;
 
+    /**
+     * id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "id")
     private Integer id;
 
+    /**
+     * имя модели
+     */
     @Column(name = "name")
     private String name;
 
+    /**
+     * цена
+     */
     @Column(name = "price")
     private BigDecimal price;
 
+    /**
+     * ширина модели
+     */
     @Column( name = "width_carcass")
     private String widthCarcass;
 
+    /**
+     * длина модели
+     */
     @Column(name = "length_carcass")
     private String lenghtCarcass;
 
+    /**
+     * наличие
+     */
     @Column( name = "removed")
     private Boolean removed;
 

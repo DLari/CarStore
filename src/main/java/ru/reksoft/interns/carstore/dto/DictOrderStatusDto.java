@@ -1,13 +1,18 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
+/**
+ * статус
+ */
 public class DictOrderStatusDto {
 
+    /**
+     * id
+     */
     private Integer id;
+
+    /**
+     * название статуса
+     */
     private String name;
 
     public Integer getId() {

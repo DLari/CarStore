@@ -1,38 +1,38 @@
 package ru.reksoft.interns.carstore.entity;
 
-import lombok.Generated;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-
+/**
+ * цвет
+ */
 @Entity
-//@Setter
-//@Getter
 @Table(name="color")
 public class Color {
-
- /*@OneToMany(mappedBy = "color")
-    private List<AutoInStock> autoInStocks;*/
-
+    /**
+     * id
+     */
     @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @GeneratedValue(strategy = GenerationType.AUTO)
    @Column(name = "id")
     private Integer id;
 
-
+    /**
+     * название цвета
+     */
     @Column( name = "name")
     private String name;
 
-   // @Positive
-
+    /**
+     * цена
+      */
     @Column(name = "price")
     private BigDecimal price;
 
-
+    /**
+     * наличие
+     */
     @Column(name = "removed")
     private Boolean removed;
 

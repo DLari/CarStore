@@ -2,8 +2,12 @@ package ru.reksoft.interns.carstore.exceptions;
 
 import org.springframework.validation.BindingResult;
 
+/**
+ * валидность данных
+ */
 public class NotValidException extends Exception {
 
+    //ошибка валидации
     private BindingResult bindingResult;
 
     public NotValidException(BindingResult bindingResult) {

@@ -8,10 +8,10 @@ CREATE TABLE dict_order_status (
 
 CREATE TABLE users (
                        id SERIAL  NOT NULL ,
-                       fio VARCHAR(20)    ,
+                       fio VARCHAR(40)    ,
                        date_of_birth DATE    ,
-                       login_client VARCHAR(20)    ,
-                       password_client VARCHAR(20)    ,
+                       login_client VARCHAR(30)    ,
+                       password_client VARCHAR(30)    ,
                        rule  VARCHAR(20)      ,
                        PRIMARY KEY(id));
 

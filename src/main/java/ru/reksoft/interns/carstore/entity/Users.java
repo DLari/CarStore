@@ -1,39 +1,57 @@
 package ru.reksoft.interns.carstore.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * пользователи
+ */
 @Entity
-@Setter
-@Getter
 @Table(name="users")
 public class Users {
 
+    /**
+     * связь с таблицей заказ
+     */
     @OneToMany(mappedBy = "users")
     private List<Orders> orders;
 
+    /**
+     * id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
+    /**
+     * фио
+     */
     @Column(name = "fio")
     private String fio;
 
+    /**
+     * дата рождения
+     */
     @Column( name = "date_of_birth")
     private Date dateOfBirth;
 
+    /**
+     * логин
+     */
     @Column( name = "login_client")
     private String login;
 
+    /**
+     * пароль
+     */
     @Column(name = "password_client")
     private String password;
 
+    /**
+     * роль
+     */
     @Column( name = "rule")
     private String rule;
 

@@ -1,40 +1,58 @@
 package ru.reksoft.interns.carstore.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * двигатель
+ */
 @Entity
-@Setter
-@Getter
 @Table( name="engine")
 public class Engine {
 
+    /**
+     * связь с таблицей модель
+     */
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
 
+    /**
+     * id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "id")
     private Integer id;
 
+    /**
+     * /название двигателя
+     */
     @Column( name = "name")
     private String name;
 
+    /**
+     * цена
+     */
     @Column( name = "price")
     private BigDecimal price;
 
+    /**
+     * наличие
+     */
     @Column(name = "removed")
     private Boolean removed;
 
+    /**
+     * мощность
+     */
     @Column( name = "power")
     private Integer power;
 
+    /**
+     * расход топлива
+     */
     @Column(name = "fuel_сonsumption")
     private Integer fuelConsumption;
 

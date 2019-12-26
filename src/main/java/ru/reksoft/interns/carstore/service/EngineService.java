@@ -21,16 +21,10 @@ public class EngineService {
     private EngineMapper engineMapper;
 
     public EngineDto getEngine(Integer id) {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return engineMapper.toDto(engineRepository.getById(id));
     }
 
     public List<EngineDto> findEngineAll() {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return engineRepository.findAll(SearchSpecifications.findAllNotRemovedEngine()).stream().map(engineMapper::toDto).collect(Collectors.toList());
     }
 
@@ -40,13 +34,15 @@ public class EngineService {
     }
 
     public Integer update(Integer id, EngineDto engineDto) {
-        Integer reternId=id;
+
+        Integer reternId = id;
         Engine engine= engineRepository.getById(id);
         engineMapper.updateEngine(engineDto,engine);
         return reternId;
     }
 
     public void delete(Integer id) {
+
         Engine engine= engineRepository.getById(id);
         engine.setRemoved(true);
         engineRepository.saveAndFlush(engine);

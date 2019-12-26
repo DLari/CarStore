@@ -27,32 +27,29 @@ public class ModelService {
     private ModelMapperr modelMapper;
 
     public ModelDto getModel(Integer id) {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return modelMapper.toDto(modelRepository.getById(id));
     }
 
     public List<ModelDto> findModelAll() {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return modelRepository.findAll(SearchSpecifications.findAllNotRemovedModel()).stream().map(modelMapper::toDto).collect(Collectors.toList());
     }
 
     public ModelDto create(ModelDto newModel) {
+
         modelRepository.saveAndFlush(modelMapper.toEntity(newModel));
         return newModel;
     }
 
     public Integer update(Integer id, ModelDto modelDTO) {
-        Integer reternId=id;
+
+        Integer reternId = id;
         Model model= modelRepository.getById(id);
         modelMapper.updateModel(modelDTO,model);
         return reternId;
     }
 
     public void delete(Integer id) {
+
         Model model= modelRepository.getById(id);
         model.setRemoved(true);
         modelRepository.saveAndFlush(model);

@@ -2172,7 +2172,7 @@ Caused by: org.postgresql.util.PSQLException: ВАЖНО: база данных 
 2019-12-24 17:51:14.547  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_23 ON orders (users_id)
 2019-12-24 17:51:14.564  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_24 ON orders (dict_order_status_id)
 2019-12-24 17:51:14.580  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_25 ON orders (auto_in_stock_id)
-2019-12-24 17:51:14.603  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /scrypt_v1.1.sql executed
+2019-12-24 17:51:14.603  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScrypt_v1.sql executed
 2019-12-24 17:51:14.606  INFO 12652 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::1::larin ran successfully in 707ms
 2019-12-24 17:51:14.607  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : SELECT MAX(ORDEREXECUTED) FROM public.databasechangelog
 2019-12-24 17:51:14.609  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 1, '8:0d3099d3d41c88d1d39acbb09d44c6cf', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7199073884')
@@ -2187,7 +2187,7 @@ VALUES (1, 'Sedan'),
 (2, 'Coupe'),
 (3, 'Sportback'),
 (4, 'SUV')
-2019-12-24 17:51:14.628  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v1.sql executed
+2019-12-24 17:51:14.628  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v2.sql executed
 2019-12-24 17:51:14.628  INFO 12652 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::6::larin ran successfully in 16ms
 2019-12-24 17:51:14.629  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('6', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 2, '8:2c1aa8e9c5b99e39e196eeaafcfda58d', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7199073884')
 2019-12-24 17:51:14.633  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : -- insert into Engine (id, model_id, name, price, removed, fuel_сonsumption, power)
@@ -2202,7 +2202,7 @@ VALUES (1,'in the process'),
        (2,'confirmed'),
        (3,'paid'),
        (4,'delivered')
-2019-12-24 17:51:14.634  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v2.sql executed
+2019-12-24 17:51:14.634  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v3.sql executed
 2019-12-24 17:51:14.635  INFO 12652 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::7::larin ran successfully in 4ms
 2019-12-24 17:51:14.636  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('7', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 3, '8:040daad15331e33661f3b99cc10a17b9', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7199073884')
 2019-12-24 17:51:14.639  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO model
@@ -2216,14 +2216,14 @@ VALUES (1,1,'40 TDI quattro',350000,false,8,190),
        (2,2, '45 TFSI S tronic',450000,false,6,249),
        (3,2, '55 TFSI quattro',150000,false,8,250),
        (4,1, 'Advance 45 TDI',550000,false,5,270)
-2019-12-24 17:51:14.645  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v3.sql executed
+2019-12-24 17:51:14.645  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v4.sql executed
 2019-12-24 17:51:14.646  INFO 12652 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::8::larin ran successfully in 7ms
 2019-12-24 17:51:14.646  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('8', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 4, '8:b5c96cbcf7745eacca329630e2628eed', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7199073884')
 2019-12-24 17:51:14.649  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO auto_in_stock
 VALUES (1,1,2,1,4),
        (2,2,1,1,2),
        (3,3,3,3,1)
-2019-12-24 17:51:14.653  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v4.sql executed
+2019-12-24 17:51:14.653  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v5.sql executed
 2019-12-24 17:51:14.654  INFO 12652 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::9::larin ran successfully in 6ms
 2019-12-24 17:51:14.654  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('9', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 5, '8:be4e7d111f80610199a3966e6b3ddb59', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7199073884')
 2019-12-24 17:51:14.657  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO users
@@ -2233,7 +2233,7 @@ VALUES (1,'PetyPetrov','12-01-1990','qwesvg','qwert1234Qw','client'),
 2019-12-24 17:51:14.659  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO orders (id, auto_in_stock_id, dict_order_status_id, users_id, date)
 VALUES (1,1,1,1,'20-05-2019'),
        (2,2,1,2,'20-05-2019')
-2019-12-24 17:51:14.662  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v5.sql executed
+2019-12-24 17:51:14.662  INFO 12652 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v6.sql executed
 2019-12-24 17:51:14.669  INFO 12652 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::10::larin ran successfully in 13ms
 2019-12-24 17:51:14.670  INFO 12652 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('10', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 6, '8:f65b1503c92c981334faed5b84e58d05', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7199073884')
 2019-12-24 17:51:14.673  INFO 12652 --- [main] l.l.StandardLockService                  : Successfully released change log lock
@@ -5846,3 +5846,925 @@ java.lang.IllegalStateException: EntityManagerFactory is closed
 2019-12-24 20:51:28.248  INFO 14688 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
 2019-12-24 20:51:28.303  INFO 14688 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
 2019-12-24 20:51:28.306  INFO 14688 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 8.37 seconds (JVM running for 11.155)
+2019-12-25 15:13:52.712  INFO 12108 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 12108 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-25 15:13:52.722  INFO 12108 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-25 15:13:54.489  INFO 12108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-25 15:13:54.590  INFO 12108 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93ms. Found 8 JPA repository interfaces.
+2019-12-25 15:13:54.903  INFO 12108 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 15:13:55.194  INFO 12108 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-25 15:13:55.204  INFO 12108 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-25 15:13:55.205  INFO 12108 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-25 15:13:55.349  INFO 12108 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-25 15:13:55.350  INFO 12108 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 2588 ms
+2019-12-25 15:13:55.471  INFO 12108 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-25 15:13:55.601  INFO 12108 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-25 15:13:56.573  INFO 12108 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 15:13:56.590  INFO 12108 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 15:13:56.592  INFO 12108 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-25 15:13:56.619  INFO 12108 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-25 15:13:58.435  INFO 12108 --- [main] l.e.j.JdbcExecutor                       : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-25 15:13:58.445  INFO 12108 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-25 15:13:58.447  INFO 12108 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-25 15:13:58.447  INFO 12108 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-25 15:13:58.509  INFO 12108 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-25 15:13:58.602  INFO 12108 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-25 15:13:58.669  INFO 12108 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-25 15:13:58.797  INFO 12108 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-25 15:13:58.902  INFO 12108 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-25 15:13:59.615  INFO 12108 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-25 15:13:59.622  INFO 12108 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-25 15:14:00.370  WARN 12108 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-25 15:14:00.500  INFO 12108 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-25 15:14:00.518  WARN 12108 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-25 15:14:00.624  INFO 12108 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-25 15:14:00.769  INFO 12108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-25 15:14:00.786  INFO 12108 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-25 15:14:00.848  INFO 12108 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-25 15:14:01.015  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-25 15:14:01.016  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-25 15:14:01.019  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-25 15:14:01.021  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-25 15:14:01.025  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-25 15:14:01.028  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-25 15:14:01.029  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-25 15:14:01.033  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-25 15:14:01.034  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-25 15:14:01.036  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-25 15:14:01.038  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-25 15:14:01.040  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-25 15:14:01.044  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-25 15:14:01.046  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-25 15:14:01.048  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-25 15:14:01.054  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-25 15:14:01.058  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-25 15:14:01.077  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-25 15:14:01.081  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-25 15:14:01.087  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-25 15:14:01.090  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-25 15:14:01.099  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-25 15:14:01.105  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-25 15:14:01.110  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-25 15:14:01.113  INFO 12108 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-25 15:14:01.178  INFO 12108 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-25 15:14:01.180  INFO 12108 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 9.142 seconds (JVM running for 11.181)
+2019-12-25 15:14:05.166  INFO 12108 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-25 15:14:05.167  INFO 12108 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-25 15:14:05.175  INFO 12108 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2019-12-25 16:13:55.055  INFO 12300 --- [main] r.r.i.carstore.CarstoreApplication       : Starting CarstoreApplication on dlarin-vrn with PID 12300 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-25 16:13:55.058  INFO 12300 --- [main] r.r.i.carstore.CarstoreApplication       : No active profile set, falling back to default profiles: default
+2019-12-25 16:13:56.585  INFO 12300 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-25 16:13:56.701  INFO 12300 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 108ms. Found 8 JPA repository interfaces.
+2019-12-25 16:13:57.045  INFO 12300 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 16:13:57.267  INFO 12300 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-12-25 16:13:57.275  INFO 12300 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-25 16:13:57.275  INFO 12300 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-25 16:13:57.417  INFO 12300 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-12-25 16:13:57.417  INFO 12300 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2303 ms
+2019-12-25 16:13:57.527  INFO 12300 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-12-25 16:13:57.622  INFO 12300 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-12-25 16:13:58.588  INFO 12300 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 16:13:58.592  INFO 12300 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 16:13:58.594  INFO 12300 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-25 16:13:58.721  INFO 12300 --- [main] l.lockservice.StandardLockService        : Successfully acquired change log lock
+2019-12-25 16:14:00.330  INFO 12300 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-25 16:14:00.332  INFO 12300 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-25 16:14:00.333  INFO 12300 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-25 16:14:00.333  INFO 12300 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-25 16:14:00.350  INFO 12300 --- [main] l.lockservice.StandardLockService        : Successfully released change log lock
+2019-12-25 16:14:00.450  INFO 12300 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-25 16:14:00.511  INFO 12300 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-25 16:14:00.620  INFO 12300 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-25 16:14:00.722  INFO 12300 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-25 16:14:01.427  INFO 12300 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-25 16:14:01.434  INFO 12300 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-25 16:14:01.504  WARN 12300 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-25 16:14:02.494  INFO 12300 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-25 16:14:02.669  INFO 12300 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3770dd80, org.springframework.security.web.context.SecurityContextPersistenceFilter@cbbc0ac, org.springframework.security.web.header.HeaderWriterFilter@73f94f48, org.springframework.security.web.authentication.logout.LogoutFilter@4f7db06c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@fb74661, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ca257de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b8cf10f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5f6b6f2, org.springframework.security.web.session.SessionManagementFilter@7ff89dc0, org.springframework.security.web.access.ExceptionTranslationFilter@62f11904, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f84848e]
+2019-12-25 16:14:02.683  WARN 12300 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-25 16:14:02.796  INFO 12300 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-25 16:14:02.952  INFO 12300 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-25 16:14:02.967  INFO 12300 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-25 16:14:03.014  INFO 12300 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-25 16:14:03.177  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-25 16:14:03.179  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-25 16:14:03.182  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-25 16:14:03.183  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-25 16:14:03.187  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-25 16:14:03.190  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-25 16:14:03.191  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-25 16:14:03.195  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-25 16:14:03.196  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-25 16:14:03.198  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-25 16:14:03.200  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-25 16:14:03.202  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-25 16:14:03.205  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-25 16:14:03.206  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-25 16:14:03.207  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-25 16:14:03.209  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-25 16:14:03.210  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-25 16:14:03.221  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-25 16:14:03.223  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-25 16:14:03.230  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-25 16:14:03.232  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-25 16:14:03.239  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-25 16:14:03.240  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-25 16:14:03.242  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-25 16:14:03.243  INFO 12300 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-25 16:14:03.292  INFO 12300 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-25 16:14:03.296  INFO 12300 --- [main] r.r.i.carstore.CarstoreApplication       : Started CarstoreApplication in 9.095 seconds (JVM running for 10.818)
+2019-12-25 16:14:23.482  INFO 12300 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-25 16:14:23.483  INFO 12300 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-25 16:14:23.489  INFO 12300 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-12-25 16:15:27.689  INFO 14512 --- [main] r.r.i.carstore.CarstoreApplication       : Starting CarstoreApplication on dlarin-vrn with PID 14512 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-25 16:15:27.698  INFO 14512 --- [main] r.r.i.carstore.CarstoreApplication       : No active profile set, falling back to default profiles: default
+2019-12-25 16:15:28.953  INFO 14512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-25 16:15:29.126  INFO 14512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 153ms. Found 8 JPA repository interfaces.
+2019-12-25 16:15:29.507  INFO 14512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 16:15:29.735  INFO 14512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-12-25 16:15:29.744  INFO 14512 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-12-25 16:15:29.745  INFO 14512 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-25 16:15:29.883  INFO 14512 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-12-25 16:15:29.883  INFO 14512 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2116 ms
+2019-12-25 16:15:29.987  INFO 14512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-12-25 16:15:30.085  INFO 14512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-12-25 16:15:31.031  INFO 14512 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 16:15:31.033  INFO 14512 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 16:15:31.034  INFO 14512 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-25 16:15:31.059  INFO 14512 --- [main] l.lockservice.StandardLockService        : Successfully acquired change log lock
+2019-12-25 16:15:32.696  INFO 14512 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-25 16:15:32.698  INFO 14512 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-25 16:15:32.698  INFO 14512 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-25 16:15:32.699  INFO 14512 --- [main] liquibase.executor.jvm.JdbcExecutor      : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-25 16:15:32.715  INFO 14512 --- [main] l.lockservice.StandardLockService        : Successfully released change log lock
+2019-12-25 16:15:32.801  INFO 14512 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-25 16:15:32.863  INFO 14512 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-25 16:15:32.971  INFO 14512 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-25 16:15:33.064  INFO 14512 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-25 16:15:33.801  INFO 14512 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-25 16:15:33.808  INFO 14512 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-25 16:15:33.883  WARN 14512 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-25 16:15:34.810  INFO 14512 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-25 16:15:34.924  INFO 14512 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d181ca3, org.springframework.security.web.context.SecurityContextPersistenceFilter@64a552, org.springframework.security.web.header.HeaderWriterFilter@4b8cf10f, org.springframework.security.web.authentication.logout.LogoutFilter@5a487b86, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@69765d94, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@63fa7643, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d5b1446, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@78b9d614, org.springframework.security.web.session.SessionManagementFilter@581cd446, org.springframework.security.web.access.ExceptionTranslationFilter@1396ee3b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45fa7f1a]
+2019-12-25 16:15:34.934  WARN 14512 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-25 16:15:35.040  INFO 14512 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-25 16:15:35.184  INFO 14512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-25 16:15:35.201  INFO 14512 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-25 16:15:35.258  INFO 14512 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-25 16:15:35.459  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-25 16:15:35.461  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-25 16:15:35.466  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-25 16:15:35.468  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-25 16:15:35.474  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-25 16:15:35.479  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-25 16:15:35.481  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-25 16:15:35.485  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-25 16:15:35.486  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-25 16:15:35.488  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-25 16:15:35.491  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-25 16:15:35.494  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-25 16:15:35.498  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-25 16:15:35.500  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-25 16:15:35.501  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-25 16:15:35.504  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-25 16:15:35.507  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-25 16:15:35.518  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-25 16:15:35.519  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-25 16:15:35.525  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-25 16:15:35.527  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-25 16:15:35.530  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-25 16:15:35.531  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-25 16:15:35.532  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-25 16:15:35.534  INFO 14512 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-25 16:15:35.576  INFO 14512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-25 16:15:35.580  INFO 14512 --- [main] r.r.i.carstore.CarstoreApplication       : Started CarstoreApplication in 8.73 seconds (JVM running for 9.67)
+2019-12-25 16:15:39.163  INFO 14512 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-25 16:15:39.163  INFO 14512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-12-25 16:15:39.170  INFO 14512 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-12-25 19:47:15.206  INFO 8164 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 8164 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-25 19:47:15.214  INFO 8164 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-25 19:47:16.315  INFO 8164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-25 19:47:16.433  INFO 8164 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 110ms. Found 8 JPA repository interfaces.
+2019-12-25 19:47:16.768  INFO 8164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 19:47:16.812  INFO 8164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 19:47:16.815  INFO 8164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 19:47:16.818  INFO 8164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5bb8e6fc' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 19:47:16.820  INFO 8164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 19:47:16.824  INFO 8164 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-25 19:47:17.073  INFO 8164 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-25 19:47:17.083  INFO 8164 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-25 19:47:17.084  INFO 8164 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-25 19:47:17.228  INFO 8164 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-25 19:47:17.229  INFO 8164 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1977 ms
+2019-12-25 19:47:17.363  INFO 8164 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-25 19:47:17.465  INFO 8164 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-25 19:47:18.501  INFO 8164 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 19:47:18.505  INFO 8164 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-25 19:47:18.507  INFO 8164 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-25 19:47:18.546  INFO 8164 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-25 19:47:20.326  INFO 8164 --- [main] l.e.j.JdbcExecutor                       : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-25 19:47:20.328  INFO 8164 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-25 19:47:20.329  INFO 8164 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-25 19:47:20.330  INFO 8164 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-25 19:47:20.352  INFO 8164 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-25 19:47:20.448  INFO 8164 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-25 19:47:20.516  INFO 8164 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-25 19:47:20.639  INFO 8164 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-25 19:47:20.744  INFO 8164 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-25 19:47:21.506  INFO 8164 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-25 19:47:21.513  INFO 8164 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-25 19:47:21.588  WARN 8164 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-25 19:47:22.624  INFO 8164 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-25 19:47:22.767  INFO 8164 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b0061b7, org.springframework.security.web.context.SecurityContextPersistenceFilter@236ec794, org.springframework.security.web.header.HeaderWriterFilter@7b81283, org.springframework.security.web.authentication.logout.LogoutFilter@694c23e4, ru.reksoft.interns.carstore.jwt.JwtRequestFilter@54be6213, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50564f77, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ff185a3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72dc0d72, org.springframework.security.web.session.SessionManagementFilter@5c8adab7, org.springframework.security.web.access.ExceptionTranslationFilter@55bd9d1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@26d63c94]
+2019-12-25 19:47:22.794  WARN 8164 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-25 19:47:22.940  INFO 8164 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-25 19:47:23.147  INFO 8164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-25 19:47:23.165  INFO 8164 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-25 19:47:23.217  INFO 8164 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-25 19:47:23.444  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-25 19:47:23.445  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-25 19:47:23.449  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-25 19:47:23.451  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-25 19:47:23.455  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-25 19:47:23.457  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-25 19:47:23.459  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-25 19:47:23.464  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-25 19:47:23.465  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-25 19:47:23.467  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-25 19:47:23.468  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-25 19:47:23.470  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-25 19:47:23.482  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-25 19:47:23.483  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-25 19:47:23.484  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-25 19:47:23.485  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-25 19:47:23.487  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-25 19:47:23.497  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-25 19:47:23.498  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-25 19:47:23.503  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-25 19:47:23.506  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-25 19:47:23.508  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-25 19:47:23.510  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-25 19:47:23.512  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-25 19:47:23.514  INFO 8164 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-25 19:47:23.557  INFO 8164 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-25 19:47:23.559  INFO 8164 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 8.919 seconds (JVM running for 11.195)
+2019-12-25 19:47:28.834  INFO 8164 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-25 19:47:28.835  INFO 8164 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-25 19:47:28.842  INFO 8164 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 7 ms
+2019-12-25 19:47:28.858  WARN 8164 --- [http-nio-8080-exec-2] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:28.955  WARN 8164 --- [http-nio-8080-exec-3] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:31.939  WARN 8164 --- [http-nio-8080-exec-1] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:31.970  WARN 8164 --- [http-nio-8080-exec-6] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:35.811  WARN 8164 --- [http-nio-8080-exec-4] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:35.842  WARN 8164 --- [http-nio-8080-exec-5] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:45.975  WARN 8164 --- [http-nio-8080-exec-9] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:47:46.018  WARN 8164 --- [http-nio-8080-exec-10] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:24.724  WARN 8164 --- [http-nio-8080-exec-2] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:24.771  WARN 8164 --- [http-nio-8080-exec-3] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:29.835  WARN 8164 --- [http-nio-8080-exec-1] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:29.867  WARN 8164 --- [http-nio-8080-exec-6] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:42.657  WARN 8164 --- [http-nio-8080-exec-4] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:42.697  WARN 8164 --- [http-nio-8080-exec-7] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:57.293  WARN 8164 --- [http-nio-8080-exec-10] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:48:57.300  WARN 8164 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2019-12-25 19:48:57.380  WARN 8164 --- [http-nio-8080-exec-8] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:49:13.981  WARN 8164 --- [http-nio-8080-exec-3] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-25 19:49:14.027  WARN 8164 --- [http-nio-8080-exec-1] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-26 15:43:04.955  INFO 9660 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 9660 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 15:43:04.963  INFO 9660 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 15:43:06.188  INFO 9660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-26 15:43:06.295  INFO 9660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99ms. Found 8 JPA repository interfaces.
+2019-12-26 15:43:06.609  INFO 9660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:43:06.639  INFO 9660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:43:06.644  INFO 9660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:43:06.647  INFO 9660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5bb8e6fc' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:43:06.650  INFO 9660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:43:06.655  INFO 9660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:43:06.927  INFO 9660 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-26 15:43:06.936  INFO 9660 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-26 15:43:06.937  INFO 9660 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-26 15:43:07.072  INFO 9660 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-26 15:43:07.073  INFO 9660 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 2078 ms
+2019-12-26 15:43:07.224  INFO 9660 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-26 15:43:07.342  INFO 9660 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-26 15:43:08.332  INFO 9660 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 15:43:08.350  INFO 9660 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 15:43:08.352  INFO 9660 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-26 15:43:08.379  INFO 9660 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-26 15:43:10.377  INFO 9660 --- [main] l.e.j.JdbcExecutor                       : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-26 15:43:10.393  INFO 9660 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-26 15:43:10.393  INFO 9660 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-26 15:43:10.393  INFO 9660 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-26 15:43:10.440  INFO 9660 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-26 15:43:10.556  INFO 9660 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-26 15:43:10.609  INFO 9660 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-26 15:43:10.725  INFO 9660 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-26 15:43:10.830  INFO 9660 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-26 15:43:11.558  INFO 9660 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-26 15:43:11.565  INFO 9660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-26 15:43:11.658  WARN 9660 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-26 15:43:12.638  INFO 9660 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-26 15:43:12.816  INFO 9660 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@383e8d4f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6ff185a3, org.springframework.security.web.header.HeaderWriterFilter@6d093885, org.springframework.security.web.authentication.logout.LogoutFilter@6f3628c2, ru.reksoft.interns.carstore.jwt.JwtRequestFilter@54be6213, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c20af2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e08853d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3df9b24b, org.springframework.security.web.session.SessionManagementFilter@69ab1abc, org.springframework.security.web.access.ExceptionTranslationFilter@3a5c472, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3ee9eaa7]
+2019-12-26 15:43:12.840  WARN 9660 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-26 15:43:12.996  INFO 9660 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 15:43:13.195  INFO 9660 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-26 15:43:13.211  INFO 9660 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-26 15:43:13.260  INFO 9660 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-26 15:43:13.443  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-26 15:43:13.445  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-26 15:43:13.448  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-26 15:43:13.450  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-26 15:43:13.453  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-26 15:43:13.456  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-26 15:43:13.458  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-26 15:43:13.461  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-26 15:43:13.463  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-26 15:43:13.464  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-26 15:43:13.466  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-26 15:43:13.468  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-26 15:43:13.478  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-26 15:43:13.479  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-26 15:43:13.480  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-26 15:43:13.482  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-26 15:43:13.483  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-26 15:43:13.494  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-26 15:43:13.495  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-26 15:43:13.501  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-26 15:43:13.504  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-26 15:43:13.506  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-26 15:43:13.508  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-26 15:43:13.509  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-26 15:43:13.510  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-26 15:43:13.512  INFO 9660 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2019-12-26 15:43:13.556  INFO 9660 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-26 15:43:13.558  INFO 9660 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 9.13 seconds (JVM running for 11.876)
+2019-12-26 15:43:31.844  INFO 9660 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-26 15:43:31.845  INFO 9660 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-26 15:43:31.854  INFO 9660 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2019-12-26 15:43:31.871  WARN 9660 --- [http-nio-8080-exec-1] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-26 15:43:44.994  WARN 9660 --- [http-nio-8080-exec-3] r.r.i.c.j.JwtRequestFilter               : JWT Token does not begin with Bearer String
+2019-12-26 15:44:37.618  INFO 7800 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 7800 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 15:44:37.634  INFO 7800 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 15:44:38.073  WARN 7800 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [ru.reksoft.interns.carstore.CarstoreApplication]; nested exception is java.io.FileNotFoundException: class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.class] cannot be opened because it does not exist
+2019-12-26 15:44:38.077  INFO 7800 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-26 15:44:38.084 ERROR 7800 --- [main] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [ru.reksoft.interns.carstore.CarstoreApplication]; nested exception is java.io.FileNotFoundException: class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.class] cannot be opened because it does not exist
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:325) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:242) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:706) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at ru.reksoft.interns.carstore.CarstoreApplication.main(CarstoreApplication.java:15) [classes/:?]
+Caused by: java.io.FileNotFoundException: class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:56) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:50) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:86) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:73) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:686) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getSuperClass(ConfigurationClassParser.java:994) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:335) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:194) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:298) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	... 13 more
+
+2019-12-26 15:45:18.256  INFO 9420 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 9420 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 15:45:18.263  INFO 9420 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 15:45:18.691  WARN 9420 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [ru.reksoft.interns.carstore.CarstoreApplication]; nested exception is java.io.FileNotFoundException: class path resource [org/springframework/security/web/AuthenticationEntryPoint.class] cannot be opened because it does not exist
+2019-12-26 15:45:18.696  INFO 9420 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-12-26 15:45:18.703 ERROR 9420 --- [main] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to parse configuration class [ru.reksoft.interns.carstore.CarstoreApplication]; nested exception is java.io.FileNotFoundException: class path resource [org/springframework/security/web/AuthenticationEntryPoint.class] cannot be opened because it does not exist
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:184) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:325) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:242) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:275) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:95) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:706) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at ru.reksoft.interns.carstore.CarstoreApplication.main(CarstoreApplication.java:15) [classes/:?]
+Caused by: java.io.FileNotFoundException: class path resource [org/springframework/security/web/AuthenticationEntryPoint.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:56) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:50) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:86) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:73) ~[spring-boot-2.2.2.RELEASE.jar:2.2.2.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.asSourceClass(ConfigurationClassParser.java:686) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getInterfaces(ConfigurationClassParser.java:1007) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processInterfaces(ConfigurationClassParser.java:378) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:326) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:194) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:298) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:245) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:202) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:170) ~[spring-context-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	... 13 more
+
+2019-12-26 15:47:43.052  INFO 6632 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 6632 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 15:47:43.060  INFO 6632 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 15:47:44.024  INFO 6632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-26 15:47:44.130  INFO 6632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98ms. Found 8 JPA repository interfaces.
+2019-12-26 15:47:44.430  INFO 6632 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:47:44.651  INFO 6632 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-26 15:47:44.660  INFO 6632 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-26 15:47:44.660  INFO 6632 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-26 15:47:44.794  INFO 6632 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-26 15:47:44.794  INFO 6632 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1697 ms
+2019-12-26 15:47:44.886  INFO 6632 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-26 15:47:44.983  INFO 6632 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-26 15:47:45.918  INFO 6632 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 15:47:45.922  INFO 6632 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 15:47:45.924  INFO 6632 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-26 15:47:45.953  INFO 6632 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-26 15:47:47.590  INFO 6632 --- [main] l.e.j.JdbcExecutor                       : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-26 15:47:47.592  INFO 6632 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-26 15:47:47.593  INFO 6632 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-26 15:47:47.593  INFO 6632 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-26 15:47:47.611  INFO 6632 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-26 15:47:47.693  INFO 6632 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-26 15:47:47.751  INFO 6632 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-26 15:47:47.860  INFO 6632 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-26 15:47:47.954  INFO 6632 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-26 15:47:48.662  INFO 6632 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-26 15:47:48.668  INFO 6632 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-26 15:47:49.425  WARN 6632 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-26 15:47:49.561  INFO 6632 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-26 15:47:49.578  WARN 6632 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-26 15:47:49.687  INFO 6632 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 15:47:49.838  INFO 6632 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-26 15:47:49.853  INFO 6632 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-26 15:47:49.900  INFO 6632 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-26 15:47:50.067  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-26 15:47:50.068  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-26 15:47:50.071  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-26 15:47:50.073  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-26 15:47:50.077  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-26 15:47:50.080  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-26 15:47:50.081  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-26 15:47:50.085  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-26 15:47:50.086  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-26 15:47:50.088  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-26 15:47:50.090  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-26 15:47:50.091  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-26 15:47:50.098  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-26 15:47:50.100  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-26 15:47:50.101  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-26 15:47:50.103  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-26 15:47:50.105  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-26 15:47:50.117  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-26 15:47:50.118  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-26 15:47:50.124  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-26 15:47:50.127  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-26 15:47:50.129  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-26 15:47:50.132  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-26 15:47:50.133  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-26 15:47:50.135  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-26 15:47:50.138  INFO 6632 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2019-12-26 15:47:50.184  INFO 6632 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-26 15:47:50.187  INFO 6632 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 7.782 seconds (JVM running for 9.723)
+2019-12-26 15:47:57.553  INFO 6632 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-26 15:47:57.554  INFO 6632 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-26 15:47:57.563  INFO 6632 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 9 ms
+2019-12-26 15:48:30.381  INFO 6632 --- [http-nio-8080-exec-2] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:48:31.997  INFO 6632 --- [http-nio-8080-exec-5] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:48:34.329  INFO 6632 --- [http-nio-8080-exec-6] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:48:35.812  INFO 6632 --- [http-nio-8080-exec-7] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:48:36.991  INFO 6632 --- [http-nio-8080-exec-8] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:48:37.002 ERROR 6632 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalArgumentException: source cannot be null] with root cause
+
+java.lang.IllegalArgumentException: source cannot be null
+	at org.modelmapper.internal.util.Assert.notNull(Assert.java:53) ~[modelmapper-2.3.2.jar:?]
+	at org.modelmapper.ModelMapper.map(ModelMapper.java:404) ~[modelmapper-2.3.2.jar:?]
+	at ru.reksoft.interns.carstore.mapper.ColorMapper.toDto(ColorMapper.java:24) ~[classes/:?]
+	at ru.reksoft.interns.carstore.service.ColorService.getById(ColorService.java:25) ~[classes/:?]
+	at ru.reksoft.interns.carstore.controller.ColorController.getById(ColorController.java:32) ~[classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:566) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.2.RELEASE.jar:5.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1591) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.29.jar:9.0.29]
+	at java.lang.Thread.run(Thread.java:834) [?:?]
+
+2019-12-26 15:48:44.347  INFO 6632 --- [http-nio-8080-exec-10] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:49:04.310  WARN 6632 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+2019-12-26 15:49:27.601  INFO 6632 --- [http-nio-8080-exec-10] r.r.i.c.c.ColorController                : getById
+2019-12-26 15:51:22.969  INFO 5364 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 5364 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 15:51:22.977  INFO 5364 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 15:51:23.913  INFO 5364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-26 15:51:24.047  INFO 5364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 125ms. Found 8 JPA repository interfaces.
+2019-12-26 15:51:24.345  INFO 5364 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 15:51:24.585  INFO 5364 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-26 15:51:24.594  INFO 5364 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-26 15:51:24.595  INFO 5364 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-26 15:51:24.733  INFO 5364 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-26 15:51:24.733  INFO 5364 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1695 ms
+2019-12-26 15:51:24.831  INFO 5364 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-26 15:51:24.928  INFO 5364 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-26 15:51:25.879  INFO 5364 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 15:51:25.883  INFO 5364 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 15:51:25.885  INFO 5364 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-26 15:51:25.933  INFO 5364 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-26 15:51:27.507  INFO 5364 --- [main] l.e.j.JdbcExecutor                       : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-26 15:51:27.509  INFO 5364 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-26 15:51:27.510  INFO 5364 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-26 15:51:27.511  INFO 5364 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-26 15:51:27.532  INFO 5364 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-26 15:51:27.617  INFO 5364 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-26 15:51:27.677  INFO 5364 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-26 15:51:27.788  INFO 5364 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-26 15:51:27.884  INFO 5364 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-26 15:51:28.573  INFO 5364 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-26 15:51:28.580  INFO 5364 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-26 15:51:29.298  WARN 5364 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-26 15:51:29.422  INFO 5364 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-26 15:51:29.438  WARN 5364 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-26 15:51:29.547  INFO 5364 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 15:51:29.702  INFO 5364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-26 15:51:29.718  INFO 5364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-26 15:51:29.765  INFO 5364 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-26 15:51:29.935  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-26 15:51:29.937  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-26 15:51:29.940  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-26 15:51:29.942  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-26 15:51:29.946  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-26 15:51:29.949  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-26 15:51:29.951  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-26 15:51:29.955  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-26 15:51:29.957  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-26 15:51:29.958  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-26 15:51:29.961  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-26 15:51:29.962  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-26 15:51:29.970  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-26 15:51:29.971  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-26 15:51:29.972  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-26 15:51:29.975  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-26 15:51:29.977  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-26 15:51:29.989  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-26 15:51:29.990  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-26 15:51:29.996  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-26 15:51:29.999  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-26 15:51:30.002  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-26 15:51:30.005  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-26 15:51:30.007  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-26 15:51:30.009  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_7
+2019-12-26 15:51:30.011  INFO 5364 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2019-12-26 15:51:30.067  INFO 5364 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-26 15:51:30.070  INFO 5364 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 7.881 seconds (JVM running for 9.557)
+2019-12-26 15:51:39.586  INFO 5364 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-26 15:51:39.586  INFO 5364 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-26 15:51:39.595  INFO 5364 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2019-12-26 15:51:39.620  INFO 5364 --- [http-nio-8080-exec-1] r.r.i.c.c.ColorController                : getById
+2019-12-26 18:16:26.294  INFO 15400 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 15400 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 18:16:26.309  INFO 15400 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 18:16:27.212  INFO 15400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-26 18:16:27.317  INFO 15400 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 97ms. Found 8 JPA repository interfaces.
+2019-12-26 18:16:27.632  INFO 15400 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 18:16:27.856  INFO 15400 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-26 18:16:27.865  INFO 15400 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-26 18:16:27.866  INFO 15400 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-26 18:16:27.999  INFO 15400 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-26 18:16:28.000  INFO 15400 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1637 ms
+2019-12-26 18:16:28.095  INFO 15400 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-26 18:16:28.189  INFO 15400 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-26 18:16:29.151  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 18:16:29.165  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE public.databasechangeloglock (ID INTEGER NOT NULL, LOCKED BOOLEAN NOT NULL, LOCKGRANTED TIMESTAMP WITHOUT TIME ZONE, LOCKEDBY VARCHAR(255), CONSTRAINT DATABASECHANGELOGLOCK_PKEY PRIMARY KEY (ID))
+2019-12-26 18:16:29.267  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 18:16:29.270  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : DELETE FROM public.databasechangeloglock
+2019-12-26 18:16:29.271  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangeloglock (ID, LOCKED) VALUES (1, FALSE)
+2019-12-26 18:16:29.273  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-26 18:16:29.283  INFO 15400 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-26 18:16:30.797  INFO 15400 --- [main] l.c.StandardChangeLogHistoryService      : Creating database history table with name: public.databasechangelog
+2019-12-26 18:16:30.799  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE public.databasechangelog (ID VARCHAR(255) NOT NULL, AUTHOR VARCHAR(255) NOT NULL, FILENAME VARCHAR(255) NOT NULL, DATEEXECUTED TIMESTAMP WITHOUT TIME ZONE NOT NULL, ORDEREXECUTED INTEGER NOT NULL, EXECTYPE VARCHAR(10) NOT NULL, MD5SUM VARCHAR(35), DESCRIPTION VARCHAR(255), COMMENTS VARCHAR(255), TAG VARCHAR(255), LIQUIBASE VARCHAR(20), CONTEXTS VARCHAR(255), LABELS VARCHAR(255), DEPLOYMENT_ID VARCHAR(10))
+2019-12-26 18:16:30.829  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-26 18:16:30.830  INFO 15400 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-26 18:16:30.830  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-26 18:16:30.832  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 18:16:30.871  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE dict_order_status (
+                                   id SERIAL  NOT NULL ,
+                                   name VARCHAR(20)      ,
+                                   PRIMARY KEY(id))
+2019-12-26 18:16:30.899  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE users (
+                       id SERIAL  NOT NULL ,
+                       fio VARCHAR(40)    ,
+                       date_of_birth DATE    ,
+                       login_client VARCHAR(30)    ,
+                       password_client VARCHAR(30)    ,
+                       rule  VARCHAR(20)      ,
+                       PRIMARY KEY(id))
+2019-12-26 18:16:30.923  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE dict_carcass (
+                              id SERIAL  NOT NULL ,
+                              name VARCHAR(20)      ,
+                              PRIMARY KEY(id))
+2019-12-26 18:16:30.954  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE color (
+                       id SERIAL  NOT NULL ,
+                       name VARCHAR(20)    ,
+                       price DECIMAL    ,
+                       removed BOOL      ,
+                       PRIMARY KEY(id))
+2019-12-26 18:16:31.016  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE model (
+                       id SERIAL  NOT NULL ,
+                       dict_carcass_id INTEGER   NOT NULL ,
+                       name VARCHAR(20)    ,
+                       price DECIMAL    ,
+                       width_carcass VARCHAR(20)    ,
+                       length_carcass VARCHAR(20)    ,
+                       removed BOOL      ,
+                       PRIMARY KEY(id)  ,
+                       FOREIGN KEY(dict_carcass_id)
+                           REFERENCES dict_carcass(id))
+2019-12-26 18:16:31.076  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX model_FKIndex1 ON model (dict_carcass_id)
+2019-12-26 18:16:31.098  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_18 ON model (dict_carcass_id)
+2019-12-26 18:16:31.158  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE engine (
+                        id SERIAL  NOT NULL ,
+                        model_id INTEGER   NOT NULL ,
+                        name VARCHAR(20)    ,
+                        price DECIMAL    ,
+                        removed BOOL    ,
+                        fuel_сonsumption INTEGER    ,
+                        power INTEGER      ,
+                        PRIMARY KEY(id)  ,
+                        FOREIGN KEY(model_id)
+                            REFERENCES model(id))
+2019-12-26 18:16:31.299  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX engine_FKIndex1 ON engine (model_id)
+2019-12-26 18:16:31.326  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_09 ON engine (model_id)
+2019-12-26 18:16:31.386  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE auto_in_stock (
+                               id SERIAL  NOT NULL ,
+                               color_id INTEGER   NOT NULL ,
+                               engine_id INTEGER   NOT NULL ,
+                               model_id INTEGER   NOT NULL ,
+                               presence INTEGER      ,
+                               PRIMARY KEY(id)      ,
+                               FOREIGN KEY(model_id)
+                                   REFERENCES model(id),
+                               FOREIGN KEY(engine_id)
+                                   REFERENCES engine(id),
+                               FOREIGN KEY(color_id)
+                                   REFERENCES color(id))
+2019-12-26 18:16:31.449  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX auto_in_stock_FKIndex1 ON auto_in_stock (model_id)
+2019-12-26 18:16:31.506  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX auto_in_stock_FKIndex2 ON auto_in_stock (engine_id)
+2019-12-26 18:16:31.547  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX auto_in_stock_FKIndex3 ON auto_in_stock (color_id)
+2019-12-26 18:16:31.590  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_20 ON auto_in_stock (model_id)
+2019-12-26 18:16:31.651  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_21 ON auto_in_stock (engine_id)
+2019-12-26 18:16:31.707  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_22 ON auto_in_stock (color_id)
+2019-12-26 18:16:31.780  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE TABLE orders (
+                        id SERIAL  NOT NULL ,
+                        auto_in_stock_id INTEGER   NOT NULL ,
+                        dict_order_status_id INTEGER   NOT NULL ,
+                        users_id INTEGER   NOT NULL ,
+                        date DATE    ,
+                        price DECIMAL      ,
+                        PRIMARY KEY(id)      ,
+                        FOREIGN KEY(users_id)
+                            REFERENCES users(id),
+                        FOREIGN KEY(dict_order_status_id)
+                            REFERENCES dict_order_status(id),
+                        FOREIGN KEY(auto_in_stock_id)
+                            REFERENCES auto_in_stock(id))
+2019-12-26 18:16:31.891  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX orders_FKIndex1 ON orders (users_id)
+2019-12-26 18:16:31.950  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX orders_FKIndex2 ON orders (dict_order_status_id)
+2019-12-26 18:16:32.002  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX orders_FKIndex3 ON orders (auto_in_stock_id)
+2019-12-26 18:16:32.023  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_23 ON orders (users_id)
+2019-12-26 18:16:32.035  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_24 ON orders (dict_order_status_id)
+2019-12-26 18:16:32.048  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : CREATE INDEX IFK_Rel_25 ON orders (auto_in_stock_id)
+2019-12-26 18:16:32.059  INFO 15400 --- [main] l.c.ChangeSet                            : SQL in file /insertScrypt_v1.sql executed
+2019-12-26 18:16:32.061  INFO 15400 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::1::larin ran successfully in 1215ms
+2019-12-26 18:16:32.062  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : SELECT MAX(ORDEREXECUTED) FROM public.databasechangelog
+2019-12-26 18:16:32.065  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 1, '8:219b6b466902c53c018560afe3530b23', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7373390832')
+2019-12-26 18:16:32.069  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO Color
+VALUES (1, 'Зеленый', 35000, false ),
+(2, 'Желтый', 35000, false),
+(3, 'Черный', 42000, false),
+(4, 'Красный', 42000, false),
+(5, 'Оранжевый', 45000, false)
+2019-12-26 18:16:32.071  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO dict_carcass
+VALUES (1, 'Седан'),
+(2, 'Купе'),
+(3, 'Спортбек'),
+(4, 'Кроссовер')
+2019-12-26 18:16:32.073  INFO 15400 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v2.sql executed
+2019-12-26 18:16:32.074  INFO 15400 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::2::larin ran successfully in 7ms
+2019-12-26 18:16:32.075  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('2', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 2, '8:fd2fc9cca0dae9621f9c2c6ac56fa1f0', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7373390832')
+2019-12-26 18:16:32.078  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO dict_order_status
+VALUES (1,'в процессе'),
+       (2,'подтвержденно'),
+       (3,'оплачено'),
+       (4,'доставлено')
+2019-12-26 18:16:32.080  INFO 15400 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v3.sql executed
+2019-12-26 18:16:32.081  INFO 15400 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::3::larin ran successfully in 5ms
+2019-12-26 18:16:32.082  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('3', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 3, '8:313379d7ad6d179c582b52fb4bc71e8c', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7373390832')
+2019-12-26 18:16:32.085  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO model
+VALUES (1,1, 'A4',2100000,'1572','1842',false),
+       (2,3, 'A4',2500000,'1572','1850',false),
+       (3,3, 'A7',6300000,'1651','1950',false),
+       (4,4, 'Q3',2250000,'1616','4663',false),
+       (5,4, 'Q8',5060000,'1968','5052',false)
+2019-12-26 18:16:32.088  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO engine
+VALUES (1,1,'40 TDI quattro',350000,false,8,190),
+       (2,2, '45 TFSI S tronic',450000,false,6,249),
+       (3,2, '55 TFSI quattro',150000,false,8,250),
+       (4,1, 'Advance 45 TDI',550000,false,5,270)
+2019-12-26 18:16:32.091  INFO 15400 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v4.sql executed
+2019-12-26 18:16:32.094  INFO 15400 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::4::larin ran successfully in 11ms
+2019-12-26 18:16:32.094  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('4', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 4, '8:b5c96cbcf7745eacca329630e2628eed', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7373390832')
+2019-12-26 18:16:32.098  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO users
+VALUES
+--        (1,'PetyPetrov','12-01-1990','qwesvg','qwert1234Qw','client'),
+--        (2,'MaslennikovDmitriy','10-03-1995','sdgs','sd1531afWE','client'),
+       (1,'ZaharovAndrey','25-07-1997','adminLogin','adminPassword','admin')
+2019-12-26 18:16:32.099  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : -- INSERT INTO orders (id, auto_in_stock_id, dict_order_status_id, users_id, date)
+-- VALUES (1,1,1,1,'20-05-2019'),
+--        (2,2,1,2,'20-05-2019');
+2019-12-26 18:16:32.100  INFO 15400 --- [main] l.c.ChangeSet                            : SQL in file /insertScript v6.sql executed
+2019-12-26 18:16:32.100  INFO 15400 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::5::larin ran successfully in 4ms
+2019-12-26 18:16:32.101  INFO 15400 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('5', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 5, '8:860cfaae76ac2abfa4d1acf1b9e90237', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7373390832')
+2019-12-26 18:16:32.104  INFO 15400 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-26 18:16:32.186  INFO 15400 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-26 18:16:32.252  INFO 15400 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-26 18:16:32.362  INFO 15400 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-26 18:16:32.452  INFO 15400 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-26 18:16:33.156  INFO 15400 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-26 18:16:33.163  INFO 15400 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-26 18:16:33.880  WARN 15400 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-26 18:16:34.004  INFO 15400 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-26 18:16:34.020  WARN 15400 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-26 18:16:34.125  INFO 15400 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 18:16:34.265  INFO 15400 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-26 18:16:34.280  INFO 15400 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-26 18:16:34.324  INFO 15400 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-26 18:16:34.486  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-26 18:16:34.487  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-26 18:16:34.491  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-26 18:16:34.495  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-26 18:16:34.498  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-26 18:16:34.499  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-26 18:16:34.503  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-26 18:16:34.504  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-26 18:16:34.505  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-26 18:16:34.507  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-26 18:16:34.509  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-26 18:16:34.516  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-26 18:16:34.517  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-26 18:16:34.518  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-26 18:16:34.520  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-26 18:16:34.521  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-26 18:16:34.531  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-26 18:16:34.532  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-26 18:16:34.537  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-26 18:16:34.540  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-26 18:16:34.542  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-26 18:16:34.544  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-26 18:16:34.546  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-26 18:16:34.547  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-26 18:16:34.548  INFO 15400 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2019-12-26 18:16:34.591  INFO 15400 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-26 18:16:34.593  INFO 15400 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 8.962 seconds (JVM running for 10.898)
+2019-12-26 18:16:41.548  INFO 15400 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-26 18:16:41.549  INFO 15400 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-26 18:16:41.557  INFO 15400 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2019-12-26 18:16:41.571  WARN 15400 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+2019-12-26 18:47:43.752  INFO 3056 --- [main] r.r.i.c.CarstoreApplication              : Starting CarstoreApplication on dlarin-vrn with PID 3056 (C:\Users\dlarin\IdeaProjects2\CarStore\CarStore\target\classes started by dlarin in C:\Users\dlarin\IdeaProjects2\CarStore\CarStore)
+2019-12-26 18:47:43.761  INFO 3056 --- [main] r.r.i.c.CarstoreApplication              : No active profile set, falling back to default profiles: default
+2019-12-26 18:47:44.709  INFO 3056 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2019-12-26 18:47:44.829  INFO 3056 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99ms. Found 8 JPA repository interfaces.
+2019-12-26 18:47:45.111  INFO 3056 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-12-26 18:47:45.338  INFO 3056 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2019-12-26 18:47:45.347  INFO 3056 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2019-12-26 18:47:45.348  INFO 3056 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-26 18:47:45.481  INFO 3056 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2019-12-26 18:47:45.482  INFO 3056 --- [main] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1679 ms
+2019-12-26 18:47:45.580  INFO 3056 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2019-12-26 18:47:45.681  INFO 3056 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2019-12-26 18:47:46.658  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 18:47:46.664  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangeloglock
+2019-12-26 18:47:46.666  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT LOCKED FROM public.databasechangeloglock WHERE ID=1
+2019-12-26 18:47:46.696  INFO 3056 --- [main] l.l.StandardLockService                  : Successfully acquired change log lock
+2019-12-26 18:47:48.320  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT MD5SUM FROM public.databasechangelog WHERE MD5SUM IS NOT NULL LIMIT 1
+2019-12-26 18:47:48.323  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT COUNT(*) FROM public.databasechangelog
+2019-12-26 18:47:48.325  INFO 3056 --- [main] l.c.StandardChangeLogHistoryService      : Reading from public.databasechangelog
+2019-12-26 18:47:48.325  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT * FROM public.databasechangelog ORDER BY DATEEXECUTED ASC, ORDEREXECUTED ASC
+2019-12-26 18:47:48.346  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : ALTER SEQUENCE users_id_seq RESTART WITH 2
+2019-12-26 18:47:48.347  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : ALTER SEQUENCE model_id_seq RESTART WITH 6
+2019-12-26 18:47:48.348  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : ALTER SEQUENCE engine_id_seq RESTART WITH 5
+2019-12-26 18:47:48.348  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : ALTER SEQUENCE dict_order_status_id_seq RESTART WITH 5
+2019-12-26 18:47:48.349  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : ALTER SEQUENCE color_id_seq RESTART WITH 6
+2019-12-26 18:47:48.350  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : ALTER SEQUENCE dict_carcass_id_seq RESTART WITH 5
+2019-12-26 18:47:48.350  INFO 3056 --- [main] l.c.ChangeSet                            : SQL in file /insertSequence.sql executed
+2019-12-26 18:47:48.351  INFO 3056 --- [main] l.c.ChangeSet                            : ChangeSet classpath:changelog/db.changelog-master.xml::6::larin ran successfully in 9ms
+2019-12-26 18:47:48.352  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : SELECT MAX(ORDEREXECUTED) FROM public.databasechangelog
+2019-12-26 18:47:48.354  INFO 3056 --- [main] l.e.j.JdbcExecutor                       : INSERT INTO public.databasechangelog (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('6', 'larin', 'classpath:changelog/db.changelog-master.xml', NOW(), 6, '8:0a1f76d2edf06b85c45def5201826396', 'sqlFile', '', 'EXECUTED', NULL, NULL, '3.8.2', '7375268327')
+2019-12-26 18:47:48.357  INFO 3056 --- [main] l.l.StandardLockService                  : Successfully released change log lock
+2019-12-26 18:47:48.441  INFO 3056 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-12-26 18:47:48.502  INFO 3056 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.4.9.Final}
+2019-12-26 18:47:48.620  INFO 3056 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-12-26 18:47:48.719  INFO 3056 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL82Dialect
+2019-12-26 18:47:49.440  INFO 3056 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-12-26 18:47:49.446  INFO 3056 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-12-26 18:47:50.150  WARN 3056 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-12-26 18:47:50.274  INFO 3056 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2019-12-26 18:47:50.291  WARN 3056 --- [main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2019-12-26 18:47:50.397  INFO 3056 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-26 18:47:50.539  INFO 3056 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2019-12-26 18:47:50.554  INFO 3056 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2019-12-26 18:47:50.597  INFO 3056 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2019-12-26 18:47:50.761  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_1
+2019-12-26 18:47:50.763  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_1
+2019-12-26 18:47:50.767  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_1
+2019-12-26 18:47:50.770  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_1
+2019-12-26 18:47:50.773  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_1
+2019-12-26 18:47:50.776  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_2
+2019-12-26 18:47:50.779  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_2
+2019-12-26 18:47:50.781  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_2
+2019-12-26 18:47:50.782  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_2
+2019-12-26 18:47:50.785  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_3
+2019-12-26 18:47:50.787  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_2
+2019-12-26 18:47:50.794  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_3
+2019-12-26 18:47:50.795  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_3
+2019-12-26 18:47:50.797  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_3
+2019-12-26 18:47:50.798  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_4
+2019-12-26 18:47:50.800  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_3
+2019-12-26 18:47:50.811  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_4
+2019-12-26 18:47:50.813  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: deleteUsingDELETE_4
+2019-12-26 18:47:50.818  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_4
+2019-12-26 18:47:50.821  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_5
+2019-12-26 18:47:50.824  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_4
+2019-12-26 18:47:50.826  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: createUsingPOST_5
+2019-12-26 18:47:50.827  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: getDictCarcassUsingGET_5
+2019-12-26 18:47:50.829  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: readUsingGET_6
+2019-12-26 18:47:50.831  INFO 3056 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUsingPUT_5
+2019-12-26 18:47:50.871  INFO 3056 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2019-12-26 18:47:50.873  INFO 3056 --- [main] r.r.i.c.CarstoreApplication              : Started CarstoreApplication in 7.807 seconds (JVM running for 9.333)
+2019-12-26 18:48:06.893  INFO 3056 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-26 18:48:06.893  INFO 3056 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2019-12-26 18:48:06.902  INFO 3056 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 8 ms
+2019-12-26 18:48:06.929  INFO 3056 --- [http-nio-8080-exec-1] r.r.i.c.c.ColorController                : getById

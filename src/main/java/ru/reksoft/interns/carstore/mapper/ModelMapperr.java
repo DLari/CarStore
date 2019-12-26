@@ -31,11 +31,6 @@ public class ModelMapperr {
         return Objects.isNull(entity) ? null : modelMapper.map(entity, ModelDto.class);
     }
 
-//    public Model createModel(ModelDto modelDto) {
-//        Model model;
-//        return model;
-//    }
-
     public Model updateModel( ModelDto modelDto, Model model) {
         model.setDictCarcass(dictCarcassRepository.getById(modelDto.getDictCarcass().getId()));
         model.setName(modelDto.getName());

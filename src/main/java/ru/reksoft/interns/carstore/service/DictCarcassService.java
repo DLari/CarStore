@@ -19,16 +19,10 @@ public class DictCarcassService {
     private DictCarcassMapper dictCarcassMapper;
 
     public DictCarcassDto getDictCarcass(Integer id) {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return dictCarcassMapper.toDto(dictCarcassRepository.getById(id));
     }
 
     public List<DictCarcassDto> findDictCarcassAll() {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return dictCarcassRepository.findAll().stream().map(dictCarcassMapper::toDto).collect(Collectors.toList());
     }
 }

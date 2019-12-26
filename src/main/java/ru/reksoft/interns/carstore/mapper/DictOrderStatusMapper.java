@@ -14,10 +14,9 @@ public class DictOrderStatusMapper {
     @Autowired
     private ModelMapper modelMapper;
 
-    // @Override
+
     public DictOrderStatus toEntity(DictOrderStatusDto dto) {
-        return
-                //Objects.isNull(dto) ? null :
+        return Objects.isNull(dto) ? null :
                 modelMapper.map(dto, DictOrderStatus.class);
     }
 

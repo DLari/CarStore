@@ -20,33 +20,30 @@ public class OrdersService {
     private OrdersMapper ordersMapper;
 
     public OrdersDto getUser(Integer id) {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return ordersMapper.toDto(ordersRepository.getById(id));
     }
 
     public List<OrdersDto> findUsers() {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return ordersRepository.findAll().stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 
     public Integer create(OrdersDto newOrder) {
+
         Integer id=newOrder.getId();
         ordersRepository.saveAndFlush(ordersMapper.toEntity(newOrder));
         return id;
     }
 
-//    public Integer update(Integer id, OrdersDto ordersDto) {
-//        Integer reternId=id;
-//        Orders orders= ordersRepository.getById(id);
-//        ordersMapper.updateEngine(ordersDto,orders);
-//        return reternId;
-//    }
+    public Integer update(Integer id, OrdersDto ordersDto) {
+
+        Integer reternId=id;
+        Orders orders= ordersRepository.getById(id);
+        ordersMapper.updateMapper(ordersDto,orders);
+        return reternId;
+    }
 
     public void delete(Integer id) {
+
         Orders orders=ordersRepository.getById(id);
         orders.getDictOrderStatus().setName("in the process");
         ordersRepository.saveAndFlush(orders);

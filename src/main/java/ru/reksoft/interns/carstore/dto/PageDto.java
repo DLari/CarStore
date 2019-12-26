@@ -4,22 +4,38 @@ import org.springframework.data.domain.Page;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
 
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
+/**
+ * пагинация
+ * @param <D>
+ */
 public class PageDto <D> {
 
-
-    public List<AutoInStock> getList(Page<AutoInStock> allAutoPage) {
-
-        return allAutoPage.getContent();
-    }
-
+    /**
+     * номер страницы
+     */
     private int number;
+
+    /**
+     * объем странциы
+     */
     private int size;
+
+    /**
+     * список авто
+     */
     private List<D> content;
+
+    /**
+     * общее количество страниц
+     */
     private int totalPage;
+
+    /**
+     * бщее количество элементов
+     */
     private  long totalElements;
+
     public PageDto(Page page, List<D> list) {
         content=list;
         size=page.getSize();
@@ -27,6 +43,10 @@ public class PageDto <D> {
         totalPage=page.getTotalPages();
         totalElements=page.getTotalElements();
 }
+
+    public List<AutoInStock> getList(Page<AutoInStock> allAutoPage) {
+        return allAutoPage.getContent();
+    }
 
     public void setNumber(int number) {
         this.number = number;

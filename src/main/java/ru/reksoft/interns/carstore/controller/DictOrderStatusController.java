@@ -29,8 +29,6 @@ public class DictOrderStatusController {
 
     @GetMapping("")
     public List<DictOrderStatusDto> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
         return dictOrderStatusService.findDictCarcassAll();
     }
 

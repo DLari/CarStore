@@ -1,6 +1,7 @@
 package ru.reksoft.interns.carstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.stereotype.Service;
 import ru.reksoft.interns.carstore.mapper.UsersMapper;
 import ru.reksoft.interns.carstore.dao.UsersRepository;
@@ -19,16 +20,11 @@ public class UsersService {
     private UsersMapper usersMapper;
 
     public UsersDto getUsers(Integer id) {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
+
         return usersMapper.toDto(usersRepository.getById(id));
     }
 
     public List<UsersDto> findUsersAll() {
-//        if (color == null) {
-//            throw new NotFoundException(id);
-//        }
         return usersRepository.findAll().stream().map(usersMapper::toDto).collect(Collectors.toList());
     }
     public UsersDto create(UsersDto newUser) { Integer id=newUser.getId();

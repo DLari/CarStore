@@ -28,11 +28,7 @@ public final class ColorController{
     @GetMapping("/{id}")
     @ResponseBody
     public ColorDTO getById(@PathVariable("id")  Integer id){
-//        LOGGER.trace("This is TRACE");
-//        LOGGER.debug("This is DEBUG");
         LOGGER.info( "getById");
-//        LOGGER.warn("This is WARN");
-//        LOGGER.error("This is ERROR");
         ColorDTO color = colorService.getById(id);
         return color;
     }
@@ -40,8 +36,6 @@ public final class ColorController{
     @GetMapping("")
     @ResponseBody
     public List<ColorDTO> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
       return colorService.findColorAll();
     }
 
@@ -57,13 +51,17 @@ public final class ColorController{
         }
     }
 
-
-
-
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody ColorDTO colorDto) {
-        Integer updateId= colorService.update(id, colorDto);
-        return updateId;
+    public Integer update(@PathVariable Integer id, @RequestBody @Valid ColorDTO colorDto,
+                          BindingResult bindingResult) throws NotValidException {
+        bindingResult.getAllErrors();
+        if (bindingResult.hasErrors()) {
+            throw new NotValidException(bindingResult);
+        }
+        else {
+            Integer updateId = colorService.update(id, colorDto);
+            return updateId;
+        }
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)

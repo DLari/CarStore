@@ -1,12 +1,18 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
+/**
+ * кузов
+ */
 public class DictCarcassDto {
+
+    /**
+     * id
+     */
     private Integer id;
+
+    /**
+     * название кузова
+     */
     private String name;
 
     public Integer getId() {

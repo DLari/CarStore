@@ -28,8 +28,7 @@ public class OrdersController {
 
     @GetMapping("")
     public List<OrdersDto> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
+
         return ordersService.findUsers();
     }
 
@@ -44,11 +43,18 @@ public class OrdersController {
             return id;
         }
     }
-//    @PutMapping(value = "/{id}")
-//    public Integer update(@PathVariable Integer id, @RequestBody OrdersDto ordersDto) {
-//        Integer updateId= ordersService.update(id, ordersDto);
-//        return updateId;
-//    }
+    @PutMapping(value = "/{id}")
+    public Integer update(@PathVariable Integer id, @RequestBody @Valid OrdersDto ordersDto,
+                          BindingResult bindingResult) throws NotValidException {
+        bindingResult.getAllErrors();
+        if (bindingResult.hasErrors()) {
+            throw new NotValidException(bindingResult);
+        }
+        else {
+            Integer updateId = ordersService.update(id, ordersDto);
+            return updateId;
+        }
+    }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {

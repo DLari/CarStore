@@ -23,11 +23,8 @@ public class DictCarcassController {
         return dictCarcassService.getDictCarcass(id);
     }
 
-
     @GetMapping("")
     public List<DictCarcassDto> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
         return dictCarcassService.findDictCarcassAll();
     }
 }

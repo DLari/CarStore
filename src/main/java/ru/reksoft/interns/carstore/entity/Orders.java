@@ -9,36 +9,52 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 
-
-@Setter
-@Getter
+/**
+ * заказ
+ */
 @Entity
 @Table( name="orders")
 public class Orders {
 
+    /**
+     * связь с таблицей авто на складе
+     */
     @ManyToOne
     @JoinColumn(name = "auto_in_stock_id")
     private AutoInStock autoInStock;
 
-
+    /**
+     * связь с таблицей статус
+     */
     @ManyToOne
     @JoinColumn(name = "dict_order_status_id")
     private DictOrderStatus dictOrderStatus;
 
+    /**
+     * связь с таблицей пользователь
+     */
     @ManyToOne
     @JoinColumn(name = "users_id")
     private Users users;
 
 
-
+    /**
+     * id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column( name = "id")
     private Integer id;
 
+    /**
+     * сумма заказа
+     */
     @Column(name = "price")
     private BigDecimal price;
 
+    /**
+     * дата заказа
+     */
     @Column( name = "date")
     private Date date;
 
@@ -89,8 +105,5 @@ public class Orders {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    /* client_id
-auto_in stock_id*/
 
 }

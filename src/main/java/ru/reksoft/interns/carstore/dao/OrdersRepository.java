@@ -7,5 +7,4 @@ import ru.reksoft.interns.carstore.entity.Orders;
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Long> {
     Orders getById (Integer id);
-    //void deleteById(Integer id);
 }

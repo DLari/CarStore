@@ -23,10 +23,8 @@ public class EngineMapper {
     @Autowired
     private ModelRepository modelRepository ;
 
-    // @Override
     public Engine toEntity(EngineDto dto) {
-        return
-                //Objects.isNull(dto) ? null :
+        return Objects.isNull(dto) ? null :
                 modelMapper.map(dto, Engine.class);
     }
 
@@ -35,8 +33,6 @@ public class EngineMapper {
     }
 
     public Engine updateEngine(EngineDto engineDto, Engine engine) {
-        //
-        // engine.setModel(modelRepository.getById(engineDto.getModel().getId()));
         engine.setName(engineDto.getName());
         engine.setPrice(engineDto.getPrice());
         engine.setRemoved(engineDto.getRemoved());

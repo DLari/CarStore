@@ -1,7 +1,6 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
@@ -9,26 +8,44 @@ import javax.validation.constraints.Past;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-@Setter
-@Getter
+/**
+ * заказ
+ */
 public class OrdersDto {
 
+    /**
+     * ссылка на соответствующий авто
+     */
     @NotNull
     private AutoInStockDto autoInStock;
 
+    /**
+     * ссылка на соответствующий статус
+     */
     @NotNull
     private DictOrderStatusDto dictOrderStatus;
 
+    /**
+     * ссылка на соответствующего пользователя
+     */
     @NotNull
     private UsersDto users;
 
-  //  @NotNull
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * цена заказа
+     */
     @NotNull
     @DecimalMin(value = "10.0", inclusive = true)
     private BigDecimal price;
 
+    /**
+     * дата заказа
+     */
     @Past
     private Date date;
 

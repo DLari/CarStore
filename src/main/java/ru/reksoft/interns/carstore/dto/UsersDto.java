@@ -1,32 +1,48 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.validation.constraints.*;
 import java.sql.Date;
-import java.util.List;
 
-@Setter
-@Getter
+/**
+ * пользователи
+ */
 public class UsersDto {
 
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * фио
+     */
     @NotBlank
     @Size(min = 5,max = 20)
     private String fio;
 
+    /**
+     * дата рождения
+     */
     @NotEmpty
     @Past
     private Date dateOfBirth;
 
+    /**
+     * логин
+     */
     @Pattern(regexp = "\\w{7}")
     private String login;
 
+    /**
+     * пароль
+     */
     @Pattern(regexp = "(?-i)(?=^.{8,}$)((?!.*\\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\\d){1,})|(?=(.*\\W){1,}))^.*$")
     private String password;
 
+    /**
+     * роль
+     */
     @NotBlank
     private String rule;
 

@@ -1,6 +1,7 @@
 package ru.reksoft.interns.carstore.dto;
 
 public class FieldDto {
+
     private String field;
     private String error;
 

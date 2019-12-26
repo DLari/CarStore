@@ -1,34 +1,46 @@
 package ru.reksoft.interns.carstore.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
-
-@Setter
-@Getter
+/**
+ * авто на складе
+ */
 @Entity
 @Table(name="auto_in_stock")
 public class AutoInStock {
 
+    /**
+     *связь с таблицей цвет
+     */
     @ManyToOne
     @JoinColumn(name = "color_id")
     private Color color;
 
+    /**
+     * связь с таблицей двигатель
+     */
     @ManyToOne
     @JoinColumn(name = "engine_id")
     private Engine engine ;
 
+    /**
+     * связь с таблицей модель
+     */
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
 
+    /**
+     * id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(name = "id")
     private Integer id;
 
+    /**
+     * количество автомобилей
+     */
     @Column(name = "presence")
     private Integer presence;
 

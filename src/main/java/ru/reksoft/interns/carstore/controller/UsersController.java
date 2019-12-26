@@ -28,8 +28,6 @@ public class UsersController {
 
     @GetMapping("")
     public List<UsersDto> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
         return usersService.findUsersAll();
     }
 
@@ -45,8 +43,15 @@ public class UsersController {
     }
 
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody UsersDto usersDto) {
-        Integer updateId= usersService.update(id, usersDto);
-        return updateId;
+    public Integer update(@PathVariable Integer id, @RequestBody @Valid UsersDto usersDto,
+                          BindingResult bindingResult) throws NotValidException {
+        bindingResult.getAllErrors();
+        if (bindingResult.hasErrors()) {
+            throw new NotValidException(bindingResult);
+        }
+        else {
+            Integer updateId = usersService.update(id, usersDto);
+            return updateId;
+        }
     }
 }

@@ -29,8 +29,6 @@ public class ModelController {
 
     @GetMapping("")
     public List<ModelDto> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
         return modelService.findModelAll();
     }
     @PostMapping("")
@@ -45,9 +43,16 @@ public class ModelController {
     }
 
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody ModelDto modelDto) {
-        Integer updateId= modelService.update(id, modelDto);
-        return updateId;
+    public Integer update(@PathVariable Integer id, @RequestBody @Valid ModelDto modelDto,
+                          BindingResult bindingResult) throws NotValidException {
+        bindingResult.getAllErrors();
+        if (bindingResult.hasErrors()) {
+            throw new NotValidException(bindingResult);
+        }
+        else {
+            Integer updateId = modelService.update(id, modelDto);
+            return updateId;
+        }
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)

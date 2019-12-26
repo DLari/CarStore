@@ -1,28 +1,38 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
-
-@Setter
-@Getter
+/**
+ * авто на складе
+ */
 public class AutoInStockDto {
 
-  //  @NotNull
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * количество доступных авто
+     */
     @NotNull
     private Integer presence;
 
+    /**
+     * ссылка на соответствующую модель
+     */
     @NotNull
     private ModelDto model;
 
+    /**
+     * ссылка на соответствующий цвет
+     */
     @NotNull
     private ColorDTO color;
 
+    /**
+     * ссылка на соответствующий двигатель
+     */
     @NotNull
     private EngineDto engine;
 

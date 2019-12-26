@@ -1,7 +1,5 @@
 package ru.reksoft.interns.carstore.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
@@ -9,37 +7,50 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-@Setter
-@Getter
+/**
+ * двигатель
+ */
 public class EngineDto {
 
-//   public EngineDto(Integer id, String name, BigDecimal price, Integer power, Integer fuelConsumption){
-//        this.id=id;
-//        this.name=name;
-//        this.price=price;
-//        this.power=power;
-//        this.fuelConsumption=fuelConsumption;
-//    };
-
-   // @NotNull
+    /**
+     * id
+     */
     private Integer id;
 
+    /**
+     * назваие двигателя
+     */
     @NotBlank
     @Size(min = 4,max=20)
     private String name;
 
+    /**
+     * цена за двигатель
+     */
     @NotNull
     @DecimalMin(value = "10.0", inclusive = true)
     private BigDecimal price;
 
+    /**
+     * наличие
+     */
     private Boolean removed;
 
+    /**
+     * мощность
+     */
     @NotNull
     private Integer power;
 
+    /**
+     * расход топлива
+     */
     @NotNull
     private Integer fuelConsumption;
 
+    /**
+     * ссылка на соответствующую модель
+     */
     @NotNull
     private  ModelDto model;
 

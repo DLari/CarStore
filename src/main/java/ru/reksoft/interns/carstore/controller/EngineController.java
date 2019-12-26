@@ -29,8 +29,6 @@ public class EngineController {
 
     @GetMapping("")
     public List<EngineDto> read(){
-//        if(id==0)
-//            throw new IdNotFoundException();
         return engineService.findEngineAll();
     }
 
@@ -45,9 +43,16 @@ public class EngineController {
         }
     }
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody EngineDto engineDto) {
-        Integer updateId= engineService.update(id, engineDto);
-        return updateId;
+    public Integer update(@PathVariable Integer id, @RequestBody @Valid EngineDto engineDto,
+                          BindingResult bindingResult) throws NotValidException {
+        bindingResult.getAllErrors();
+        if (bindingResult.hasErrors()) {
+            throw new NotValidException(bindingResult);
+        }
+        else {
+            Integer updateId = engineService.update(id, engineDto);
+            return updateId;
+        }
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)

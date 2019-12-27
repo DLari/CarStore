@@ -7,4 +7,5 @@ import ru.reksoft.interns.carstore.entity.Users;
 @Repository
 public interface UsersRepository extends JpaRepository<Users, Long> {
     Users getById (Integer id);
+    Users getByLogin(String login);
 }

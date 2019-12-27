@@ -1,8 +1,10 @@
 package ru.reksoft.interns.carstore.jwt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,7 +29,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	    Users users = usersRepository.getByLogin(username);
 	    if (users!=null) {
-	        return new User(users.getLogin(),passwordEncoder.encode( users.getPassword()),new ArrayList<>());
+	        return new User(users.getLogin(),passwordEncoder.encode(users.getPassword()), Arrays.asList(new SimpleGrantedAuthority(users.getRule())));
         }
 	    else {
 	        throw new UsernameNotFoundException("User not found with username: " + username);

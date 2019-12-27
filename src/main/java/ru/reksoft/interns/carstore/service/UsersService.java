@@ -28,11 +28,13 @@ public class UsersService {
         return usersRepository.findAll().stream().map(usersMapper::toDto).collect(Collectors.toList());
     }
     public UsersDto create(UsersDto newUser) { Integer id=newUser.getId();
+
         usersRepository.saveAndFlush(usersMapper.toEntity(newUser));
         return newUser;
     }
 
     public Integer update(Integer id, UsersDto usersDto) {
+
         Integer reternId=id;
         Users users= usersRepository.getById(id);
         usersMapper.updateUser(usersDto,users);

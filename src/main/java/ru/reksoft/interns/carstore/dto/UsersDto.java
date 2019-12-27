@@ -18,26 +18,27 @@ public class UsersDto {
      * фио
      */
     @NotBlank
-    @Size(min = 5,max = 20)
+    @Size(min = 5,max = 40)
     private String fio;
 
     /**
      * дата рождения
      */
-    @NotEmpty
-    @Past
+    @NotNull
+    //@Past
     private Date dateOfBirth;
 
     /**
      * логин
      */
-    @Pattern(regexp = "\\w{7}")
+    @Pattern(regexp = "\\w{7,}",message = "Логин должен содержать не менее 7 символов")
     private String login;
 
     /**
      * пароль
      */
-    @Pattern(regexp = "(?-i)(?=^.{8,}$)((?!.*\\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\\d){1,})|(?=(.*\\W){1,}))^.*$")
+    @Pattern(regexp = "(?-i)(?=^.{8,}$)((?!.*\\s)(?=.*[A-Z])(?=.*[a-z]))((?=(.*\\d){1,})|(?=(.*\\W){1,}))^.*$"
+            ,message = "пароль должен иметь не менее 8 символов, из которых не менее 1 заглавной, 1 сточной буквы и одного символа")
     private String password;
 
     /**

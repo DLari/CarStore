@@ -45,27 +45,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        // The pages does not require login
-//        httpSecurity.authorizeRequests().antMatchers( "/colors", "/logout").permitAll();
-
-        // /userInfo page requires login as ROLE_USER or ROLE_ADMIN.
-//        httpSecurity.authorizeRequests().antMatchers("/userInfo")
-//                .access("hasAnyRole('user', 'admin')");
-
-//        httpSecurity.csrf().disable().authorizeRequests().antMatchers("/engines","/models").authenticated().and().
-//                exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 
 
+        httpSecurity.csrf().disable().authorizeRequests()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/authenticate","/colors","/models","/cars","/carcass",
+                "/users").permitAll()
+                .antMatchers("/engines").hasAnyAuthority("user")
+                .antMatchers("/statuses").hasAnyAuthority("admin")
+                .anyRequest().authenticated().and().
 
-
-        httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/authenticate").permitAll().
-        anyRequest().authenticated().and().
         exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
     }
 }

@@ -32,7 +32,7 @@ public class EngineController {
         return engineService.findEngineAll();
     }
 
-    @PostMapping("")
+    @PostMapping("/admin")
     public EngineDto create(@RequestBody @Valid EngineDto newEngine, BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
@@ -42,7 +42,7 @@ public class EngineController {
             return engineService.create(newEngine);
         }
     }
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/admin//{id}")
     public Integer update(@PathVariable Integer id, @RequestBody @Valid EngineDto engineDto,
                           BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
@@ -55,7 +55,7 @@ public class EngineController {
         }
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
         engineService.delete(id);
     }

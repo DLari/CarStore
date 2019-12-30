@@ -3,6 +3,7 @@ package ru.reksoft.interns.carstore.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -53,10 +54,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/v2/api-docs").permitAll()
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
-                .antMatchers("/authenticate","/colors","/models","/cars","/carcass",
-                "/users").permitAll()
+                .antMatchers(HttpMethod.GET,"/cars/{id}", "/cars/search", "/colors/{id}",
+                        "/colors", "/cars/{id}", "/carcass", "/engines", "/engines", "/engines", "/models", "/models/{id}",
+                        HttpMethod.POST,"/login")
+                .permitAll()
+
                 .antMatchers("/engines").hasAnyAuthority("user")
-                .antMatchers("/statuses").hasAnyAuthority("admin")
+
+                .antMatchers(HttpMethod.POST,"/cars",
+                        HttpMethod.POST,"/colors",
+                        HttpMethod.POST,"/engines",
+                        HttpMethod.POST,"/models",
+
+                        HttpMethod.DELETE,"/cars/{id}",
+                        HttpMethod.DELETE,"/color/{id}",
+                        HttpMethod.DELETE,"/engines/{id}",
+                        HttpMethod.DELETE,"/models/{id}",
+
+                        )
+                .hasAnyAuthority("admin")
+
                 .anyRequest().authenticated().and().
 
         exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()

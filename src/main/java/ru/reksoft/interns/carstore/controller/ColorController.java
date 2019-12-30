@@ -40,7 +40,7 @@ public final class ColorController{
     }
 
 
-    @PostMapping("")
+    @PostMapping("/admin")
     public ColorDTO create(@RequestBody @Valid  ColorDTO newColor, BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
@@ -51,7 +51,7 @@ public final class ColorController{
         }
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/admin/{id}")
     public Integer update(@PathVariable Integer id, @RequestBody @Valid ColorDTO colorDto,
                           BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
@@ -64,7 +64,7 @@ public final class ColorController{
         }
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
         colorService.delete(id);
     }

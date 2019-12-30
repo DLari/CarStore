@@ -40,7 +40,7 @@ public class AutoInStockController {
         return autoInStockService.search(modelId,colorId,carcassId,engineId,size,number);
     }
 
-    @PostMapping("")
+    @PostMapping("/admin")
     public AutoInStockDto create(@RequestBody @Valid AutoInStockDto newAuto, BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
@@ -51,7 +51,7 @@ public class AutoInStockController {
         }
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/admin/{id}")
     public Integer update(@PathVariable Integer id, @RequestBody @Valid AutoInStockDto autoInStockDto,
                           BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
@@ -64,7 +64,7 @@ public class AutoInStockController {
         }
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
         autoInStockService.delete(id);
     }

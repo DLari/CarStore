@@ -28,14 +28,12 @@ public class OrdersService {
     }
 
     public Integer create(OrdersDto newOrder) {
-
         Integer id=newOrder.getId();
         ordersRepository.saveAndFlush(ordersMapper.toEntity(newOrder));
         return id;
     }
 
     public Integer update(Integer id, OrdersDto ordersDto) {
-
         Integer reternId=id;
         Orders orders= ordersRepository.getById(id);
         ordersMapper.updateMapper(ordersDto,orders);
@@ -43,7 +41,6 @@ public class OrdersService {
     }
 
     public void delete(Integer id) {
-
         Orders orders=ordersRepository.getById(id);
         orders.getDictOrderStatus().setName("in the process");
         ordersRepository.saveAndFlush(orders);

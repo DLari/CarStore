@@ -21,7 +21,7 @@ public class ColorService {
     @Autowired
     private ColorMapper colorMapper;
 
-    public ColorDTO getById(Integer id){
+    public ColorDTO getById(Integer id) {
         return colorMapper.toDto(colorRepository.getById(id));
     }
 
@@ -32,25 +32,24 @@ public class ColorService {
         ).stream().map(colorMapper::toDto).collect(Collectors.toList());
     }
 
-    public ColorDTO create(ColorDTO  newColor) {
+    public ColorDTO create(ColorDTO newColor) {
 
         colorRepository.saveAndFlush(colorMapper.toEntity(newColor));
         return newColor;
     }
 
     public Integer update(Integer id, ColorDTO colorDTO) {
+        Integer reternId = id;
+        Color color = colorRepository.getById(id);
+        colorMapper.updateMapper(colorDTO, color);
 
-        Integer reternId=id;
-        Color color= colorRepository.getById(id);
-        colorMapper.updateMapper(colorDTO,color);
         return reternId;
-
     }
 
     public void delete(Integer id) {
 
-       Color color= colorRepository.getById(id);
-       color.setRemoved(true);
+        Color color = colorRepository.getById(id);
+        color.setRemoved(true);
         colorRepository.saveAndFlush(color);
     }
 }

@@ -31,7 +31,8 @@ public class ModelController {
     public List<ModelDto> read(){
         return modelService.findModelAll();
     }
-    @PostMapping("")
+
+    @PostMapping("/admin")
     public ModelDto create(@RequestBody @Valid ModelDto newModel, BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
@@ -42,7 +43,7 @@ public class ModelController {
         }
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/admin/{id}")
     public Integer update(@PathVariable Integer id, @RequestBody @Valid ModelDto modelDto,
                           BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
@@ -55,7 +56,7 @@ public class ModelController {
         }
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
         modelService.delete(id);
     }

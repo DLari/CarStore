@@ -20,9 +20,9 @@ import java.util.List;
 
 @Controller
 public class mainController {
-    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
-            "classpath:/META-INF/resources/", "classpath:/resources/",
-            "classpath:/static/", "classpath:/public/" };
+//    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
+//            "classpath:/META-INF/resources/", "classpath:/resources/",
+//            "classpath:/static/", "classpath:/public/" };
     @Autowired
     private ColorRepository colorRepository;
     @Autowired

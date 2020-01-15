@@ -24,9 +24,10 @@ import ru.reksoft.interns.carstore.jwt.JwtRequestFilter;
 
 @Configuration
 @EnableWebSecurity
-@EnableWebMvc
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements ApplicationContextAware, WebMvcConfigurer {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter
+       // implements ApplicationContextAware, WebMvcConfigurer
+{
 
 
     @Autowired

@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.ColorDTO;
@@ -37,35 +38,5 @@ public final class ColorController{
     @ResponseBody
     public List<ColorDTO> read(){
       return colorService.findColorAll();
-    }
-
-
-    @PostMapping("/admin")
-    public ColorDTO create(@RequestBody @Valid  ColorDTO newColor, BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-          throw new NotValidException(bindingResult);
-        }
-        else {
-            return colorService.create(newColor);
-        }
-    }
-
-    @PutMapping(value = "/admin/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody @Valid ColorDTO colorDto,
-                          BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-            Integer updateId = colorService.update(id, colorDto);
-            return updateId;
-        }
-    }
-
-    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
-    public void delete(@PathVariable Integer id) {
-        colorService.delete(id);
     }
 }

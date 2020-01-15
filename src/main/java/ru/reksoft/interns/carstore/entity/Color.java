@@ -31,6 +31,12 @@ public class Color {
     private BigDecimal price;
 
     /**
+     * цветовой код HEX
+     */
+    @Column(name = "color_code")
+    private String colorCode;
+
+    /**
      * наличие
      */
     @Column(name = "removed")
@@ -67,5 +73,13 @@ public class Color {
 
     public void setRemoved(Boolean removed) {
         this.removed = removed;
+    }
+
+    public String getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
     }
 }

@@ -18,14 +18,13 @@ public class UsersDto {
      * фио
      */
     @NotBlank
-    @Size(min = 5,max = 40)
+    @Size(min = 5,max = 40,message = "ФИО должно содержать от 5 до 40 букв")
     private String fio;
 
     /**
      * дата рождения
      */
-    @NotNull
-    //@Past
+   // @NotNull(message = " поле дата не должно быть пустым")
     private Date dateOfBirth;
 
     /**
@@ -42,9 +41,21 @@ public class UsersDto {
     private String password;
 
     /**
+     * номер телефона
+     */
+    @NotNull(message = "поле  номер телефона не должно быть пустым")
+    private String phoneNumber;
+
+    /**
+     * адресс
+     */
+    @NotNull(message = "поле адресс не должно быть пустым")
+    private String address;
+
+    /**
      * роль
      */
-    @NotBlank
+    @Null
     private String rule;
 
     public Integer getId() {
@@ -93,5 +104,21 @@ public class UsersDto {
 
     public void setRule(String rule) {
         this.rule = rule;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

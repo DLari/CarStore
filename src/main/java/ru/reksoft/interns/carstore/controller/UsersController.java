@@ -2,6 +2,7 @@ package ru.reksoft.interns.carstore.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.UsersDto;
@@ -9,6 +10,7 @@ import ru.reksoft.interns.carstore.exceptions.NotValidException;
 import ru.reksoft.interns.carstore.service.UsersService;
 
 import javax.validation.Valid;
+import java.security.Security;
 import java.util.List;
 
 @RestController
@@ -20,16 +22,11 @@ public class UsersController {
     @Autowired
     private UsersService usersService;
 
-    @GetMapping("/{id}")
-    public UsersDto getDictCarcass(@PathVariable Integer id) {
-        return usersService.getUsers(id);
+    @GetMapping("/mine")
+    public UsersDto getDictCarcass() {
+        return usersService.getUsers();
     }
 
-
-    @GetMapping("")
-    public List<UsersDto> read(){
-        return usersService.findUsersAll();
-    }
 
     @PostMapping("")
     public UsersDto create(@RequestBody @Valid UsersDto newUser , BindingResult bindingResult) throws NotValidException {
@@ -43,15 +40,14 @@ public class UsersController {
     }
 
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody @Valid UsersDto usersDto,
+    public UsersDto update(@PathVariable Integer id, @RequestBody @Valid UsersDto usersDto,
                           BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);
         }
         else {
-            Integer updateId = usersService.update(id, usersDto);
-            return updateId;
+           return usersService.update(id, usersDto);
         }
     }
 }

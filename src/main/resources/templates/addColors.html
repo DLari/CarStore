@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Colors</title>
+</head>
+ <body>
+  <h1>Create Person</h1>
+ <form th:action="@{/addColors}"
+     th:object="${colorDTOForm}" method="post">
+     First name:
+     <input type="text" th:field="*{name}">
+     <br/>
+     Price:
+     <input type="text" th:field="*{price}">
+     <br/>
+     Code
+     <input type="text" th:field="*{colorCode}">
+     <input type="submit" value="Create" />
+ </form>
+ <br/>
+ <div th:if="${errorMessage}" th:utext="errorMessage">
+
+ </div>
+
+ </body>
+</html>

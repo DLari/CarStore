@@ -32,31 +32,4 @@ public class EngineController {
         return engineService.findEngineAll();
     }
 
-    @PostMapping("/admin")
-    public EngineDto create(@RequestBody @Valid EngineDto newEngine, BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-            return engineService.create(newEngine);
-        }
-    }
-    @PutMapping(value = "/admin//{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody @Valid EngineDto engineDto,
-                          BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-            Integer updateId = engineService.update(id, engineDto);
-            return updateId;
-        }
-    }
-
-    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
-    public void delete(@PathVariable Integer id) {
-        engineService.delete(id);
-    }
 }

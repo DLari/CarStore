@@ -53,6 +53,12 @@ public class Orders {
     private BigDecimal price;
 
     /**
+     * номер заказа
+     */
+    @Column(name = "order_number")
+    private String orderNumber;
+
+    /**
      * дата заказа
      */
     @Column( name = "date")
@@ -106,4 +112,11 @@ public class Orders {
         this.date = date;
     }
 
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
 }

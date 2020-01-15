@@ -29,16 +29,16 @@ public class EngineService {
     }
 
     public EngineDto create(EngineDto newEngine) {
-        engineRepository.saveAndFlush(engineMapper.toEntity(newEngine));
-        return newEngine;
+       Engine engine= engineRepository.saveAndFlush(engineMapper.toEntity(newEngine));
+       EngineDto engineDto=engineMapper.toDto(engine);
+        return engineDto;
     }
 
-    public Integer update(Integer id, EngineDto engineDto) {
+    public EngineDto update(Integer id, EngineDto engineDto) {
 
-        Integer reternId = id;
         Engine engine= engineRepository.getById(id);
         engineMapper.updateEngine(engineDto,engine);
-        return reternId;
+        return engineDto;
     }
 
     public void delete(Integer id) {

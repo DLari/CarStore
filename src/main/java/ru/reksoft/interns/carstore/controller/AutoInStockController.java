@@ -40,32 +40,4 @@ public class AutoInStockController {
         return autoInStockService.search(modelId,colorId,carcassId,engineId,size,number);
     }
 
-    @PostMapping("/admin")
-    public AutoInStockDto create(@RequestBody @Valid AutoInStockDto newAuto, BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-       return autoInStockService.create(newAuto);
-        }
-    }
-
-    @PutMapping(value = "/admin/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody @Valid AutoInStockDto autoInStockDto,
-                          BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-            Integer updateId = autoInStockService.update(id, autoInStockDto);
-            return updateId;
-        }
-    }
-
-    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
-    public void delete(@PathVariable Integer id) {
-        autoInStockService.delete(id);
-    }
 }

@@ -10,10 +10,12 @@ import ru.reksoft.interns.carstore.dao.ModelRepository;
 import ru.reksoft.interns.carstore.dto.AutoInStockDto;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Component
 public class AutoInStockMapper {
+
 
     @Autowired
     private ModelMapper modelMapper;
@@ -34,8 +36,25 @@ public class AutoInStockMapper {
         return Objects.isNull(dto) ? null : modelMapper.map(dto, AutoInStock.class);
     }
 
+    @Autowired
+    private EngineMapper engineMapper;
+    @Autowired
+    private ModelMapperr modelMapperr;
+    @Autowired
+    private ColorMapper colorMapper;
     public AutoInStockDto toDto(AutoInStock entity) {
-        return Objects.isNull(entity) ? null : modelMapper.map(entity, AutoInStockDto.class);
+        BigDecimal priceColor = colorRepository.getById(entity.getColor().getId()).getPrice();
+        BigDecimal priceEngine = engineRepository.getById(entity.getEngine().getId()).getPrice();
+        BigDecimal priceModel = modelRepository.getById(entity.getModel().getId()).getPrice();
+        BigDecimal totalPrice = priceColor.add(priceEngine).add(priceModel);
+        return new AutoInStockDto(
+                entity.getId(),
+                engineMapper.toDto(entity.getEngine()),
+                modelMapperr.toDto( entity.getModel()),
+                colorMapper.toDto(entity.getColor()),
+                entity.getPresence(),
+                totalPrice
+        );
     }
 
     public AutoInStock updateAuto(AutoInStockDto autoInStockDto, AutoInStock autoInStock) {

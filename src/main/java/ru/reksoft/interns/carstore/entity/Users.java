@@ -40,19 +40,31 @@ public class Users {
     /**
      * логин
      */
-    @Column( name = "login_client")
+    @Column( name = "login")
     private String login;
 
     /**
      * пароль
      */
-    @Column(name = "password_client")
+    @Column(name = "password")
     private String password;
+
+    /**
+     * номер телефона
+     */
+    @Column(name="phone_number")
+    private String phoneNumber;
+
+    /**
+     * адресс
+     */
+    @Column(name = "address")
+    private String address;
 
     /**
      * роль
      */
-    @Column( name = "rule")
+    @Column( name = "role")
     private String rule;
 
     public List<Orders> getOrders() {
@@ -109,5 +121,21 @@ public class Users {
 
     public void setRule(String rule) {
         this.rule = rule;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

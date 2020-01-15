@@ -32,32 +32,4 @@ public class ModelController {
         return modelService.findModelAll();
     }
 
-    @PostMapping("/admin")
-    public ModelDto create(@RequestBody @Valid ModelDto newModel, BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-            return modelService.create(newModel);
-        }
-    }
-
-    @PutMapping(value = "/admin/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody @Valid ModelDto modelDto,
-                          BindingResult bindingResult) throws NotValidException {
-        bindingResult.getAllErrors();
-        if (bindingResult.hasErrors()) {
-            throw new NotValidException(bindingResult);
-        }
-        else {
-            Integer updateId = modelService.update(id, modelDto);
-            return updateId;
-        }
-    }
-
-    @RequestMapping(value = "/admin/{id}",method = RequestMethod.DELETE)
-    public void delete(@PathVariable Integer id) {
-        modelService.delete(id);
-    }
 }

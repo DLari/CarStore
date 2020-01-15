@@ -10,9 +10,11 @@ CREATE TABLE users (
                        id SERIAL  NOT NULL ,
                        fio VARCHAR(40)    ,
                        date_of_birth DATE    ,
-                       login_client VARCHAR(30)    ,
-                       password_client VARCHAR(30)    ,
-                       rule  VARCHAR(20)      ,
+                       login VARCHAR(30)    ,
+                       password VARCHAR(150)    ,
+                       phone_number VARCHAR(20),
+                       address VARCHAR(20),
+                       role  VARCHAR(20)      ,
                        PRIMARY KEY(id));
 
 
@@ -30,6 +32,7 @@ CREATE TABLE color (
                        id SERIAL  NOT NULL ,
                        name VARCHAR(20)    ,
                        price DECIMAL    ,
+                       color_code VARCHAR(20),
                        removed BOOL      ,
                        PRIMARY KEY(id));
 
@@ -105,6 +108,7 @@ CREATE TABLE orders (
                         dict_order_status_id INTEGER   NOT NULL ,
                         users_id INTEGER   NOT NULL ,
                         date DATE    ,
+                        order_number VARCHAR(20),
                         price DECIMAL      ,
                         PRIMARY KEY(id)      ,
                         FOREIGN KEY(users_id)

@@ -36,16 +36,16 @@ public class ModelService {
 
     public ModelDto create(ModelDto newModel) {
 
-        modelRepository.saveAndFlush(modelMapper.toEntity(newModel));
-        return newModel;
+       Model model= modelRepository.saveAndFlush(modelMapper.toEntity(newModel));
+       ModelDto modelDto=modelMapper.toDto(model);
+        return modelDto;
     }
 
-    public Integer update(Integer id, ModelDto modelDTO) {
+    public ModelDto update(Integer id, ModelDto modelDTO) {
 
-        Integer reternId = id;
         Model model= modelRepository.getById(id);
         modelMapper.updateModel(modelDTO,model);
-        return reternId;
+        return modelDTO;
     }
 
     public void delete(Integer id) {

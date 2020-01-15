@@ -1,6 +1,7 @@
 package ru.reksoft.interns.carstore.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 /**
  * авто на складе
@@ -43,6 +44,16 @@ public class AutoInStock {
      */
     @Column(name = "presence")
     private Integer presence;
+
+//    private BigDecimal price;
+//
+//    public BigDecimal getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(BigDecimal price) {
+//        this.price = price;
+//    }
 
     public Color getColor() {
         return color;

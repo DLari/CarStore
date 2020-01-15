@@ -7,14 +7,19 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Service;
+import ru.reksoft.interns.carstore.dao.ColorRepository;
+import ru.reksoft.interns.carstore.dao.EngineRepository;
+import ru.reksoft.interns.carstore.dao.ModelRepository;
 import ru.reksoft.interns.carstore.dto.PageDto;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
+import ru.reksoft.interns.carstore.entity.Color;
 import ru.reksoft.interns.carstore.mapper.AutoInStockMapper;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 import ru.reksoft.interns.carstore.dao.AutoInStockRepository;
 import ru.reksoft.interns.carstore.dto.AutoInStockDto;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import java.util.stream.Collectors;
@@ -51,15 +56,19 @@ public class AutoInStockService {
 
 
     public AutoInStockDto create(AutoInStockDto newAuto) {
-        autoInStockRepository.saveAndFlush(autoInStockMapper.toEntity(newAuto));
-        return newAuto;
+//        BigDecimal priceColor = colorRepository.getById(newAuto.getColor().getId()).getPrice();
+//        BigDecimal priceEngine = engineRepository.getById(newAuto.getEngine().getId()).getPrice();
+//        BigDecimal priceModel = modelRepository.getById(newAuto.getModel().getId()).getPrice();
+//        newAuto.setPrice(priceColor.add(priceEngine).add(priceModel));
+       AutoInStock autoInStockReturn = autoInStockRepository.saveAndFlush(autoInStockMapper.toEntity(newAuto));
+       AutoInStockDto autoInStockDto = autoInStockMapper.toDto(autoInStockReturn);
+        return autoInStockDto;
     }
 
-    public Integer update(Integer id, AutoInStockDto autoInStockDto) {
-        Integer reternId = id;
+    public AutoInStockDto update(Integer id, AutoInStockDto autoInStockDto) {
         AutoInStock autoInStock = autoInStockRepository.getById(id);
         autoInStockMapper.updateAuto(autoInStockDto, autoInStock);
-        return reternId;
+        return autoInStockDto;
     }
 
     public void delete(Integer id) {

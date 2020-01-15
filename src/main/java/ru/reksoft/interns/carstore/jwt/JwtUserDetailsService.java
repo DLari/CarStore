@@ -18,9 +18,6 @@ import ru.reksoft.interns.carstore.entity.Users;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-
     @Autowired
     private UsersRepository usersRepository;
 
@@ -29,7 +26,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	    Users users = usersRepository.getByLogin(username);
 	    if (users!=null) {
-	        return new User(users.getLogin(),passwordEncoder.encode(users.getPassword()), Arrays.asList(new SimpleGrantedAuthority(users.getRule())));
+	        return new User(users.getLogin(),users.getPassword(), Arrays.asList(new SimpleGrantedAuthority(users.getRule())));
         }
 	    else {
 	        throw new UsernameNotFoundException("User not found with username: " + username);

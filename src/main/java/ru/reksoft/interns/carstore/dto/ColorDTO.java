@@ -19,21 +19,34 @@ public class ColorDTO {
      * название цвета
      */
     @NotBlank(message = "размер от 4 до 20")
-    @Size(min = 4,max=20)
+    @Size(min = 4,max=20,message = "название цвета должно быть от 4 до 20 символов")
     private String name;
 
     /**
      * цена за цвет
      */
-    @NotNull
-    @DecimalMin(value = "10.0", inclusive = true)
+    @NotNull(message = " поле цена не должно быть пустым")
+    @DecimalMin(value = "10.0", inclusive = true,message = "цена должна быть не меньше 10")
     private BigDecimal price;
+
+    /**
+     * цветовой код HEX
+     */
+   @NotNull(message = "поле цветовой код не должно быть пустым")
+    private String colorCode;
 
     /**
      * наличие
      */
-    private Boolean removed;
+    //private Boolean removed;
 
+    public ColorDTO(){}
+
+    public ColorDTO(String name, BigDecimal price,String colorCode) {
+        this.name=name;
+        this.price=price;
+        this.colorCode=colorCode;
+    }
 
     public Integer getId() {
         return id;
@@ -47,9 +60,9 @@ public class ColorDTO {
         return name;
     }
 
-    public Boolean getRemoved() {
-        return removed;
-    }
+//    public Boolean getRemoved() {
+//        return removed;
+//    }
 
     public void setId(Integer id) {
         this.id = id;
@@ -63,7 +76,15 @@ public class ColorDTO {
         this.name = name;
     }
 
-    public void setRemoved(Boolean removed) {
-        this.removed = removed;
+//    public void setRemoved(Boolean removed) {
+//        this.removed = removed;
+//    }
+
+    public String getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
     }
 }

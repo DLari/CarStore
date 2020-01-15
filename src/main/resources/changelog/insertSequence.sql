@@ -1,6 +1,6 @@
 ALTER SEQUENCE users_id_seq RESTART WITH 2;
 ALTER SEQUENCE model_id_seq RESTART WITH 6;
 ALTER SEQUENCE engine_id_seq RESTART WITH 5;
-ALTER SEQUENCE dict_order_status_id_seq RESTART WITH 5;
+ALTER SEQUENCE dict_order_status_id_seq RESTART WITH 6;
 ALTER SEQUENCE color_id_seq RESTART WITH 6;
 ALTER SEQUENCE dict_carcass_id_seq RESTART WITH 5;

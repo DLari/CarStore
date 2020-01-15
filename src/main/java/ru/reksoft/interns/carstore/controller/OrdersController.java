@@ -26,38 +26,32 @@ public class OrdersController {
     }
 
 
-    @GetMapping("")
-    public List<OrdersDto> read(){
-
-        return ordersService.findUsers();
-    }
-
     @PostMapping("")
-    public Integer create(@RequestBody @Valid OrdersDto newOrder, BindingResult bindingResult) throws NotValidException {
+    public OrdersDto create(@RequestBody @Valid OrdersDto newOrder, BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);
         }
         else {
-            Integer id = ordersService.create(newOrder);
-            return id;
+           return ordersService.create(newOrder);
         }
     }
     @PutMapping(value = "/{id}")
-    public Integer update(@PathVariable Integer id, @RequestBody @Valid OrdersDto ordersDto,
+    public OrdersDto update(@PathVariable Integer id, @RequestBody @Valid OrdersDto ordersDto,
                           BindingResult bindingResult) throws NotValidException {
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);
         }
         else {
-            Integer updateId = ordersService.update(id, ordersDto);
-            return updateId;
+            return ordersService.update(id, ordersDto);
         }
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Integer id) {
-        ordersService.delete(id);
+        ordersService.toCanceled(id);
     }
+
+
 }

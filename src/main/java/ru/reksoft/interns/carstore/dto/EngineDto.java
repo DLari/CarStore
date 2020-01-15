@@ -20,15 +20,15 @@ public class EngineDto {
     /**
      * назваие двигателя
      */
-    @NotBlank
-    @Size(min = 4,max=20)
+    @NotBlank(message = " поле имя не должно быть пустым")
+    @Size(min = 4,max=20,message = "название должно содержать от 4 до 20 символов")
     private String name;
 
     /**
      * цена за двигатель
      */
-    @NotNull
-    @DecimalMin(value = "10.0", inclusive = true)
+    @NotNull(message = " поле цена не должно быть пустым")
+    @DecimalMin(value = "10.0", inclusive = true,message = "цена должна быть не мееньше 10")
     private BigDecimal price;
 
     /**
@@ -39,19 +39,19 @@ public class EngineDto {
     /**
      * мощность
      */
-    @NotNull
+    @NotNull(message = " поле мощность не должно быть пустым")
     private Integer power;
 
     /**
      * расход топлива
      */
-    @NotNull
+    @NotNull(message = " поле расход топлива не должно быть пустым")
     private Integer fuelConsumption;
 
     /**
      * ссылка на соответствующую модель
      */
-    @NotNull
+    @NotNull(message = " поле модель не должно быть пустым")
     private  ModelDto model;
 
     public Integer getId() {

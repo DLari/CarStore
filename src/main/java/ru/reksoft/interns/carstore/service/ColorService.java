@@ -34,22 +34,24 @@ public class ColorService {
 
     public ColorDTO create(ColorDTO newColor) {
 
-        colorRepository.saveAndFlush(colorMapper.toEntity(newColor));
-        return newColor;
+      Color color =  colorRepository.saveAndFlush(colorMapper.toEntity(newColor));
+      ColorDTO colorDTO= colorMapper.toDto(color);
+        return colorDTO;
     }
 
-    public Integer update(Integer id, ColorDTO colorDTO) {
-        Integer reternId = id;
+    public ColorDTO update(Integer id, ColorDTO colorDTO) {
+
         Color color = colorRepository.getById(id);
         colorMapper.updateMapper(colorDTO, color);
-
-        return reternId;
+        return colorDTO;
     }
 
-    public void delete(Integer id) {
+    public Integer delete(Integer id) {
 
+        Integer reternId=id;
         Color color = colorRepository.getById(id);
         color.setRemoved(true);
         colorRepository.saveAndFlush(color);
+        return reternId;
     }
 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
  <head>
     <meta charset="UTF-8">
     <title>Title</title>
 
  </head>
 
- <body>
- <button type="button" onclick="test()">push me</button>
- <input type="button" name="getData" id="getData" value="GET DATA" onclick="getDataFromAPI()">
- <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/>
+ <br>
+ <button type="button" name="getData" id="getData" value="GET DATA" onclick="getColorById()">Edit</button>
+<!-- <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/>-->
+
 
 
  <input type="text" name="color_name" id="color_name"/>
@@ -17,7 +17,41 @@
  <input type="text" name="color_code" id="color_code"/>
 
 
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
- <script src="templates/static/colors-work.js" type="text/javascript"></script>
+ <table>
+     <thead>
+     <th> Id</th>
+     <th> Цвет</th>
+     <th> Цена</th>
+     <th> Код</th>
+     </thead>
+     <tbody id="table-body"></tbody>
+ </table>
+
+ </br>
+ </br>
+ </br>
+ <div id="demo-container" class="demo-container">
+  <div class="demo-box">Color</div>
+  <ul class="items" id="items">
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+  </ul>
+ </div>
+
+<!-- </br>-->
+<!-- </br>-->
+<!-- <button type="button" name="getData" id="getData" value="GET DATA" onclick="getColorById()">Edit</button>-->
+
+
+
+
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>-->
+ <script type="text/javascript" th:src="@{/webjars/colors-work.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+
+
  </body>
 </html>

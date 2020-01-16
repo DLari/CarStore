@@ -42,9 +42,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
     }
 
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("resources/**").addResourceLocations("resources/");
-//    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {

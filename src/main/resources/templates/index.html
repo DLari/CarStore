@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
- <head>
+<head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
- </head>
+    <title>Car Store</title>
+</head>
+ <body>
 
  <br>
- <button type="button" name="getData" id="getData" value="GET DATA" onclick="getColorById()">Edit</button>
-<!-- <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/>-->
 
+ <!-- <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/>-->
+ <select id="filter-model" onchange="changeFilter(event)">
+     <option value="">-</option>
+ </select>
 
+ <select id="filter-engine" onchange="changeFilter(event)">
+     <option value="">-</option>
+ </select>
 
- <input type="text" name="color_name" id="color_name"/>
- <input type="text" name="color_price" id="color_price"/>
- <input type="text" name="color_code" id="color_code"/>
+ <select id="filter-color" onchange="changeFilter(event)">
+     <option value="">-</option>
+ </select>
+
+ <select id="filter-carcass" onchange="changeFilter(event)">
+     <option value="">-</option>
+ </select>
 
 
  <table>
      <thead>
-     <th> Id</th>
-     <th> Цвет</th>
+     <th> Название</th>
      <th> Цена</th>
-     <th> Код</th>
      </thead>
      <tbody id="table-body"></tbody>
  </table>
@@ -30,28 +37,23 @@
  </br>
  </br>
  </br>
- <div id="demo-container" class="demo-container">
-  <div class="demo-box">Color</div>
-  <ul class="items" id="items">
-   <li></li>
-   <li></li>
-   <li></li>
-   <li></li>
-  </ul>
+ <div id="car-container" class="car-container" style="display: none">
+     <div class="car-box">Auto</div>
+     <ul class="items" id="items">
+        двигатель:  <li></li>
+        мощность:   <li></li>
+        расход топлива : <li></li>
+        модель :<li></li>
+        длина кузова :<li></li>
+        ширина кузова :<li></li>
+        тип :<li></li>
+        цвет :<li></li>
+     </ul>
  </div>
 
-<!-- </br>-->
-<!-- </br>-->
-<!-- <button type="button" name="getData" id="getData" value="GET DATA" onclick="getColorById()">Edit</button>-->
-
-
-
-
  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<!-- <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>-->
- <script type="text/javascript" th:src="@{/webjars/colors-work.js/}"></script>
- <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
-
-
+  <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/auto-work.js/}"></script>
+<!-- <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>-->
  </body>
 </html>

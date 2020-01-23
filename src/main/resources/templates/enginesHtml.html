@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Engines</title>
+
+</head>
+
+<br>
+<!-- <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/>-->
+
+ </br>
+ </br>
+ <table>
+     <thead>
+     <th> Id</th>
+     <th> Цвет</th>
+     <th> Цена</th>
+     <th> Мощность</th>
+     <th> Расход топлива</th>
+     </thead>
+     <tbody id="engines-table-body"></tbody>
+ </table>
+
+ <div id="engines-container" class="engines-container">
+     <div class="engines-box">Engine</div>
+     <ul class="enginesItems" id="enginesItems">
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+         <li></li>
+     </ul>
+ </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/engines-work.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+
+
+</body>
+</html>

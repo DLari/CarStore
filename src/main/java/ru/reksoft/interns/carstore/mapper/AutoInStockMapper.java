@@ -66,4 +66,6 @@ public class AutoInStockMapper {
         return autoInStock;
     }
 
+
+
 }

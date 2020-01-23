@@ -1,5 +1,6 @@
 $(document).ready(() => {
     getColors();
+        getEngines();
 });
 
 const getColors = () => {

@@ -7,6 +7,7 @@ import ru.reksoft.interns.carstore.dao.DictCarcassRepository;
 import ru.reksoft.interns.carstore.dao.EngineRepository;
 import ru.reksoft.interns.carstore.dao.ModelRepository;
 import ru.reksoft.interns.carstore.dto.ModelDto;
+import ru.reksoft.interns.carstore.dto.SelectItemDto;
 import ru.reksoft.interns.carstore.entity.Model;
 
 import java.util.Objects;
@@ -29,6 +30,10 @@ public class ModelMapperr {
 
     public ModelDto toDto(Model entity) {
         return Objects.isNull(entity) ? null : modelMapper.map(entity, ModelDto.class);
+    }
+
+    public SelectItemDto toSelectItemDto(ModelDto entity) {
+        return Objects.isNull(entity) ? null : modelMapper.map(entity, SelectItemDto.class);
     }
 
     public Model updateModel( ModelDto modelDto, Model model) {

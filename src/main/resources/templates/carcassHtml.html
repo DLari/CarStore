@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Carcass</title>
+
+</head>
+
+ <table>
+     <thead>
+     <th> Id</th>
+     <th> Название</th>
+     </thead>
+     <tbody id="carcass-table"></tbody>
+ </table>
+
+ </br>
+ </br>
+ </br>
+ <div id="carcass-container" class="carcass">
+     <div class="carcass">Каркас</div>
+     <ul class="carcassItems" id="carcassItems">
+         <li></li>
+         <li></li>
+     </ul>
+ </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/carcass-work.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Models</title>
+
+</head>
+
+ <table>
+     <thead>
+     <th> Id</th>
+     <th> Название</th>
+     <th> Длина</th>
+     <th> Ширина</th>
+     </thead>
+     <tbody id="models-table"></tbody>
+ </table>
+
+</br>
+</br>
+</br>
+<div id="models-container" class="models-container">
+    <div class="models-box">Модель</div>
+    <ul class="modelsItems" id="modelsItems">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/models-work.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+
+
+</body>
+</html>

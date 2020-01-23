@@ -5,12 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.AutoInStockDto;
+import ru.reksoft.interns.carstore.dto.CarsPageDTO;
 import ru.reksoft.interns.carstore.dto.PageDto;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
 import ru.reksoft.interns.carstore.exceptions.NotValidException;
 import ru.reksoft.interns.carstore.service.AutoInStockService;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/cars")
@@ -25,6 +27,12 @@ public class AutoInStockController {
     @GetMapping("/{id}")
     public AutoInStockDto getAuto(@PathVariable Integer id) {
         return autoInStockService.getAuto(id);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public CarsPageDTO read() {
+        return autoInStockService.findAutoAll();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "search")

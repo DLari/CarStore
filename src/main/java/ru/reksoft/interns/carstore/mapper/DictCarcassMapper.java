@@ -4,6 +4,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.reksoft.interns.carstore.dto.DictCarcassDto;
+import ru.reksoft.interns.carstore.dto.SelectItemDto;
 import ru.reksoft.interns.carstore.entity.DictCarcass;
 
 import java.util.Objects;
@@ -22,4 +23,7 @@ public class DictCarcassMapper {
         return Objects.isNull(entity) ? null : modelMapper.map(entity, DictCarcassDto.class);
     }
 
+    public SelectItemDto toSelectItemDto(DictCarcassDto entity) {
+        return Objects.isNull(entity) ? null : modelMapper.map(entity, SelectItemDto.class);
+    }
 }

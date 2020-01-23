@@ -64,8 +64,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
 
-                .antMatchers("/index","/login","/cars/search","/cars/{id}","/colors","/colors/{id}","/carcass","/carcass/{id}",
-                        "/engines","/engines/{id}","/models","/models/{id}","/users","/image","/index","/colorsList","/addColors").permitAll()
+                .antMatchers("/index","/login","/cars/search/","/cars/{id}","/colors","/colors/{id}","/carcass","/carcass/{id}",
+                        "/engines",
+                        "/engines/{id}","/models","/models/{id}","/users","/images","/colorsList","/addColors",
+                        "/index","/cars","/registration","/adminIndex","/colorsHtml","/enginesHtml","/modelsHtml","/carcassHtml","cars**").permitAll()
                 .antMatchers("/admin/**").hasAnyAuthority("admin")
                 .anyRequest().hasAnyAuthority("user") ///users/{id}-get/update, /orders/{get} get/update/create/delete
                 .and().

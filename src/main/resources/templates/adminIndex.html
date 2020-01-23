@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+ <head>
+    <meta charset="UTF-8">
+    <title>Admin </title>
+ </head>
+
+
+ Вы вошли как admin:{admin login}
+
+ </br>
+ </br>
+ <a href="/colorsHtml">Посмотреть Цвет</a>
+ </br>
+ <a href="/enginesHtml">Посмотреть Двигатель</a>
+ </br>
+ <a href="/modelsHtml">Посмотреть Модель</a>
+ </br>
+ <a href="/carcassHtml">Посмотреть Каркас</a>
+
+ </br>
+ <button type="button">Log out</button>
+
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/adminIndex.js/}"></script>
+<!-- <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>-->
+
+ </body>
+</html>

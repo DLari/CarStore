@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+ <body>
+
+ Вход:
+ <label><b>Логин</b></label>
+ <input id="login" autocomplete="on" type="text" name="username">
+
+ <label><b>Пароль</b></label>
+ <input id="password" autocomplete="on" type="password" name="password">
+
+ <button onclick="submitForm()">Войти</button>
+
+ <a href="/registration">Зарегистрироваться</a>
+
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/login.js/}"></script>
+
+ </body>
+</html>

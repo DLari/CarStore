@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.ModelDto;
+import ru.reksoft.interns.carstore.dto.ModelsPageDto;
 import ru.reksoft.interns.carstore.exceptions.NotValidException;
 import ru.reksoft.interns.carstore.service.ModelService;
 
@@ -30,6 +31,11 @@ public class ModelController {
     @GetMapping("")
     public List<ModelDto> read(){
         return modelService.findModelAll();
+    }
+
+    @GetMapping("/forFilter")
+    public ModelsPageDto readFilter(){
+        return modelService.findModelforFilter();
     }
 
 }

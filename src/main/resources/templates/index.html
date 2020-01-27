@@ -4,11 +4,29 @@
     <meta charset="UTF-8">
     <title>Car Store</title>
 </head>
- <body>
-
  <br>
 
- <!-- <input type="button" name="postData" id="postData" value="POST DATA" onclick="postDataFromAPI();"/>-->
+ </br>
+Приветствуем: <h1 id="fio"></h1>
+ </br>
+
+ <br>
+<div id="login-container" class="login-container" style="display: block">
+    Вход:
+<label><b>Логин</b></label>
+<input id="login" autocomplete="on" type="text" name="username">
+
+<label><b>Пароль</b></label>
+<input id="password" autocomplete="on" type="password" name="password">
+
+<button onclick="logIn()">Войти</button>
+<br>
+<a href="/registration">Зарегистрироваться</a>
+</div>
+<br> <br> <br>
+
+Уточнить поиск:
+ <br>
  <select id="filter-model" onchange="changeFilter(event)">
      <option value="">-</option>
  </select>
@@ -50,10 +68,15 @@
         цвет :<li></li>
      </ul>
  </div>
+ </br>
+<div id="logout-container" class="logout-container" style="display: none">
+ <button onclick="logOut()">Выйти</button>
+</div>
 
  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
  <script type="text/javascript" th:src="@{/webjars/auto-work.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/login.js/}"></script>
 <!-- <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>-->
  </body>
 </html>

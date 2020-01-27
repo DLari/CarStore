@@ -67,7 +67,7 @@ public class Model {
      * наличие
      */
     @Column( name = "removed")
-    private Boolean removed;
+    private boolean removed;
 
     public List<AutoInStock> getAutoInStocks() {
         return autoInStocks;
@@ -133,11 +133,11 @@ public class Model {
         this.lenghtCarcass = lenghtCarcass;
     }
 
-    public Boolean getRemoved() {
+    public boolean getRemoved() {
         return removed;
     }
 
-    public void setRemoved(Boolean removed) {
+    public void setRemoved(boolean removed) {
         this.removed = removed;
     }
 }

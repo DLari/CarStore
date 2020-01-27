@@ -27,4 +27,5 @@ public class DictCarcassController {
     public List<DictCarcassDto> read(){
         return dictCarcassService.findDictCarcassAll();
     }
+
 }

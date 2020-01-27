@@ -40,7 +40,7 @@ public class Color {
      * наличие
      */
     @Column(name = "removed")
-    private Boolean removed;
+    private boolean removed;
 
 
     public Integer getId() {
@@ -55,7 +55,7 @@ public class Color {
         return price;
     }
 
-    public Boolean getRemoved() {
+    public boolean getRemoved() {
         return removed;
     }
 

@@ -1,3 +1,8 @@
+const headers = {
+    "Content-Type":"application/json",
+    "Accept":"application/json",
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+};
 $(document).ready(() => {
     getModels();
 });
@@ -7,10 +12,7 @@ const getModels = () => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success: (data) => {
             renderHTML(data);
         }, error:function (jqXHR,textStatus,errorThrown) {
@@ -27,24 +29,59 @@ const getModelsById = (e) => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success:function (data) {
-            var elements = $('#modelsItems').children();
-            elements[0].innerHTML = data.id;
-            elements[1].innerHTML = data.name;
-            elements[2].innerHTML = data.lenghtCarcass;
-            elements[3].innerHTML = data.widthCarcass;
-            console.log(data);
+            // var elements = $('#modelsItems').children();
+            // elements[0].innerHTML = data.id;
+            // elements[1].innerHTML = data.name;
+            // elements[2].innerHTML = data.lenghtCarcass;
+            // elements[3].innerHTML = data.widthCarcass;
+            // console.log(data);
+            openEditModelsModel(data);
         }, error:function (jqXHR,textStatus,errorThrown) {
         }
     });
 };
+const openEditModelsModel = (data) => {
+
+    document.getElementById('edit-container').style.display = 'block';
+
+    let inputId = document.getElementById('input-id');
+    inputId.value = data.id;
+
+    let inputIdCarcass = document.getElementById('input-idcarcass');
+    inputIdCarcass.value = data.dictCarcass.id;
+
+    let inputName = document.getElementById('name');
+    inputName.value = data.name;
+
+    let inputPrice = document.getElementById('price');
+    inputPrice.value = data.price;
+
+    let inputFuelConsumption = document.getElementById('width_carcass');
+    inputFuelConsumption.value = data.widthCarcass;
+
+    let inputLengthCarcass = document.getElementById('length_carcass');
+    inputLengthCarcass.value = data.lenghtCarcass;
+
+};
 
 
-const deleteModelsById = ()=>{};
+const deleteModelsById = (e)=>{
+    const id = e.currentTarget.parentElement.parentElement.id;
+    const oDataSelect = `/admin/models/${id}`;
+    $.ajax({
+        url:oDataSelect,
+        type:"DELETE",
+        headers: headers,
+        success: function() {
+            window.location.replace("http://localhost:8080/modelsHtml");
+        },
+        error: function() {
+            alert("Failed");
+        }
+    });
+};
 
 function renderHTML(modelsItems) {
     let html = '';
@@ -59,6 +96,7 @@ function createHTMLByElem(modelsItem) {
     return `<tr id="${modelsItem.id}">
                 <td>${modelsItem.id}</td>
                 <td>${modelsItem.name}</td>
+                 <td>${modelsItem.price}</td>
                 <td>${modelsItem.lenghtCarcass}</td>
                 <td>${modelsItem.widthCarcass}</td>
                 <td>

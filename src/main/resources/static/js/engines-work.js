@@ -1,3 +1,8 @@
+const headers = {
+    "Content-Type":"application/json",
+    "Accept":"application/json",
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+};
 $(document).ready(() => {
     getEngines();
 });
@@ -7,10 +12,7 @@ const getEngines = () => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success: (data) => {
             renderHTML(data);
         }, error:function (jqXHR,textStatus,errorThrown) {
@@ -27,26 +29,59 @@ const getEnginesById = (e) => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json",
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
+        headers: headers,
         success:function (data) {
-            var elements = $('#enginesItems').children();
-            elements[0].innerHTML = data.id;
-            elements[1].innerHTML = data.name;
-            elements[2].innerHTML = data.price;
-            elements[3].innerHTML = data.power;
-            elements[4].innerHTML = data.fuelConsumption;
-            console.log(data);
+            // var elements = $('#enginesItems').children();
+            // elements[0].innerHTML = data.id;
+            // elements[1].innerHTML = data.name;
+            // elements[2].innerHTML = data.price;
+            // elements[3].innerHTML = data.power;
+            // elements[4].innerHTML = data.fuelConsumption;
+            // console.log(data);
+            openEditEngineModel(data);
         }, error:function (jqXHR,textStatus,errorThrown) {
         }
     });
 };
+const openEditEngineModel = (data) => {
 
+    document.getElementById('edit-container').style.display = 'block';
 
-const deleteEnginesById = ()=>{};
+    let inputId = document.getElementById('input-id');
+    inputId.value = data.id;
+
+    let inputIdCarcass = document.getElementById('input-idmodel');
+    inputIdCarcass.value = data.model.id;
+
+    let inputName = document.getElementById('name');
+    inputName.value = data.name;
+
+    let inputPrice = document.getElementById('price');
+    inputPrice.value = data.price;
+
+    let inputFuelConsumption = document.getElementById('fuel_consumption');
+    inputFuelConsumption.value = data.fuelConsumption;
+
+    let inputPower = document.getElementById('power');
+    inputPower.value = data.power;
+
+};
+
+const deleteEnginesById = (e)=>{
+    const id = e.currentTarget.parentElement.parentElement.id;
+    const oDataSelect = `/admin/engines/${id}`;
+    $.ajax({
+        url:oDataSelect,
+        type:"DELETE",
+        headers: headers,
+        success: function() {
+            window.location.replace("http://localhost:8080/enginesHtml");
+        },
+        error: function() {
+            alert("Failed");
+        }
+    });
+};
 
 function renderHTML(enginesItems) {
     let html = '';

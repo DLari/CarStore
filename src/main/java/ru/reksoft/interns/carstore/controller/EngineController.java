@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.EngineDto;
+import ru.reksoft.interns.carstore.dto.EnginesPageDto;
 import ru.reksoft.interns.carstore.exceptions.NotValidException;
 import ru.reksoft.interns.carstore.service.EngineService;
 
@@ -26,10 +27,14 @@ public class EngineController {
         return engineService.getEngine(id);
     }
 
-
     @GetMapping("")
     public List<EngineDto> read(){
         return engineService.findEngineAll();
+    }
+
+    @GetMapping("/forFilter")
+    public EnginesPageDto readFilter(){
+        return engineService.findEngineForFilter();
     }
 
 }

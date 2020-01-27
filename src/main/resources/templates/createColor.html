@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>createColor</title>
+</head>
+<body>
+
+<label><b>Цвет</b></label>
+<input id="name" autocomplete="on" type="text" name="name">
+
+<label><b>Цена</b></label>
+<input id="price" autocomplete="on" type="text" name="price">
+
+<label><b>Код цвета</b></label>
+<input id="color_code" autocomplete="on" type="text" name="color_code">
+
+<button type="button" onclick="createColor()">Создать</button>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/createColor.js/}"></script>
+<!-- <script type="text/javascript" th:src="@{/webjars/engines-work.js/}"></script>-->
+<!-- <script type="text/javascript" th:src="@{/webjars/models-work.js/}"></script>-->
+<!-- <script type="text/javascript" th:src="@{/webjars/carcass-work.js/}"></script>-->
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+</body>
+</html>

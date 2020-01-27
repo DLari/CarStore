@@ -64,12 +64,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
 
-                .antMatchers("/index","/login","/cars/search/","/cars/{id}","/colors","/colors/{id}","/carcass","/carcass/{id}",
-                        "/engines",
-                        "/engines/{id}","/models","/models/{id}","/users","/images","/colorsList","/addColors",
-                        "/index","/cars","/registration","/adminIndex","/colorsHtml","/enginesHtml","/modelsHtml","/carcassHtml","cars**").permitAll()
-                .antMatchers("/admin/**").hasAnyAuthority("admin")
-                .anyRequest().hasAnyAuthority("user") ///users/{id}-get/update, /orders/{get} get/update/create/delete
+                .antMatchers("/index","/login","/cars/search/","/cars/{id}","/users","/images","/cars","/registration","cars**"
+                        ,"/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
+                        "/engines/{id}","/models","/models/{id}",
+                        "/adminIndex",
+                        "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor","/createEngine","/carsHtml","/createModel"
+                ).permitAll()
+                .antMatchers("/users/mine").authenticated()
+                .antMatchers(
+//                        "/adminIndex", "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor",
+//                        "/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
+//                        "/engines/{id}","/models","/models/{id}",
+                        //"/adminIndex"
+                        "/admin/**" ).hasAnyAuthority("admin")
+                .anyRequest().hasAnyAuthority("user")
                 .and().
 
         exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()

@@ -3,6 +3,7 @@ package ru.reksoft.interns.carstore.dto;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
@@ -26,31 +27,29 @@ public class ModelDto {
     /**
      * цена модели
      */
-    @NotBlank
     @DecimalMin(value = "10.0", inclusive = true)
     private BigDecimal price;
 
     /**
      * ширина модели
      */
-    @NotBlank
+    @NotNull(message = " поле ширина модели не должно быть пустым")
     private String widthCarcass;
 
     /**
      * длина модели
      */
-    @NotBlank
+    @NotNull(message = " поле длина модели не должно быть пустым")
     private String lenghtCarcass;
 
     /**
      * наличие
      */
-    private Boolean removed;
+    private boolean removed;
 
     /**
      * ссылка на соответствующий кузов
      */
-    @NotBlank
     private DictCarcassDto dictCarcass;
 
     public Integer getId() {
@@ -77,11 +76,11 @@ public class ModelDto {
         this.price = price;
     }
 
-    public Boolean getRemoved() {
+    public boolean getRemoved() {
         return removed;
     }
 
-    public void setRemoved(Boolean removed) {
+    public void setRemoved(boolean removed) {
         this.removed = removed;
     }
 

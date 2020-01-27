@@ -3,6 +3,8 @@ package ru.reksoft.interns.carstore.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.reksoft.interns.carstore.dao.DictCarcassRepository;
+import ru.reksoft.interns.carstore.dto.ModelsPageDto;
+import ru.reksoft.interns.carstore.dto.SelectItemDto;
 import ru.reksoft.interns.carstore.mapper.ModelMapperr;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 import ru.reksoft.interns.carstore.dao.ModelRepository;
@@ -26,12 +28,25 @@ public class ModelService {
     @Autowired
     private ModelMapperr modelMapper;
 
+    @Autowired
+    private ModelService modelService;
+
+    @Autowired
+    private ModelMapperr modelMapperr;
+
     public ModelDto getModel(Integer id) {
         return modelMapper.toDto(modelRepository.getById(id));
     }
 
     public List<ModelDto> findModelAll() {
         return modelRepository.findAll(SearchSpecifications.findAllNotRemovedModel()).stream().map(modelMapper::toDto).collect(Collectors.toList());
+    }
+
+    public ModelsPageDto findModelforFilter() {
+        List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
+        return new ModelsPageDto(){{
+            Models = models;
+        }};
     }
 
     public ModelDto create(ModelDto newModel) {

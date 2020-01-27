@@ -94,49 +94,34 @@ public class MainController {
         return "carcassHtml";
     }
 
+    @RequestMapping(value = {"/createColor" }, method = RequestMethod.GET)
+    public String createColor(Model model) {
+        model.addAttribute("message", message);
+        return "createColor";
+    }
+
+    @RequestMapping(value = {"/createEngine" }, method = RequestMethod.GET)
+    public String createEngine(Model model) {
+        model.addAttribute("message", message);
+        return "createEngine";
+    }
+
+    @RequestMapping(value = {"/carsHtml" }, method = RequestMethod.GET)
+    public String carsHtml(Model model) {
+        model.addAttribute("message", message);
+        return "carsHtml";
+    }
+
+    @RequestMapping(value = {"/createModel" }, method = RequestMethod.GET)
+    public String createModel(Model model) {
+        model.addAttribute("message", message);
+        return "createModel";
+    }
+
 //    @RequestMapping(value = {"/image" }, method = RequestMethod.GET)
 //    public String image(Model model) {
 //        model.addAttribute("message", message);
 //        return "image";
 //    }
 
-    @RequestMapping(value = { "/colorsList" }, method = RequestMethod.GET)
-    public String colorsList(Model model) {
-
-        colors = colorService.findColorAll();
-
-        model.addAttribute("colors", colors);
-
-        return "colorsList";
-    }
-
-    @RequestMapping(value = { "/addColors" }, method = RequestMethod.GET)
-    public String showAddColorsPage(Model model) {
-
-        ColorDTO colorDTOForm = new ColorDTO();
-        model.addAttribute("colorDTOForm", colorDTOForm);
-
-        return "addColors";
-    }
-
-    @RequestMapping(value = { "/addColors" }, method = RequestMethod.POST)
-    public String savePerson(Model model, //
-                             @ModelAttribute("colorsForm") ColorDTO colorDTOForm) {
-
-        String firstName = colorDTOForm.getName();
-        BigDecimal price = colorDTOForm.getPrice();
-        String colorCode = colorDTOForm.getColorCode();
-
-        if (firstName != null && firstName.length() > 0 //
-                && price != null && colorCode!=null) {
-            ColorDTO newColor = new ColorDTO(firstName, price,colorCode);
-            colorService.create(newColor);
-            colors.add(newColor);
-
-            return "redirect:/colorsList";
-        }
-
-        model.addAttribute("errorMessage", errorMessage);
-        return "addColors";
-    }
 }

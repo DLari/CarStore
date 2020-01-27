@@ -33,7 +33,6 @@ public class ColorService {
     }
 
     public ColorDTO create(ColorDTO newColor) {
-
       Color color =  colorRepository.saveAndFlush(colorMapper.toEntity(newColor));
       ColorDTO colorDTO= colorMapper.toDto(color);
         return colorDTO;

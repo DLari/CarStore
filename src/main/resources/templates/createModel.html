@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>createModel</title>
+</head>
+<body>
+
+<br>
+Кузов
+<select id="filter-carcass">
+    <!--        onchange="changeFilter(event)"-->
+    <option value="">-</option>
+</select>
+
+<label><b>Название модели</b></label>
+<input id="name" autocomplete="on" type="text" name="name">
+
+<label><b>Цена</b></label>
+<input id="price" autocomplete="on" type="text" name="price">
+
+<label><b>Ширина</b></label>
+<input id="width" autocomplete="on" type="text" name="width">
+
+<label><b>Длина</b></label>
+<input id="length" autocomplete="on" type="text" name="length">
+
+<button type="button" onclick="createModel()">Создать</button>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/createModel.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+</body>
+</html>

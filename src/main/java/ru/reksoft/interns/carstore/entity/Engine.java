@@ -42,7 +42,7 @@ public class Engine {
      * наличие
      */
     @Column(name = "removed")
-    private Boolean removed;
+    private boolean removed;
 
     /**
      * мощность
@@ -88,11 +88,11 @@ public class Engine {
         this.price = price;
     }
 
-    public Boolean getRemoved() {
+    public boolean getRemoved() {
         return removed;
     }
 
-    public void setRemoved(Boolean removed) {
+    public void setRemoved(boolean removed) {
         this.removed = removed;
     }
 

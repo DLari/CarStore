@@ -2,6 +2,8 @@ package ru.reksoft.interns.carstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.reksoft.interns.carstore.dto.EnginesPageDto;
+import ru.reksoft.interns.carstore.dto.SelectItemDto;
 import ru.reksoft.interns.carstore.mapper.EngineMapper;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 import ru.reksoft.interns.carstore.dao.EngineRepository;
@@ -20,12 +22,22 @@ public class EngineService {
     @Autowired
     private EngineMapper engineMapper;
 
+    @Autowired
+    private EngineService engineService;
+
     public EngineDto getEngine(Integer id) {
         return engineMapper.toDto(engineRepository.getById(id));
     }
 
     public List<EngineDto> findEngineAll() {
         return engineRepository.findAll(SearchSpecifications.findAllNotRemovedEngine()).stream().map(engineMapper::toDto).collect(Collectors.toList());
+    }
+
+    public EnginesPageDto findEngineForFilter() {
+        List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
+        return new EnginesPageDto(){{
+            Engines = engines;
+        }};
     }
 
     public EngineDto create(EngineDto newEngine) {

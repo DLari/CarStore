@@ -1,17 +1,15 @@
+
 $(document).ready(() => {
     getColors();
-        getEngines();
 });
 
+let currentEditColor;
 const getColors = () => {
     const oDataSelect = "/colors";
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success: (data) => {
             renderHTML(data);
         }, error:function (jqXHR,textStatus,errorThrown) {
@@ -28,24 +26,55 @@ const getColorById = (e) => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success:function (data) {
-            var elements = $('#items').children();
-            elements[0].innerHTML = data.id;
-            elements[1].innerHTML = data.name;
-            elements[2].innerHTML = data.price;
-            elements[3].innerHTML = data.colorCode;
-            console.log(data);
+          //  document.getElementById('demo-container').style.display = 'block';
+            // var elements = $('#items').children();
+            // elements[0].innerHTML = data.id;
+            // elements[1].innerHTML = data.name;
+            // elements[2].innerHTML = data.price;
+            // elements[3].innerHTML = data.colorCode;
+            openEditColorModel(data);
+
+
         }, error:function (jqXHR,textStatus,errorThrown) {
         }
     });
 };
 
+const openEditColorModel = (data) => {
 
-const deleteColorById = ()=>{};
+    document.getElementById('edit-container').style.display = 'block';
+
+    let inputId = document.getElementById('input-id');
+    inputId.value = data.id;
+
+    let inputName = document.getElementById('name');
+    inputName.value = data.name;
+
+    let inputPrice = document.getElementById('price');
+    inputPrice.value = data.price;
+
+    let inputColorCode = document.getElementById('color_code');
+    inputColorCode.value = data.colorCode;
+
+};
+
+const deleteColorById = (e)=>{
+    const id = e.currentTarget.parentElement.parentElement.id;
+    const oDataSelect = `/admin/colors/${id}`;
+    $.ajax({
+        url:oDataSelect,
+        type:"DELETE",
+        headers: headers,
+        success: function() {
+            window.location.replace("http://localhost:8080/colorsHtml");
+        },
+        error: function() {
+            alert("Failed");
+        }
+    });
+};
 
 function renderHTML(items) {
     let html = '';
@@ -63,7 +92,7 @@ function createHTMLByElem(item) {
                 <td>${item.price}</td>
                 <td>${item.colorCode}</td>
                 <td>
-                    <button type="button" onclick="getColorById(event)">Edit</button>
+                     <button type="button" onclick="getColorById(event)">Edit</button>
                     <button type="button" onclick="deleteColorById(event)">Delete</button>
                 </td>
           </tr>`

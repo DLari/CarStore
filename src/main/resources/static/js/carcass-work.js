@@ -1,3 +1,8 @@
+const headers = {
+    "Content-Type":"application/json",
+    "Accept":"application/json",
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+};
 $(document).ready(() => {
     getCarcass();
 });
@@ -7,10 +12,7 @@ const getCarcass = () => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success: (data) => {
             renderHTML(data);
         }, error:function (jqXHR,textStatus,errorThrown) {
@@ -27,10 +29,7 @@ const getCarcassById = (e) => {
     $.ajax({
         url:oDataSelect,
         type:"GET",
-        headers: {
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-        },
+        headers: headers,
         success:function (data) {
             var elements = $('#carcassItems').children();
             elements[0].innerHTML = data.id;

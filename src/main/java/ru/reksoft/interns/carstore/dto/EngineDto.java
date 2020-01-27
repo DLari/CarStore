@@ -34,7 +34,7 @@ public class EngineDto {
     /**
      * наличие
      */
-    private Boolean removed;
+    private boolean removed;
 
     /**
      * мощность
@@ -78,11 +78,11 @@ public class EngineDto {
         this.price = price;
     }
 
-    public Boolean getRemoved() {
+    public boolean getRemoved() {
         return removed;
     }
 
-    public void setRemoved(Boolean removed) {
+    public void setRemoved(boolean removed) {
         this.removed = removed;
     }
 

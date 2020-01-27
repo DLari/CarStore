@@ -5,9 +5,38 @@ const headers = {
     "Accept":"application/json"
 };
 $(document).ready(() => {
+    if (localStorage.getItem('token')) {
+        document.getElementById('login-container').style.display = 'none';
+        document.getElementById('logout-container').style.display = 'block';
+    }
     getAuto();
+   // getUserFio();
     //  writeModelFilter();
 });
+
+// const getUserFio = () => {
+//     const oDataSelect = "/user/mine";
+//     $.ajax({
+//         url:oDataSelect,
+//         type:"GET",
+//         headers: {
+//         "Content-Type":"application/json",
+//             "Accept":"application/json",
+//             'Authorization': `Bearer ${localStorage.getItem('token')}`
+//     },
+//         success: (data) => {
+//           return  `h1 id="fio" ${data.fio}`;
+//         }, error:function (jqXHR,textStatus,errorThrown) {
+//         }
+//     });
+// };
+
+function logOut(){
+    localStorage.setItem('token','');
+
+    window.location.replace("http://localhost:8080/index");
+}
+
 const getAuto = () => {
     const oDataSelect = "/cars";
     $.ajax({
@@ -51,25 +80,8 @@ const changeFilter = (event) => {
         }, error: (jqXHR, textStatus, errorThrown) => {
         }
     });
-}
-// const getFiltersAuto = (elemModels,elemEngines,elemColors,elemCarcass) => {
-//     for (let el of elemModels) {
-//         el.id;
-//     }
-//     const oDataSelect =  `/cars/search/${idModel},${idColor},${idCarcass},${idEngine}`;
-//     $.ajax({
-//         url:oDataSelect,
-//         type:"GET",
-//         headers: {
-//             "Content-Type":"application/json",
-//             "Accept":"application/json"
-//         },
-//         success: (data) => {
-//             console.log(data);
-//         }, error:function (jqXHR,textStatus,errorThrown) {
-//         }
-//     });
-// };
+};
+
 
 const openEditAutoModal = () => {
 };
@@ -133,7 +145,7 @@ const renderFilters = (data) => {
 
 const createSelectForModels = (item)=> {
     return `<option value="${item.id}">${item.name}</option>`
-}
+};
 
 const deletAutoById = ()=>{};
 
@@ -147,7 +159,7 @@ const renderHTML = (items)=> {
     while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
 
     tbody.insertAdjacentHTML('afterbegin',html);
-}
+};
 
 const createHTMLByElem = (item) =>{
     return `<tr id="${item.id}">
@@ -157,4 +169,4 @@ const createHTMLByElem = (item) =>{
                     <button type="button" onclick="getAutoById(event)">Подробнее</button>
                 </td>
           </tr>`
-}
+};

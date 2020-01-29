@@ -35,7 +35,7 @@ public class UsersController {
             throw new NotValidException(bindingResult);
         }
         else {
-            return usersService.create(newUser);
+            return usersService.createUser(newUser);
         }
     }
 

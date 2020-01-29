@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>registrationAdmin</title>
+</head>
+<body>
+
+Регистрация Админа:
+<br><br>
+<label><b>Логин</b></label>
+<input id="login" autocomplete="on" type="text" name="login">
+<br><br>
+<label><b>Пароль</b></label>
+<input id="password" autocomplete="on" type="password" name="password" value="Password">
+<br><br>
+<label><b>ФИО</b></label>
+<input id="fio" autocomplete="on" type="text" name="fio" >
+<br><br>
+<label><b>Дата рождения</b></label>
+<input id="dateOfBirth" autocomplete="on" type="text" name="dateOfBirth">
+<br><br>
+<label><b>Адрес</b></label>
+<input id="adress" autocomplete="on" type="text" name="adress" >
+<br><br>
+<label><b>Номер телефона</b></label>
+<input id="phone_number" autocomplete="on" type="text" name="phone_number">
+<br><br>
+<button type="button" onclick="createAdmin()">Зарегистрироваться</button>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/registrationAdmin.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/requestHeader.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.AutoInStockDto;
+import ru.reksoft.interns.carstore.dto.CarsFiltersDto;
 import ru.reksoft.interns.carstore.dto.CarsPageDTO;
 import ru.reksoft.interns.carstore.dto.PageDto;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
@@ -32,6 +33,18 @@ public class AutoInStockController {
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public CarsPageDTO read() {
+        return autoInStockService.findAuto();
+    }
+
+    @RequestMapping(method = RequestMethod.GET,value = "getFilters")
+    @ResponseBody
+    public CarsFiltersDto getFilters() {
+        return autoInStockService.getFilters();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/all")
+    @ResponseBody
+    public List<AutoInStockDto> findAll() {
         return autoInStockService.findAutoAll();
     }
 

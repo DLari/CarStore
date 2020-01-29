@@ -8,7 +8,7 @@ $(document).ready(() => {
 });
 
 const getCars = () => {
-    const oDataSelect = "/cars/search?takeNumber=0&takeSize=100";
+    const oDataSelect = "/cars/all";
     $.ajax({
         url:oDataSelect,
         type:"GET",

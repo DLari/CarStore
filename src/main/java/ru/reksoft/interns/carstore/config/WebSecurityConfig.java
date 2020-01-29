@@ -68,19 +68,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                         ,"/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
                         "/engines/{id}","/models","/models/{id}",
                         "/adminIndex",
-                        "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor","/createEngine","/carsHtml","/createModel"
+                        "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor","/createEngine","/carsHtml","/createModel",
+                        "/registrationAdmin","/createCar"
                 ).permitAll()
                 .antMatchers("/users/mine").authenticated()
                 .antMatchers(
 //                        "/adminIndex", "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor",
 //                        "/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
 //                        "/engines/{id}","/models","/models/{id}",
-                        //"/adminIndex"
-                        "/admin/**" ).hasAnyAuthority("admin")
+                      //  "/adminIndex",
+                        "/admin/**").hasAnyAuthority("admin")
                 .anyRequest().hasAnyAuthority("user")
-                .and().
 
-        exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+                .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);

@@ -118,6 +118,18 @@ public class MainController {
         return "createModel";
     }
 
+    @RequestMapping(value = {"/registrationAdmin" }, method = RequestMethod.GET)
+    public String registrationAdmin(Model model) {
+        model.addAttribute("message", message);
+        return "registrationAdmin";
+    }
+
+    @RequestMapping(value = {"/createCar" }, method = RequestMethod.GET)
+    public String createCar(Model model) {
+        model.addAttribute("message", message);
+        return "createCar";
+    }
+
 //    @RequestMapping(value = {"/image" }, method = RequestMethod.GET)
 //    public String image(Model model) {
 //        model.addAttribute("message", message);

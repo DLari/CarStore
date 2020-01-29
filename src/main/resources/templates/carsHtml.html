@@ -9,33 +9,59 @@
 <table>
     <thead>
     <th> Id</th>
-    <th> Название</th>
+    <th>  цена:</th>
     <th>  двигатель:</th>
     <th>   мощность:  </th>
     <th>  расход топлива :</th>
     <th>  модель :</th>
     <th>   длина кузова :</th>
     <th>  ширина кузова :</th>
-    <th>  тип :<</th>
+    <th>  кузов :</th>
     <th>  цвет :</th>
+    <th>  количество :</th>
     </thead>
-    <tbody id="cars-table"></tbody>
+    <tbody id="cars-table-body"></tbody>
 </table>
+<a href="/createCar">Создать</a>
 
-</br>
-</br>
-</br>
-<div id="cars-container" class="cars-container">
-    <div class="cars">Авто</div>
-    <ul class="carsItems" id="carsItems">
+<br>
+<br>
+
+<div id="auto-container" class="auto-container" style="display: none">
+    <div class="auto-box">Cars</div>
+    <ul class="autoItems" id="autoItems">
+        <li></li>
+        <li></li>
         <li></li>
         <li></li>
     </ul>
 </div>
 
+<br>
+<br>
+<br>
+<div id="edit-container" style="display: none">
+    <input id="input-id" autocomplete="on" type="hidden" >
+
+    <input id="input-idmodel" autocomplete="on" type="hidden" >
+    <input id="input-idcolor" autocomplete="on" type="hidden" >
+    <input id="input-idengine" autocomplete="on" type="hidden" >
+
+    <label><b>Количество</b></label>
+    <input id="presence" autocomplete="on" type="text" name="presence">
+    <br>
+
+    <button type="button" onclick="editCar()">Изменить</button>
+</div>
+
+
+
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
-<script type="text/javascript" th:src="@{/webjars/cars-work.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/adminCars.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/editCar.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/requestHeader.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
 
 

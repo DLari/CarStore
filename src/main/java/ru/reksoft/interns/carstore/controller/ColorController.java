@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.ColorDTO;
+import ru.reksoft.interns.carstore.dto.ColorsPageDto;
 import ru.reksoft.interns.carstore.exceptions.NotValidException;
 import ru.reksoft.interns.carstore.service.ColorService;
 
@@ -38,5 +39,10 @@ public final class ColorController{
     @ResponseBody
     public List<ColorDTO> read(){
       return colorService.findColorAll();
+    }
+
+    @GetMapping("/forFilter")
+    public ColorsPageDto readFilter(){
+        return colorService.findColorForFilter();
     }
 }

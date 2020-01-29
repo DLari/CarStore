@@ -11,15 +11,12 @@ import org.springframework.stereotype.Service;
 import ru.reksoft.interns.carstore.dao.ColorRepository;
 import ru.reksoft.interns.carstore.dao.EngineRepository;
 import ru.reksoft.interns.carstore.dao.ModelRepository;
-import ru.reksoft.interns.carstore.dto.CarsPageDTO;
-import ru.reksoft.interns.carstore.dto.PageDto;
-import ru.reksoft.interns.carstore.dto.SelectItemDto;
+import ru.reksoft.interns.carstore.dto.*;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
 import ru.reksoft.interns.carstore.entity.Color;
 import ru.reksoft.interns.carstore.mapper.*;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 import ru.reksoft.interns.carstore.dao.AutoInStockRepository;
-import ru.reksoft.interns.carstore.dto.AutoInStockDto;
 
 
 import java.math.BigDecimal;
@@ -65,7 +62,7 @@ public class AutoInStockService {
         return autoInStockMapper.toDto(autoInStockRepository.getById(id));
     }
 
-    public CarsPageDTO findAutoAll() {
+    public CarsPageDTO findAuto() {
         List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
         List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
         List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
@@ -78,6 +75,24 @@ public class AutoInStockService {
             Colors = colors;
             Carcass = carcass;
         }};
+    }
+
+    public CarsFiltersDto getFilters() {
+        List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> carcass = dictCarcassService.findDictCarcassAll().stream().map(dictCarcassMapper::toSelectItemDto).collect(Collectors.toList());
+        return new CarsFiltersDto(){{
+            Engines = engines;
+            Models = models;
+            Colors = colors;
+            Carcass = carcass;
+        }};
+    }
+
+
+    public List<AutoInStockDto> findAutoAll() {
+        return autoInStockRepository.findAll().stream().map(autoInStockMapper::toDto).collect(Collectors.toList());
     }
 
     public PageDto<AutoInStockDto> search(Integer modelId, Integer colorId, Integer carcassId,

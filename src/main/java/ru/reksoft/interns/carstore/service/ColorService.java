@@ -2,6 +2,8 @@ package ru.reksoft.interns.carstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.reksoft.interns.carstore.dto.ColorsPageDto;
+import ru.reksoft.interns.carstore.dto.SelectItemDto;
 import ru.reksoft.interns.carstore.mapper.ColorMapper;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 import ru.reksoft.interns.carstore.dao.ColorRepository;
@@ -21,6 +23,9 @@ public class ColorService {
     @Autowired
     private ColorMapper colorMapper;
 
+    @Autowired
+    private ColorService colorService;
+
     public ColorDTO getById(Integer id) {
         return colorMapper.toDto(colorRepository.getById(id));
     }
@@ -30,6 +35,13 @@ public class ColorService {
         return colorRepository.findAll(
                 SearchSpecifications.findAllNotRemovedColor()
         ).stream().map(colorMapper::toDto).collect(Collectors.toList());
+    }
+
+    public ColorsPageDto findColorForFilter() {
+        List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
+        return new ColorsPageDto(){{
+            Colors = colors;
+        }};
     }
 
     public ColorDTO create(ColorDTO newColor) {

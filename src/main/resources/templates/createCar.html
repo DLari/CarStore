@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>createCar</title>
+</head>
+<body>
+
+
+<br>
+Цвет
+<select id="filter-colors">
+    <option value="">-</option>
+</select>
+
+Двигатель
+<select id="filter-engines">
+    <option value="">-</option>
+</select>
+
+Модель
+<select id="filter-models">
+    <option value="">-</option>
+</select>
+
+
+<label><b>Количество</b></label>
+<input id="presence" autocomplete="on" type="text" name="presence">
+
+<button type="button" onclick="createCar()">Создать</button>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/createCar.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+</body>
+</html>

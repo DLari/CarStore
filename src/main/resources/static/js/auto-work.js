@@ -1,41 +1,72 @@
-
-let query = '/cars/search/?takeSize=100&takeNumber=0';
+const url = '/cars/search/';
 const headers = {
     "Content-Type":"application/json",
     "Accept":"application/json"
 };
-$(document).ready(() => {
-    if (localStorage.getItem('token')) {
-        document.getElementById('login-container').style.display = 'none';
-        document.getElementById('logout-container').style.display = 'block';
+let queryData = {
+    takeSize : 5,
+    takeNumber : 0,
+    model: '',
+    color : '',
+    carcass : '',
+    engine : '',
+    getQuery : function() {
+        return url + '?takeSize=' + this.takeSize +
+        '&takeNumber=' + this.takeNumber +
+        '&carcass=' + this.carcass +
+        '&color=' + this.color +
+        '&model=' + this.model +
+        '&engine=' + this.engine
     }
-    getAuto();
-   // getUserFio();
+};
+
+$(document).ready(() => {
+    getFilters();
+    getDataPaginate(queryData.getQuery());
+    //getAuto();
     //  writeModelFilter();
 });
 
-// const getUserFio = () => {
-//     const oDataSelect = "/user/mine";
-//     $.ajax({
-//         url:oDataSelect,
-//         type:"GET",
-//         headers: {
-//         "Content-Type":"application/json",
-//             "Accept":"application/json",
-//             'Authorization': `Bearer ${localStorage.getItem('token')}`
-//     },
-//         success: (data) => {
-//           return  `h1 id="fio" ${data.fio}`;
-//         }, error:function (jqXHR,textStatus,errorThrown) {
-//         }
-//     });
-// };
+const getFilters = () => {
+    const oDataSelect = "/cars/getFilters";
+    $.ajax({
+        url:oDataSelect,
+        type:"GET",
+        headers: headers,
+        success: (data) => {
+            renderFilters(data);
+        }, error: (jqXHR,textStatus,errorThrown)=> {
+        }
+    });
+};
 
-function logOut(){
-    localStorage.setItem('token','');
+const changeElemCount = (event) => {
+    queryData.takeSize = event.target.value;
+    queryData.takeNumber = 0;
+    getDataPaginate(queryData.getQuery());
+};
 
-    window.location.replace("http://localhost:8080/index");
-}
+const setPage = (value) => {
+    queryData.takeNumber  = +value;
+    getDataPaginate(queryData.getQuery());
+};
+
+const renderPaginateControl = (data) => {
+    let paginateControl = document.getElementById("pagination");
+    let buttons = $('#pagination button');
+
+    for(let button of buttons){
+        let parent = button.parentNode;
+        parent.removeChild(button);
+    }
+
+    for (let i=0; i<data.totalPage;i++) {
+        const paginateButton = `<button type="button" onclick="setPage(${i})">${i+1}</button>`;
+        paginateControl.insertAdjacentHTML('beforeEnd', paginateButton);
+    }
+};
+
+
 
 const getAuto = () => {
     const oDataSelect = "/cars";
@@ -52,38 +83,26 @@ const getAuto = () => {
     });
 };
 
-const createQuery = (selectElem) => {
-    const selectId = selectElem.id.split('filter-')[1];
-    const value =  selectElem.value;
-
-    let queryArray = query.split('&');
-    const usedFilterIndex = queryArray.findIndex(item=>item.includes(selectId));
-
-    if(usedFilterIndex !== -1){
-        queryArray.splice(usedFilterIndex,1);
-    }
-    if(value) queryArray.push(`${selectId}=${value}`);
-
-    query = queryArray.join('&');
+const setQuery = (selectElem) => {
+    queryData[selectElem.id] = selectElem.value;
 };
 
 const changeFilter = (event) => {
+    setQuery(event.target);
+    getDataPaginate(queryData.getQuery());
+};
 
-    createQuery(event.target);
-
+const getDataPaginate = (query) => {
     $.ajax({
         url: query,
         type: "GET",
         headers: headers,
         success: (data) => {
-          renderHTML(data.content);
+            renderHTML(data.content);
+            renderPaginateControl(data)
         }, error: (jqXHR, textStatus, errorThrown) => {
         }
     });
-};
-
-
-const openEditAutoModal = () => {
 };
 
 const getAutoById = (e) => {
@@ -118,36 +137,34 @@ const renderFilters = (data) => {
     for (let el of elemModels) {
         htmlModels += createSelectForModels(el);
     }
-    let tbodyModels = document.getElementById('filter-model');
+    let tbodyModels = document.getElementById('model');
     tbodyModels.insertAdjacentHTML('afterbegin',htmlModels);
 
     let htmlEngines ='';
     for (let el of elemEngines) {
         htmlEngines+=createSelectForModels(el);
     }
-    let tbodyEngines = document.getElementById('filter-engine');
+    let tbodyEngines = document.getElementById('engine');
     tbodyEngines.insertAdjacentHTML('afterbegin',htmlEngines);
 
     let htmlColors ='';
     for (let el of elemColors) {
         htmlColors+=createSelectForModels(el);
     }
-    let tbodyColors = document.getElementById('filter-color');
+    let tbodyColors = document.getElementById('color');
     tbodyColors.insertAdjacentHTML('afterbegin',htmlColors);
 
     let htmlCarcass ='';
     for (let el of elemCarcass) {
         htmlCarcass+=createSelectForModels(el);
     }
-    let tbodyCarcass = document.getElementById('filter-carcass');
+    let tbodyCarcass = document.getElementById('carcass');
     tbodyCarcass.insertAdjacentHTML('afterbegin',htmlCarcass);
 };
 
 const createSelectForModels = (item)=> {
     return `<option value="${item.id}">${item.name}</option>`
 };
-
-const deletAutoById = ()=>{};
 
 const renderHTML = (items)=> {
     let html = '';

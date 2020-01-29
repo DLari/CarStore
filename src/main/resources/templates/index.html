@@ -6,11 +6,15 @@
 </head>
  <br>
 
- </br>
-Приветствуем: <h1 id="fio"></h1>
- </br>
-
  <br>
+<div id="fio" class="fio" style="display: none">
+    <ul class="fioItems" id="fioItems">
+        Приветствуем: <li></li>
+
+    </ul>
+</div>
+ <br>
+
 <div id="login-container" class="login-container" style="display: block">
     Вход:
 <label><b>Логин</b></label>
@@ -24,22 +28,32 @@
 <a href="/registration">Зарегистрироваться</a>
 </div>
 <br> <br> <br>
-
+<div id="pagination" style="text-align: center">
+    <select id="takeSize" onchange="changeElemCount(event)">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+</div>
 Уточнить поиск:
  <br>
- <select id="filter-model" onchange="changeFilter(event)">
+модель
+ <select id="model" onchange="changeFilter(event)">
      <option value="">-</option>
  </select>
 
- <select id="filter-engine" onchange="changeFilter(event)">
+двигатель
+ <select id="engine" onchange="changeFilter(event)">
+  <option value="">-</option>
+ </select>
+
+цвет
+ <select id="color" onchange="changeFilter(event)">
      <option value="">-</option>
  </select>
 
- <select id="filter-color" onchange="changeFilter(event)">
-     <option value="">-</option>
- </select>
-
- <select id="filter-carcass" onchange="changeFilter(event)">
+кузов
+ <select id="carcass" onchange="changeFilter(event)">
      <option value="">-</option>
  </select>
 
@@ -73,10 +87,15 @@
  <button onclick="logOut()">Выйти</button>
 </div>
 
+
+
+
+
  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
  <script type="text/javascript" th:src="@{/webjars/auto-work.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/login.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/enterExit.js/}"></script>
 <!-- <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>-->
  </body>
 </html>

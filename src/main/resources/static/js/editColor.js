@@ -9,14 +9,14 @@ const editColor =() =>{
         price: price,
         colorCode: colorCode
     });
-    const oDataSelect = `/admin/colors/${id}`;
+    const oDataSelect = `/users/${id}`;
     $.ajax({
         url:oDataSelect,
         type:"PUT",
         headers: headers,
         data: data,
         success: function() {
-            window.location.replace("http://localhost:8080/colorsHtml");
+            window.location.replace("http://localhost:8080/personalAreaHtml");
         },
         error: function() {
             alert("Failed");

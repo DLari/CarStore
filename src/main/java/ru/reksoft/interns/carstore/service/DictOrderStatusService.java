@@ -18,11 +18,12 @@ public class DictOrderStatusService {
     @Autowired
     private DictOrderStatusMapper dictOrderStatusMapper;
 
-    public DictOrderStatusDto getDictCarcass(Integer id) {
+    public DictOrderStatusDto getDictOrderStatus(Integer id) {
         return dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(id));
     }
 
-    public List<DictOrderStatusDto> findDictCarcassAll() {
+
+    public List<DictOrderStatusDto> findDictOrderStatusAll() {
         return dictOrderStatusRepository.findAll().stream().map(dictOrderStatusMapper::toDto).collect(Collectors.toList());
     }
 

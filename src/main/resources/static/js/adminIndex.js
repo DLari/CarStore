@@ -16,8 +16,6 @@ $(document).ready(() => {
 $("#button").click(function() {
 
 $.ajax({
-// type: "POST",
-// url: "/login",
     headers: headers,
 success: function(data) {
     window.location.replace("http://localhost:8080/index");
@@ -27,8 +25,9 @@ success: function(data) {
    }
  });
 });
+
 function logOut(){
-    localStorage.setItem('token','')
+    localStorage.setItem('token','');
 
     window.location.replace("http://localhost:8080/index");
 }
@@ -43,6 +42,10 @@ const getUserFio = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         success: (data) => {
+            if (data.rule !== 'admin') {
+                window.location.replace("http://localhost:8080/index");
+                 alert("не достаточно прав");
+            }
             const elements = $('#fioItems').children();
             elements[0].innerHTML = data.fio;
         }, error:function (jqXHR,textStatus,errorThrown) {

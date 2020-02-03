@@ -3,99 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>Car Store</title>
+    <style>
+        .button-active{
+            background-color: darkgray;
+        }
+    </style>
 </head>
- <br>
+<body>
 
- <br>
-<div id="fio" class="fio" style="display: none">
-    <ul class="fioItems" id="fioItems">
-        Приветствуем: <li></li>
+    <br>
 
-    </ul>
-</div>
- <br>
+    <br>
+    <div id="fio" class="fio" style="display: none">
+        <ul class="fioItems" id="fioItems">
+            Приветствуем:
+            <li></li>
 
-<div id="login-container" class="login-container" style="display: block">
-    Вход:
-<label><b>Логин</b></label>
-<input id="login" autocomplete="on" type="text" name="username">
+        </ul>
+        <br>
+        <a href="/personalArea">Перейти в личный кабинет</a>
+        <br>
+        <a href="/basket">Перейти в корзину</a>
+        <br><br>
+    </div>
 
-<label><b>Пароль</b></label>
-<input id="password" autocomplete="on" type="password" name="password">
+    <br>
+    <div id="logout-container" class="logout-container" style="display: none">
+        <button onclick="logOut()">Выйти</button>
+    </div>
+    <br> <br>
 
-<button onclick="logIn()">Войти</button>
-<br>
-<a href="/registration">Зарегистрироваться</a>
-</div>
-<br> <br> <br>
-<div id="pagination" style="text-align: center">
-    <select id="takeSize" onchange="changeElemCount(event)">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
+    <div id="login-container" class="login-container" style="display: block">
+        Вход:
+        <label><b>Логин</b></label>
+        <input id="login" autocomplete="on" type="text" name="username">
+
+        <label><b>Пароль</b></label>
+        <input id="password" autocomplete="on" type="password" name="password">
+
+        <button onclick="logIn()">Войти</button>
+        <br>
+        <a href="/registration">Зарегистрироваться</a>
+    </div>
+    <br> <br> <br>
+    <div id="pagination" style="text-align: center">
+        <select id="takeSize" onchange="changeElemCount(event)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+    </div>
+    Уточнить поиск:
+    <br>
+    модель
+    <select id="model" onchange="changeFilter(event)">
+        <option value="">-</option>
     </select>
-</div>
-Уточнить поиск:
- <br>
-модель
- <select id="model" onchange="changeFilter(event)">
-     <option value="">-</option>
- </select>
 
-двигатель
- <select id="engine" onchange="changeFilter(event)">
-  <option value="">-</option>
- </select>
+    двигатель
+    <select id="engine" onchange="changeFilter(event)">
+        <option value="">-</option>
+    </select>
 
-цвет
- <select id="color" onchange="changeFilter(event)">
-     <option value="">-</option>
- </select>
+    цвет
+    <select id="color" onchange="changeFilter(event)">
+        <option value="">-</option>
+    </select>
 
-кузов
- <select id="carcass" onchange="changeFilter(event)">
-     <option value="">-</option>
- </select>
+    кузов
+    <select id="carcass" onchange="changeFilter(event)">
+        <option value="">-</option>
+    </select>
 
 
- <table>
-     <thead>
-     <th> Название</th>
-     <th> Цена</th>
-     </thead>
-     <tbody id="table-body"></tbody>
- </table>
+    <table>
+        <thead>
+        <th> Название</th>
+        <th> Цена</th>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
 
- </br>
- </br>
- </br>
- <div id="car-container" class="car-container" style="display: none">
-     <div class="car-box">Auto</div>
-     <ul class="items" id="items">
-        двигатель:  <li></li>
-        мощность:   <li></li>
-        расход топлива : <li></li>
-        модель :<li></li>
-        длина кузова :<li></li>
-        ширина кузова :<li></li>
-        тип :<li></li>
-        цвет :<li></li>
-     </ul>
- </div>
- </br>
-<div id="logout-container" class="logout-container" style="display: none">
- <button onclick="logOut()">Выйти</button>
-</div>
+    </br>
+    </br>
+    </br>
+    <div id="car-container" class="car-container" style="display: none">
+        <div class="car-box">Auto</div>
+        <ul class="items" id="items">
+            двигатель:
+            <li></li>
+            мощность:
+            <li></li>
+            расход топлива :
+            <li></li>
+            модель :
+            <li></li>
+            длина кузова :
+            <li></li>
+            ширина кузова :
+            <li></li>
+            тип :
+            <li></li>
+            цвет :
+            <li></li>
+        </ul>
+    </div>
+    </br>
 
 
-
-
-
- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
- <script type="text/javascript" th:src="@{/webjars/auto-work.js/}"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/auto-work.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/login.js/}"></script>
 <script type="text/javascript" th:src="@{/webjars/enterExit.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/personalArea.js/}"></script>
 <!-- <script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>-->
- </body>
+</body>
 </html>

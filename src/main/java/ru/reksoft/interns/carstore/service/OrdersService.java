@@ -5,12 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import ru.reksoft.interns.carstore.dao.AutoInStockRepository;
+import ru.reksoft.interns.carstore.dao.DictOrderStatusRepository;
 import ru.reksoft.interns.carstore.dao.UsersRepository;
 import ru.reksoft.interns.carstore.dto.AutoInStockDto;
 import ru.reksoft.interns.carstore.dto.ColorDTO;
+import ru.reksoft.interns.carstore.dto.UsersDto;
 import ru.reksoft.interns.carstore.entity.AutoInStock;
 import ru.reksoft.interns.carstore.entity.Orders;
 import ru.reksoft.interns.carstore.mapper.AutoInStockMapper;
+import ru.reksoft.interns.carstore.mapper.DictOrderStatusMapper;
 import ru.reksoft.interns.carstore.mapper.OrdersMapper;
 import ru.reksoft.interns.carstore.dao.OrdersRepository;
 import ru.reksoft.interns.carstore.dto.OrdersDto;
@@ -46,9 +49,24 @@ public class OrdersService {
     @Autowired
     private AutoInStockMapper autoInStockMapper;
 
-    public OrdersDto getUser(Integer id) {
-        return ordersMapper.toDto(ordersRepository.getById(id));
-    }
+    @Autowired
+    private DictOrderStatusRepository dictOrderStatusRepository;
+
+    @Autowired
+    private DictOrderStatusMapper dictOrderStatusMapper;
+
+//    public OrdersDto getUser(Integer id) {
+//        return ordersMapper.toDto(ordersRepository.getById(id));
+//    }
+
+public OrdersDto getOrder() {
+
+    UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
+    Integer idUser = usersDto.getId();
+    return ordersMapper.toDto(ordersRepository.getByUsersId(idUser));
+}
+
+
 
     public List<OrdersDto> findUsers() {
         return ordersRepository.findAll().stream().map(ordersMapper::toDto).collect(Collectors.toList());
@@ -67,8 +85,7 @@ public class OrdersService {
         newOrder.setOrderNumber(Integer.toString(100+i));
         newOrder.setUsers(usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName())));
         newOrder.setDate(date);
-      //  newOrder.getDictOrderStatus().setId(1);
-
+        newOrder.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(1)));
         newOrder.setPrice(autoInStockMapper.toDto(autoInStockRepository.getById(newOrder.getAutoInStock().getId())).getPrice());
         Orders orders= ordersRepository.saveAndFlush(ordersMapper.toEntity(newOrder));
         OrdersDto ordersDto=ordersMapper.toDto(orders);
@@ -82,27 +99,31 @@ public class OrdersService {
         return ordersDto;
     }
 
-    public void toCanceled(Integer id) {
-        Orders orders=ordersRepository.getById(id);
-        orders.getDictOrderStatus().setId(5);
-        ordersRepository.saveAndFlush(orders);
+    public OrdersDto toCanceled() {
+         OrdersDto ordersDto = getOrder();
+         ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(5)));
+        ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
+        return ordersDto;
     }
 
-    public void toConfirmed(Integer id) {
-        Orders orders=ordersRepository.getById(id);
-        orders.getDictOrderStatus().setId(2);
-        ordersRepository.saveAndFlush(orders);
+    public OrdersDto toConfirmed() {
+        OrdersDto ordersDto = getOrder();
+        ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(2)));
+        ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
+        return ordersDto;
     }
 
-    public void toPaid(Integer id) {
-        Orders orders=ordersRepository.getById(id);
-        orders.getDictOrderStatus().setId(3);
-        ordersRepository.saveAndFlush(orders);
+    public OrdersDto toPaid() {
+        OrdersDto ordersDto = getOrder();
+        ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(3)));
+        ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
+        return ordersDto;
     }
 
-    public void toDelivered(Integer id) {
-        Orders orders=ordersRepository.getById(id);
-        orders.getDictOrderStatus().setId(4);
-        ordersRepository.saveAndFlush(orders);
+    public OrdersDto toDelivered() {
+        OrdersDto ordersDto = getOrder();
+        ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(4)));
+        ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
+        return ordersDto;
     }
 }

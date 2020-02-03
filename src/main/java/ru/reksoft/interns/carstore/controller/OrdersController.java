@@ -20,9 +20,14 @@ public class OrdersController {
     @Autowired
     private OrdersService ordersService;
 
-    @GetMapping("/{id}")
-    public OrdersDto getDictCarcass(@PathVariable Integer id) {
-        return ordersService.getUser(id);
+//    @GetMapping("/{id}")
+//    public OrdersDto getDictCarcass(@PathVariable Integer id) {
+//        return ordersService.getUser(id);
+//    }
+
+    @GetMapping("/mine")
+    public OrdersDto getOrder() {
+        return ordersService.getOrder();
     }
 
 
@@ -48,10 +53,28 @@ public class OrdersController {
         }
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public void delete(@PathVariable Integer id) {
-        ordersService.toCanceled(id);
+//    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+//    public void delete(@PathVariable Integer id) {
+//        ordersService.toCanceled(id);
+//    }
+
+    @PutMapping(value = "/canceled")
+    public OrdersDto  toCanceled()  {
+       return ordersService.toCanceled();
     }
 
+    @PutMapping(value = "/confirmed")
+    public OrdersDto  toConfirmed()  {
+        return ordersService.toConfirmed();
+    }
 
+    @PutMapping(value = "/paid")
+    public OrdersDto  toPaid()  {
+        return ordersService.toPaid();
+    }
+
+    @PutMapping(value = "/delivered")
+    public OrdersDto  toDelivered()  {
+        return ordersService.toDelivered();
+    }
 }

@@ -22,14 +22,14 @@ public class DictOrderStatusController {
     private DictOrderStatusService dictOrderStatusService;
 
     @GetMapping("/{id}")
-    public DictOrderStatusDto getDictCarcass(@PathVariable Integer id) {
-        return dictOrderStatusService.getDictCarcass(id);
+    public DictOrderStatusDto getDictOrderStatus(@PathVariable Integer id) {
+        return dictOrderStatusService.getDictOrderStatus(id);
     }
 
 
     @GetMapping("")
     public List<DictOrderStatusDto> read(){
-        return dictOrderStatusService.findDictCarcassAll();
+        return dictOrderStatusService.findDictOrderStatusAll();
     }
 
 }

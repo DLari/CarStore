@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<body>
+
+<div id="orderEmpty" style="display: block">
+    Корзина пуста
+</div>
+
+<table id="orderNotEmpty" style="display: none">
+    <thead>
+    <th> Имя получаетля</th>
+    <th> Адрес доставки</th>
+    <th> Статус заказа </th>
+    <th> Модель авто</th>
+    <th> Кузов</th>
+    <th> Ширина</th>
+    <th>  Длина </th>
+    <th> Двгитель</th>
+    <th> Мощность</th>
+    <th> Расход топлива</th>
+    <th>  Цвет </th>
+    <th>Трек номер</th>
+    <th> Цена</th>
+    </thead>
+    <tbody id="table-body"></tbody>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/basket.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/requestHeader.js/}"></script>
+
+</body>
+</html>

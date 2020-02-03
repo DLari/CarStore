@@ -23,7 +23,7 @@ public class UsersController {
     private UsersService usersService;
 
     @GetMapping("/mine")
-    public UsersDto getDictCarcass() {
+    public UsersDto getUsers() {
         return usersService.getUsers();
     }
 

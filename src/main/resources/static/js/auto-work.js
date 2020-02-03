@@ -46,14 +46,31 @@ const changeElemCount = (event) => {
     getDataPaginate(queryData.getQuery());
 };
 
-const setPage = (value) => {
+const setPage = (value, event) => {
+    let currentButton = event.target;
+
+    for(let child of currentButton.parentElement.childNodes){
+        if(child.className && child.className.includes('button-active')) {
+            child.className = child.className.replace('button-active','');
+        }
+    }
+
+    currentButton.className = 'button-active';
     queryData.takeNumber  = +value;
     getDataPaginate(queryData.getQuery());
 };
 
 const renderPaginateControl = (data) => {
+    let activeButtonIndex = -1;
     let paginateControl = document.getElementById("pagination");
+
     let buttons = $('#pagination button');
+
+    for(let index = 0; index<buttons.length; index++){
+        if(buttons[index].className === 'button-active'){
+            activeButtonIndex = index;
+        }
+    }
 
     for(let button of buttons){
         let parent = button.parentNode;
@@ -61,27 +78,17 @@ const renderPaginateControl = (data) => {
     }
 
     for (let i=0; i<data.totalPage;i++) {
-        const paginateButton = `<button type="button" onclick="setPage(${i})">${i+1}</button>`;
+        const paginateButton = `<button type="button" onclick="setPage(${i}, event)">${i+1}</button>`;
         paginateControl.insertAdjacentHTML('beforeEnd', paginateButton);
     }
+    if(!data.totalPage) return;
+
+    buttons = $('#pagination button');
+
+    buttons[activeButtonIndex !== -1 ? activeButtonIndex: 0].className = 'button-active';
+    buttons[activeButtonIndex !== -1 ? activeButtonIndex: 0].disabled = true;
 };
 
-
-
-const getAuto = () => {
-    const oDataSelect = "/cars";
-    $.ajax({
-        url:oDataSelect,
-        type:"GET",
-        headers: headers,
-        success: (data) => {
-            renderHTML(data.Autos);
-            renderFilters(data);
-         //   getFiltersAuto(elemModels,elemEngines,elemColors,elemCarcass);
-        }, error:function (jqXHR,textStatus,errorThrown) {
-        }
-    });
-};
 
 const setQuery = (selectElem) => {
     queryData[selectElem.id] = selectElem.value;
@@ -124,6 +131,29 @@ const getAutoById = (e) => {
             elements[6].innerHTML = data.model.dictCarcass.name;
             elements[7].innerHTML = data.color.name;
         }, error:function (jqXHR,textStatus,errorThrown) {
+        }
+    });
+};
+
+const createOrder = (e) => {
+    const elemId = e.currentTarget.parentElement.parentElement.id;
+    const data = JSON.stringify({
+        autoInStock: {id:elemId},
+    });
+    const oDataSelect = `/orders`;
+    $.ajax({
+        url:oDataSelect,
+        type:"POST",
+        headers:{
+            "Content-Type":"application/json",
+        "Accept":"application/json",
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+},
+        data: data,
+        success:function (data) {
+            window.location.replace("http://localhost:8080/basket");
+        },   error: function() {
+            alert("Failed");
         }
     });
 };
@@ -184,6 +214,7 @@ const createHTMLByElem = (item) =>{
                 <td>${item.price}</td>
                 <td>
                     <button type="button" onclick="getAutoById(event)">Подробнее</button>
+                    <button type="button" onclick="createOrder(event)">Добавить в корзину</button>
                 </td>
           </tr>`
 };

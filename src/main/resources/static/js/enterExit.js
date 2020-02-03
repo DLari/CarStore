@@ -5,7 +5,7 @@ $(document).ready(() => {
         document.getElementById('logout-container').style.display = 'block';
         document.getElementById('fio').style.display = 'block';
     }
-    getFilters();
+    // getFilters();
     getUserFio();
     //getAuto();
 

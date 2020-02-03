@@ -54,6 +54,7 @@ public class UsersService {
     public UsersDto update(Integer id, UsersDto usersDto) {
 
         Users users= usersRepository.getById(id);
+        usersDto.setRule("user");
         usersMapper.updateUser(usersDto,users);
         return usersDto;
     }

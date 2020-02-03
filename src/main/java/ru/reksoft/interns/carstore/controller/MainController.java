@@ -130,6 +130,18 @@ public class MainController {
         return "createCar";
     }
 
+    @RequestMapping(value = {"/personalArea" }, method = RequestMethod.GET)
+    public String personalArea(Model model) {
+        model.addAttribute("message", message);
+        return "personalArea";
+    }
+
+    @RequestMapping(value = {"/basket" }, method = RequestMethod.GET)
+    public String basket(Model model) {
+        model.addAttribute("message", message);
+        return "basket";
+    }
+
 //    @RequestMapping(value = {"/image" }, method = RequestMethod.GET)
 //    public String image(Model model) {
 //        model.addAttribute("message", message);

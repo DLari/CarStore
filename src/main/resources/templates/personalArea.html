@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
+</head>
+<body>
+<!--<a href="/registration"></a>-->
+Личные данные:
+<br><br>
+<table>
+    <thead>
+    <th> ФИО</th>
+    <th>  Дата рождения </th>
+    <th> Номер телефона</th>
+    <th> Адрес</th>
+    </thead>
+    <tbody id="table-body"></tbody>
+</table>
+
+<br>
+<a href="/basket">Перейти в корзину</a>
+<br><br>
+
+<div id="edit-container" style="display: none">
+
+    Редактирование:
+    <br>  <br>
+    <input id="input-id" autocomplete="on" type="hidden" >
+<!--    <input id="role" autocomplete="on" type="hidden" >-->
+
+    <label><b>ФИО</b></label>
+    <input id="fio" autocomplete="on" type="text" name="fio">
+
+    <br>
+    <label><b>Дата рождения</b></label>
+    <input id="date_of_birth" autocomplete="on" type="text" name="date_of_birth">
+
+    <label><b>Номер телефона</b></label>
+    <input id="phone_number" autocomplete="on" type="text" name="phone_number">
+
+    <label><b> Адрес</b></label>
+    <input id="address" autocomplete="on" type="text" name="address">
+
+    <label><b>Логин</b></label>
+    <input id="login" autocomplete="on" type="text" name="login">
+
+    <label><b> Пароль</b></label>
+    <input id="password" autocomplete="on" type="password" name="password">
+
+    <button type="button" onclick="editUser()">Изменить</button>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/edtUser.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/personalArea.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/requestHeader.js/}"></script>
+</body>
+</html>

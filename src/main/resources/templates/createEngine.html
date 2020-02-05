@@ -10,25 +10,28 @@
 Модель авто
 <select id="filter-models">
 <!--        onchange="changeFilter(event)"-->
-
     <option value="">-</option>
 </select>
 
 
 <!--<label><b>Модель авто</b></label>-->
 <!--<input id="model_id" autocomplete="on" type="text" name="model_id">-->
-
+<br>
 <label><b>Название двигателя</b></label>
 <input id="name" autocomplete="on" type="text" name="name">
+<span id="errorName"></span><br>
 
 <label><b>Цена</b></label>
 <input id="price" autocomplete="on" type="text" name="price">
+<span id="errorPrice"></span><br>
 
 <label><b>Расход топлива</b></label>
 <input id="fuel_consumption" autocomplete="on" type="text" name="fuel_consumption">
+<span id="error_fuel_consumption"></span><br>
 
 <label><b>Мощность</b></label>
 <input id="power" autocomplete="on" type="text" name="power">
+<span id="error_power"></span><br>
 
 <button type="button" onclick="createEngine()">Создать</button>
 

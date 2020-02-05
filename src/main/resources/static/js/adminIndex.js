@@ -43,8 +43,7 @@ const getUserFio = () => {
         },
         success: (data) => {
             if (data.rule !== 'admin') {
-                window.location.replace("http://localhost:8080/index");
-                 alert("не достаточно прав");
+                window.location.replace("http://localhost:8080/accessError");
             }
             const elements = $('#fioItems').children();
             elements[0].innerHTML = data.fio;

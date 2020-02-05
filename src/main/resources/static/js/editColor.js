@@ -9,17 +9,28 @@ const editColor =() =>{
         price: price,
         colorCode: colorCode
     });
-    const oDataSelect = `/users/${id}`;
+    //const oDataSelect = `/users/${id}`;
     $.ajax({
-        url:oDataSelect,
+        url:`/admin/colors/${id}`,
         type:"PUT",
         headers: headers,
         data: data,
         success: function() {
-            window.location.replace("http://localhost:8080/personalAreaHtml");
+            window.location.replace("http://localhost:8080/colorsHtml");
         },
-        error: function() {
-            alert("Failed");
+        error: function(jqXHR,textStatus,errorThrown,data) {
+            for (let i =0; i<jqXHR.responseJSON.fieldErrors.length; i++) {
+
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'name') {
+                    document.getElementById("errorName").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'price') {
+                    document.getElementById("errorPrice").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'colorCode') {
+                    document.getElementById("error_color_code").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+            }
         }
     });
 };

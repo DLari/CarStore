@@ -8,14 +8,20 @@
 
 <label><b>Цвет</b></label>
 <input id="name" autocomplete="on" type="text" name="name">
+<span id="errorName"></span>
+<br>
 
 <label><b>Цена</b></label>
 <input id="price" autocomplete="on" type="text" name="price">
+<span id="errorPrice"></span>
+<br>
 
 <label><b>Код цвета</b></label>
 <input id="color_code" autocomplete="on" type="text" name="color_code">
+<span id="error_color_code"></span><br><br>
 
-<button type="button" onclick="createColor()">Создать</button>
+<button type="button" onclick="createColor()">Создать</button><br>
+
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -24,6 +30,6 @@
 <!-- <script type="text/javascript" th:src="@{/webjars/engines-work.js/}"></script>-->
 <!-- <script type="text/javascript" th:src="@{/webjars/models-work.js/}"></script>-->
 <!-- <script type="text/javascript" th:src="@{/webjars/carcass-work.js/}"></script>-->
-<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>
+<!--<script type="text/javascript" th:src="@{/webjars/cw.js/}"></script>-->
 </body>
 </html>

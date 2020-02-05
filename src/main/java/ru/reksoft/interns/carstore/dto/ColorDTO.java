@@ -32,7 +32,8 @@ public class ColorDTO {
     /**
      * цветовой код HEX
      */
-   @NotNull(message = "поле цветовой код не должно быть пустым")
+//    @Pattern(regexp = "#([0-9a-f]{3}|[0-9a-f]{6}|[0-9a-f]{8})"
+//            ,message = "код цвета должен быть в формате HEX")
     private String colorCode;
 
     /**

@@ -26,8 +26,8 @@ public class OrdersController {
 //    }
 
     @GetMapping("/mine")
-    public OrdersDto getOrder() {
-        return ordersService.getOrder();
+    public List<OrdersDto> getListOrders() {
+        return ordersService.getListOrders();
     }
 
 
@@ -73,8 +73,4 @@ public class OrdersController {
         return ordersService.toPaid();
     }
 
-    @PutMapping(value = "/delivered")
-    public OrdersDto  toDelivered()  {
-        return ordersService.toDelivered();
-    }
 }

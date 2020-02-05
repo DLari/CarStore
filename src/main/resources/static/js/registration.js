@@ -24,8 +24,25 @@ function createUser(){
         success: function() {
             window.location.replace("http://localhost:8080/index");
         },
-        error: function() {
-            alert("Failed");
+        error: function(jqXHR,textStatus,errorThrown,data) {
+            for (let i =0; i<jqXHR.responseJSON.fieldErrors.length; i++) {
+
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'login') {
+                    document.getElementById("error_login").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'password') {
+                    document.getElementById("error_password").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'fio') {
+                    document.getElementById("error_fio").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'address') {
+                    document.getElementById("error_adress").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'phoneNumber') {
+                    document.getElementById("error_phone_number").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+            }
         }
     });
 }

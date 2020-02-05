@@ -131,19 +131,21 @@ const toDelivered = (e)=>{
 // };
 
 
-function renderHTML(item) {
+function renderHTML(items) {
     document.getElementById('orderEmpty').style.display = 'none';
     document.getElementById('orderNotEmpty').style.display = 'block';
     let html = '';
-    html += createHTMLByElem(item);
+    for(let item of items) {
+        html += createHTMLByElem(item);
+    }
     let tbody = document.getElementById('table-body');
     tbody.insertAdjacentHTML('afterbegin',html);
 }
 
 function createHTMLByElem(item) {
     return `<tr id="${item.id}">   
-                <td>${item.users.fio}</td>
-                <td>${item.users.address}</td>
+               <td>${item.users.fio}</td>
+               <td>${item.users.address}</td>
                 <td>${item.dictOrderStatus.name}</td>
                 <td>${item.autoInStock.model.name}</td>          
                 <td>${item.autoInStock.model.dictCarcass.name}</td>              

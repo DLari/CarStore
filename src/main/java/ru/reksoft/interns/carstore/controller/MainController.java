@@ -142,6 +142,24 @@ public class MainController {
         return "basket";
     }
 
+    @RequestMapping(value = {"/accessError" }, method = RequestMethod.GET)
+    public String accessError(Model model) {
+        model.addAttribute("message", message);
+        return "accessError";
+    }
+
+    @RequestMapping(value = {"/orders" }, method = RequestMethod.GET)
+    public String orders(Model model) {
+        model.addAttribute("message", message);
+        return "orders";
+    }
+
+    @RequestMapping(value = {"/basketStory" }, method = RequestMethod.GET)
+    public String basketStory(Model model) {
+        model.addAttribute("message", message);
+        return "basketStory";
+    }
+
 //    @RequestMapping(value = {"/image" }, method = RequestMethod.GET)
 //    public String image(Model model) {
 //        model.addAttribute("message", message);

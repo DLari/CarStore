@@ -22,8 +22,22 @@ const editModel =() =>{
         success: function() {
             window.location.replace("http://localhost:8080/modelsHtml");
         },
-        error: function() {
-            alert("Failed");
+        error: function(jqXHR,textStatus,errorThrown,data) {
+            for (let i =0; i<jqXHR.responseJSON.fieldErrors.length; i++) {
+
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'name') {
+                    document.getElementById("error_name").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'price') {
+                    document.getElementById("error_price").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'widthCarcass') {
+                    document.getElementById("error_width").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'lenghtCarcass') {
+                    document.getElementById("error_length").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+            }
         }
     });
 };

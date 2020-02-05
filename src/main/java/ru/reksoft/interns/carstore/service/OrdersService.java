@@ -2,6 +2,7 @@ package ru.reksoft.interns.carstore.service;
 
 import liquibase.pro.packaged.D;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import ru.reksoft.interns.carstore.dao.AutoInStockRepository;
@@ -59,17 +60,32 @@ public class OrdersService {
 //        return ordersMapper.toDto(ordersRepository.getById(id));
 //    }
 
-public OrdersDto getOrder() {
+public List<OrdersDto> getListOrders() {
 
     UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
     Integer idUser = usersDto.getId();
-    return ordersMapper.toDto(ordersRepository.getByUsersId(idUser));
+    return ordersRepository.getAllByUsersId(idUser).stream().map(ordersMapper::toDto).collect(Collectors.toList());
 }
 
+    public OrdersDto getOrder() {
 
+        UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
+        Integer idUser = usersDto.getId();
+        return ordersMapper.toDto(ordersRepository.getByUsersId(idUser));
+    }
+    public OrdersDto getOrderNew(Integer id) {
 
-    public List<OrdersDto> findUsers() {
+        UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(usersRepository.getById(id).getLogin()));
+        Integer idUser = usersDto.getId();
+        return ordersMapper.toDto(ordersRepository.getByUsersId(idUser));
+    }
+
+    public List<OrdersDto> findOrders() {
         return ordersRepository.findAll().stream().map(ordersMapper::toDto).collect(Collectors.toList());
+    }
+
+    public List<OrdersDto> findOrders2() {
+        return ordersRepository.findAll(Sort.by("date")).stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 
     public OrdersDto create(OrdersDto newOrder) {
@@ -120,8 +136,8 @@ public OrdersDto getOrder() {
         return ordersDto;
     }
 
-    public OrdersDto toDelivered() {
-        OrdersDto ordersDto = getOrder();
+    public OrdersDto toDelivered(Integer id) {
+        OrdersDto ordersDto = getOrderNew(id);
         ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(4)));
         ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
         return ordersDto;

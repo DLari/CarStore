@@ -5,6 +5,7 @@
 // };
 $(document).ready(() => {
     getCars();
+    getUserFio();
 });
 
 const getCars = () => {
@@ -100,3 +101,23 @@ function createHTMLByElem(CarsItems) {
                 </td>
           </tr>`
 }
+const getUserFio = () => {
+    const oDataSelect = `/users/mine`;
+    $.ajax({
+        url:oDataSelect,
+        type:"GET",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json",
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        success: (data) => {
+            if (data.rule !== 'admin') {
+                window.location.replace("http://localhost:8080/accessError");
+            }
+            const elements = $('#fioItems').children();
+            elements[0].innerHTML = data.fio;
+        }, error:function (jqXHR,textStatus,errorThrown) {
+        }
+    });
+};

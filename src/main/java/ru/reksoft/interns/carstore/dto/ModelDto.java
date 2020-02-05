@@ -27,19 +27,19 @@ public class ModelDto {
     /**
      * цена модели
      */
-    @DecimalMin(value = "10.0", inclusive = true)
+    @DecimalMin(value = "10.0", inclusive = true,message = "цена должна быть не мееньше 10")
     private BigDecimal price;
 
     /**
      * ширина модели
      */
-    @NotNull(message = " поле ширина модели не должно быть пустым")
+    @NotBlank(message = " поле ширина модели не должно быть пустым")
     private String widthCarcass;
 
     /**
      * длина модели
      */
-    @NotNull(message = " поле длина модели не должно быть пустым")
+    @NotBlank(message = " поле длина модели не должно быть пустым")
     private String lenghtCarcass;
 
     /**

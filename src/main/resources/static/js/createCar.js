@@ -2,6 +2,7 @@ $(document).ready(() => {
     getModels();
     getEngines();
     getColors();
+    getUserFio();
 });
 
 const headers = {
@@ -30,8 +31,13 @@ function createCar(){
         success: function() {
             window.location.replace("http://localhost:8080/carsHtml");
         },
-        error: function() {
-            alert("Failed");
+        error: function(jqXHR,textStatus,errorThrown) {
+            for (let i =0; i<jqXHR.responseJSON.fieldErrors.length; i++) {
+
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'presence') {
+                    document.getElementById("error_presence").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+            }
         }
     });
 }
@@ -116,4 +122,24 @@ const renderFiltersColors = (data) => {
 
 const createSelectForModels = (item)=> {
     return `<option value="${item.id}">${item.name}</option>`
+};
+const getUserFio = () => {
+    const oDataSelect = `/users/mine`;
+    $.ajax({
+        url:oDataSelect,
+        type:"GET",
+        headers: {
+            "Content-Type":"application/json",
+            "Accept":"application/json",
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+        success: (data) => {
+            if (data.rule !== 'admin') {
+                window.location.replace("http://localhost:8080/accessError");
+            }
+            const elements = $('#fioItems').children();
+            elements[0].innerHTML = data.fio;
+        }, error:function (jqXHR,textStatus,errorThrown) {
+        }
+    });
 };

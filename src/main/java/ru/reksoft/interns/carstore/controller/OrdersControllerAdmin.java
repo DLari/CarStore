@@ -2,9 +2,7 @@ package ru.reksoft.interns.carstore.controller;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.reksoft.interns.carstore.dto.OrdersDto;
 import ru.reksoft.interns.carstore.service.OrdersService;
 
@@ -21,6 +19,16 @@ public class OrdersControllerAdmin {
     @GetMapping("")
     public List<OrdersDto> read(){
 
-        return ordersService.findUsers();
+        return ordersService.findOrders2();
     }
+    @PutMapping(value = "/delivered/{id}")
+    public OrdersDto toDelivered  (@PathVariable Integer id)  {
+        return ordersService.toDelivered(id);
+    }
+
+//    @RequestMapping(value = "/delivered}",method = RequestMethod.GET)
+//    public void getDeliveredOrders() {
+//        ordersService.getDeliveredOrders();
+//    }
+
 }

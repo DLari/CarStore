@@ -13,17 +13,26 @@
     <option value="">-</option>
 </select>
 
+<br>
 <label><b>Название модели</b></label>
 <input id="name" autocomplete="on" type="text" name="name">
+<span id="error_name"></span>
+<br>
 
 <label><b>Цена</b></label>
 <input id="price" autocomplete="on" type="text" name="price">
+<span id="error_price"></span>
+<br>
 
 <label><b>Ширина</b></label>
 <input id="width" autocomplete="on" type="text" name="width">
+<span id="error_width"></span>
+<br>
 
 <label><b>Длина</b></label>
 <input id="length" autocomplete="on" type="text" name="length">
+<span id="error_length"></span>
+<br>
 
 <button type="button" onclick="createModel()">Создать</button>
 

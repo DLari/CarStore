@@ -20,8 +20,14 @@ const editCar =() =>{
         success: function() {
             window.location.replace("http://localhost:8080/carsHtml");
         },
-        error: function() {
-            alert("Failed");
+        error: function(jqXHR,textStatus,errorThrown) {
+            for (let i =0; i<jqXHR.responseJSON.fieldErrors.length; i++) {
+
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'presence') {
+                    document.getElementById("error_presence").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+            }
         }
     });
 };
+

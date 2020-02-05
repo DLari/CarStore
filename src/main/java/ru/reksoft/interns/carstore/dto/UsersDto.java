@@ -43,13 +43,13 @@ public class UsersDto {
     /**
      * номер телефона
      */
-    @NotNull(message = "поле  номер телефона не должно быть пустым")
+    @NotBlank(message = "поле  номер телефона не должно быть пустым")
     private String phoneNumber;
 
     /**
      * адресс
      */
-    @NotNull(message = "поле адресс не должно быть пустым")
+    @NotBlank(message = "поле адресс не должно быть пустым")
     private String address;
 
     /**

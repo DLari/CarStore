@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <th> Id</th>
+    <th> Цвет авто</th>
+    <th> Двигатель</th>
+    <th> Мощность</th>
+    <th> Расход топлива</th>
+    <th> Модель</th>
+    <th> Ширина </th>
+    <th> Длина</th>
+    <th> Кузов</th>
+    <th> Статус заказа</th>
+    <th> ФИО заказчика</th>
+    <th> Номер заказчика</th>
+    <th> Адресс доставки</th>
+    <th> Дата заказа</th>
+    <th> Номер заказа</th>
+    <th> Доступное количество данных авто</th>
+    <th> Цена</th>
+    </thead>
+    <tbody id="table-body"></tbody>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/orders.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/requestHeader.js/}"></script>
+</body>
+</html>

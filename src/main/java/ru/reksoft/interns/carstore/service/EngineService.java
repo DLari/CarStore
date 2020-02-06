@@ -33,14 +33,16 @@ public class EngineService {
         return engineRepository.findAll(SearchSpecifications.findAllNotRemovedEngine()).stream().map(engineMapper::toDto).collect(Collectors.toList());
     }
 
+
     public EnginesPageDto findEngineForFilter() {
         List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
         return new EnginesPageDto(){{
-            Engines = engines;
+            engines = engines;
         }};
     }
 
     public EngineDto create(EngineDto newEngine) {
+
        Engine engine= engineRepository.saveAndFlush(engineMapper.toEntity(newEngine));
        EngineDto engineDto=engineMapper.toDto(engine);
         return engineDto;

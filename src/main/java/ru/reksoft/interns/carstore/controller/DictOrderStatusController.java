@@ -26,7 +26,6 @@ public class DictOrderStatusController {
         return dictOrderStatusService.getDictOrderStatus(id);
     }
 
-
     @GetMapping("")
     public List<DictOrderStatusDto> read(){
         return dictOrderStatusService.findDictOrderStatusAll();

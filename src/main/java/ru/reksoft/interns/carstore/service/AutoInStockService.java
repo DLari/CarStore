@@ -62,22 +62,23 @@ public class AutoInStockService {
         return autoInStockMapper.toDto(autoInStockRepository.getById(id));
     }
 
-    public CarsPageDTO findAuto() {
-        List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
-        List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
-        List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
-        List<SelectItemDto> carcass = dictCarcassService.findDictCarcassAll().stream().map(dictCarcassMapper::toSelectItemDto).collect(Collectors.toList());
-        List<AutoInStockDto>  cars = autoInStockRepository.findAll().stream().map(autoInStockMapper::toDto).collect(Collectors.toList());
-        return new CarsPageDTO(){{
-            Engines = engines;
-            Models = models;
-            Autos = cars;
-            Colors = colors;
-            Carcass = carcass;
-        }};
-    }
+//    public CarsPageDTO findAuto() {
+//        List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
+//        List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
+//        List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
+//        List<SelectItemDto> carcass = dictCarcassService.findDictCarcassAll().stream().map(dictCarcassMapper::toSelectItemDto).collect(Collectors.toList());
+//        List<AutoInStockDto>  cars = autoInStockRepository.findAll().stream().map(autoInStockMapper::toDto).collect(Collectors.toList());
+//        return new CarsPageDTO(){{
+//            engines = engines;
+//            models = models;
+//            cars = cars;
+//            colors = colors;
+//            carcass = carcass;
+//        }};
+//    }
 
     public CarsFiltersDto getFilters() {
+
         List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
         List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
         List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
@@ -113,10 +114,6 @@ public class AutoInStockService {
 
 
     public AutoInStockDto create(AutoInStockDto newAuto) {
-//        BigDecimal priceColor = colorRepository.getById(newAuto.getColor().getId()).getPrice();
-//        BigDecimal priceEngine = engineRepository.getById(newAuto.getEngine().getId()).getPrice();
-//        BigDecimal priceModel = modelRepository.getById(newAuto.getModel().getId()).getPrice();
-//        newAuto.setPrice(priceColor.add(priceEngine).add(priceModel));
        AutoInStock autoInStockReturn = autoInStockRepository.saveAndFlush(autoInStockMapper.toEntity(newAuto));
        AutoInStockDto autoInStockDto = autoInStockMapper.toDto(autoInStockReturn);
         return autoInStockDto;

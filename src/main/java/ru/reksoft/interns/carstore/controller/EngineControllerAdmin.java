@@ -22,6 +22,7 @@ public class EngineControllerAdmin {
 
     @PostMapping("")
     public EngineDto create(@RequestBody @Valid EngineDto newEngine, BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);
@@ -30,9 +31,11 @@ public class EngineControllerAdmin {
             return engineService.create(newEngine);
         }
     }
+
     @PutMapping(value = "//{id}")
     public EngineDto update(@PathVariable Integer id, @RequestBody @Valid EngineDto engineDto,
                           BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);

@@ -28,6 +28,7 @@ public class ModelDto {
      * цена модели
      */
     @DecimalMin(value = "10.0", inclusive = true,message = "цена должна быть не мееньше 10")
+    @NotNull
     private BigDecimal price;
 
     /**
@@ -50,6 +51,7 @@ public class ModelDto {
     /**
      * ссылка на соответствующий кузов
      */
+    @NotNull(message = " поле каркас не должно быть пустым")
     private DictCarcassDto dictCarcass;
 
     public Integer getId() {

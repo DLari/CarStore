@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Оплата </title>
+</head>
+<body>
+
+<label><b>Номер карты</b></label>
+<input id="cart_number" type="text" name="cart_number">
+<br><br>
+
+<label><b>Срок действия</b></label>
+<input id="validity" type="text" name="validity" >
+<br><br>
+
+<label><b>Владелец</b></label>
+<input id="owner" type="text" name="owner">
+<br><br>
+
+<label><b>Номер CVK</b></label>
+<input id="number_ckv"  type="text" name="number_ckv" >
+<br><br>
+<button type="button" onclick="mineId()">Олатить</button>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/payment.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/requestHeader.js/}"></script>
+</body>
+</html>

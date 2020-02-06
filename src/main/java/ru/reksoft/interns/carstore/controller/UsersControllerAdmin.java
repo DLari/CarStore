@@ -1,6 +1,5 @@
 package ru.reksoft.interns.carstore.controller;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin/users")
 public class UsersControllerAdmin {
-    @Autowired
-    private ModelMapper modelMapper;
 
     @Autowired
     private UsersService usersService;
@@ -27,6 +24,7 @@ public class UsersControllerAdmin {
 
     @PostMapping("")
     public UsersDto create(@RequestBody @Valid UsersDto newUser , BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);

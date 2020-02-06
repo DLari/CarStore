@@ -1,6 +1,5 @@
 package ru.reksoft.interns.carstore.controller;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +12,13 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("admin/colors")
 public class ColorControllerAdmin {
-    @Autowired
-    private ModelMapper modelMapper;
 
     @Autowired
     private ColorService colorService;
 
     @PostMapping("")
     public ColorDTO create(@RequestBody @Valid ColorDTO newColor, BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);
@@ -33,6 +31,7 @@ public class ColorControllerAdmin {
     @PutMapping(value = "/{id}")
     public ColorDTO update(@PathVariable Integer id, @RequestBody @Valid ColorDTO colorDto,
                           BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);

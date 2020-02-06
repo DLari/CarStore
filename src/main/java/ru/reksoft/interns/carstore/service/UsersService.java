@@ -32,29 +32,31 @@ public class UsersService {
     public List<UsersDto> findUsersAll() {
         return usersRepository.findAll().stream().map(usersMapper::toDto).collect(Collectors.toList());
     }
+
     public UsersDto createUser(UsersDto newUser) {
+
         Integer id=newUser.getId();
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-        newUser.setRule("user");
+        newUser.setRole("user");
         Users users= usersRepository.saveAndFlush(usersMapper.toEntity(newUser));
         UsersDto usersDto=usersMapper.toDto(users);
         return usersDto;
     }
 
     public UsersDto createAdmin(UsersDto newUser) {
+
         Integer id=newUser.getId();
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-        newUser.setRule("admin");
+        newUser.setRole("admin");
         Users users= usersRepository.saveAndFlush(usersMapper.toEntity(newUser));
         UsersDto usersDto=usersMapper.toDto(users);
         return usersDto;
     }
 
-
     public UsersDto update(Integer id, UsersDto usersDto) {
 
         Users users= usersRepository.getById(id);
-        usersDto.setRule("user");
+        usersDto.setRole("user");
         usersMapper.updateUser(usersDto,users);
         return usersDto;
     }

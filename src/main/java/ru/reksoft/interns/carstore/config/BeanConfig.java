@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Configuration
-public class BeenConfig
+public class BeanConfig
 
         {
 

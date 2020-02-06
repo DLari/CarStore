@@ -31,7 +31,7 @@ public class UsersMapper {
         users.setLogin(usersDto.getLogin());
         users.setDateOfBirth(usersDto.getDateOfBirth());
         users.setPassword(usersDto.getPassword());
-        users.setRule(usersDto.getRule());
+        users.setRole(usersDto.getRule());
         usersRepository.saveAndFlush(users);
         return users;
     }

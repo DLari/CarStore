@@ -25,8 +25,8 @@ public class ColorDTO {
     /**
      * цена за цвет
      */
-    @NotNull(message = " поле цена не должно быть пустым")
     @DecimalMin(value = "10.0", inclusive = true,message = "цена должна быть не меньше 10")
+    @NotNull(message = " поле цена не должно быть пустым")
     private BigDecimal price;
 
     /**

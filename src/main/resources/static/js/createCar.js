@@ -12,16 +12,22 @@ const headers = {
 };
 function createCar(){
     const presence = document.getElementById('presence').value;
-
     const model = document.getElementById('filter-models').value;
     const color = document.getElementById('filter-colors').value;
     const engine = document.getElementById('filter-engines').value;
-    const data = JSON.stringify({
-        presence: presence,
-        model: {id:model} ,
-        color: {id:color} ,
-        engine: {id:engine}
-    });
+    let data;
+    if (model ==='' || color === '' || engine === '') {
+        data = JSON.stringify({
+            presence: presence,
+        });
+    } else {
+        data = JSON.stringify({
+            presence: presence,
+            model: {id: model},
+            color: {id: color},
+            engine: {id: engine}
+        });
+    }
     const oDataSelect = `/admin/cars`;
     $.ajax({
         url:oDataSelect,
@@ -36,6 +42,15 @@ function createCar(){
 
                 if (jqXHR.responseJSON.fieldErrors[i].field === 'presence') {
                     document.getElementById("error_presence").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'color') {
+                    document.getElementById("error_color").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'engine') {
+                    document.getElementById("error_engine").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'model') {
+                    document.getElementById("error_model").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
                 }
             }
         }
@@ -134,7 +149,7 @@ const getUserFio = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         success: (data) => {
-            if (data.rule !== 'admin') {
+            if (data.role !== 'admin') {
                 window.location.replace("http://localhost:8080/accessError");
             }
             const elements = $('#fioItems').children();

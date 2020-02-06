@@ -56,7 +56,7 @@ public class UsersDto {
      * роль
      */
     @Null
-    private String rule;
+    private String role;
 
     public Integer getId() {
         return id;
@@ -98,12 +98,12 @@ public class UsersDto {
         this.password = password;
     }
 
-    public String getRule() {
-        return rule;
+    public String getRole() {
+        return role;
     }
 
-    public void setRule(String rule) {
-        this.rule = rule;
+    public void setRole(String rule) {
+        this.role = rule;
     }
 
     public String getPhoneNumber() {

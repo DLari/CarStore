@@ -1,10 +1,11 @@
+let orders = [];
+
 $(document).ready(() => {
     getOrder();
 });
 
-
 const getOrder = () => {
-    const oDataSelect = `/orders/mine`;
+    const oDataSelect = `/orders/mineBasket`;
     $.ajax({
         url:oDataSelect,
         type:"GET",
@@ -12,6 +13,11 @@ const getOrder = () => {
         success: (data) => {
             if (data!== '') {
                 renderHTML(data);
+                orders = data;
+                let totalPrice = 0;
+                for (let i=0; i<data.length; i++)
+                    totalPrice = totalPrice + data[i].price;
+                document.getElementById("order_price").innerHTML = totalPrice;
             }
             // else {
             //     document.getElementById('orderEmpty').style.display = 'block';
@@ -25,12 +31,15 @@ const openEditColorModal = () => {
 
 };
 
-const deleteOrder = (e)=>{
-    //const id = e.currentTarget.parentElement.parentElement.id;
-    const oDataSelect = `/orders/canceled`;
+const DeleteFromBasket = (e)=>{
+    const orderId = +e.currentTarget.parentElement.parentElement.id;
+    let order = orders.find(item=>item.id===orderId);
+    const userId = order.users.id;
+    const autoId = order.autoInStock.id;
+    const oDataSelect = `/orders/${userId}/${autoId}`;
     $.ajax({
         url:oDataSelect,
-        type:"PUT",
+        type:"DELETE",
         headers: headers,
         success: function() {
             window.location.replace("http://localhost:8080/basket");
@@ -142,6 +151,11 @@ function renderHTML(items) {
     tbody.insertAdjacentHTML('afterbegin',html);
 }
 
+// <button type="button" onclick="get(event)">Edit</button>
+//     <button type="button" onclick="deleteOrder(event)">Отменить заказ</button>
+// <button type="button" onclick="toConfirmed(event)">Зазаз подтвержден</button>
+// <button type="button" onclick="toPaid(event)">Зазаз оплачен</button>
+// <button type="button" onclick="toDelivered(event)">Зазаз доставлен</button>
 function createHTMLByElem(item) {
     return `<tr id="${item.id}">   
                <td>${item.users.fio}</td>
@@ -158,11 +172,7 @@ function createHTMLByElem(item) {
                 <td>${item.orderNumber}</td>
                 <td>${item.price}</td>
                 <td>
-                     <button type="button" onclick="get(event)">Edit</button>
-                     <button type="button" onclick="deleteOrder(event)">Отменить заказ</button>
-                     <button type="button" onclick="toConfirmed(event)">Зазаз подтвержден</button>
-                     <button type="button" onclick="toPaid(event)">Зазаз оплачен</button>
-                     <button type="button" onclick="toDelivered(event)">Зазаз доставлен</button>
+                     <button type="button" onclick="DeleteFromBasket(event)">Удалить из корзины</button>
                 </td>
           </tr>`
 }

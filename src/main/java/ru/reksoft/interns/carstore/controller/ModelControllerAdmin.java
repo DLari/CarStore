@@ -22,6 +22,7 @@ public class ModelControllerAdmin {
     private ModelService modelService;
     @PostMapping("")
     public ModelDto create(@RequestBody @Valid ModelDto newModel, BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);
@@ -34,6 +35,7 @@ public class ModelControllerAdmin {
     @PutMapping(value = "/{id}")
     public ModelDto update(@PathVariable Integer id, @RequestBody @Valid ModelDto modelDto,
                           BindingResult bindingResult) throws NotValidException {
+
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
             throw new NotValidException(bindingResult);

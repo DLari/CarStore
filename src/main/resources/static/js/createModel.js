@@ -14,13 +14,23 @@ function createModel(){
     const price = document.getElementById('price').value;
     const widthCarcass = document.getElementById('width').value;
     const lenghtCarcass = document.getElementById('length').value;
-    const data = JSON.stringify({
-        name: name,
-        price: price,
-        dictCarcass: {id:carcass} ,
-        widthCarcass: widthCarcass,
-        lenghtCarcass:lenghtCarcass
-    });
+    let data;
+    if (carcass === '') {
+        data = JSON.stringify({
+            name: name,
+            price: price,
+            widthCarcass: widthCarcass,
+            lenghtCarcass:lenghtCarcass
+        });
+    } else {
+        data = JSON.stringify({
+            name: name,
+            price: price,
+            dictCarcass: {id: carcass},
+            widthCarcass: widthCarcass,
+            lenghtCarcass: lenghtCarcass
+        });
+    }
     const oDataSelect = `/admin/models`;
     $.ajax({
         url:oDataSelect,
@@ -35,6 +45,9 @@ function createModel(){
 
                 if (jqXHR.responseJSON.fieldErrors[i].field === 'name') {
                     document.getElementById("error_name").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'dictCarcass') {
+                    document.getElementById("error_carcass").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
                 }
                 if (jqXHR.responseJSON.fieldErrors[i].field === 'price') {
                     document.getElementById("error_price").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
@@ -89,7 +102,7 @@ const getUserFio = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         success: (data) => {
-            if (data.rule !== 'admin') {
+            if (data.role !== 'admin') {
                 window.location.replace("http://localhost:8080/accessError");
             }
             const elements = $('#fioItems').children();

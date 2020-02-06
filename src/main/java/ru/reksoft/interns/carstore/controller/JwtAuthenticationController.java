@@ -1,6 +1,6 @@
 package ru.reksoft.interns.carstore.controller;
 
-import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import ru.reksoft.interns.carstore.dao.UsersRepository;
-import ru.reksoft.interns.carstore.dto.UsersDto;
 import ru.reksoft.interns.carstore.jwt.JwtUserDetailsService;
 import ru.reksoft.interns.carstore.jwt.JwtTokenUtil;
 import ru.reksoft.interns.carstore.jwt.JwtRequest;
@@ -45,14 +43,8 @@ public class JwtAuthenticationController {
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
         final String token = jwtTokenUtil.generateToken(userDetails);
-      //  UsersDto usersDto = usersService.getUsers();
-      //  String r = usersDto.getRule();
-     //   final String role = usersService.getUsers().getRule();
-        return ResponseEntity.ok(new JwtResponse(token
-       //         ,role
-        ));
+        return ResponseEntity.ok(new JwtResponse(token));
     }
-
 
     private void authenticate(String username, String password) throws Exception {
 

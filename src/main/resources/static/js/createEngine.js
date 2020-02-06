@@ -11,17 +11,26 @@ const headers = {
 function createEngine(){
     const name = document.getElementById('name').value;
     const price = document.getElementById('price').value;
-    //const model = document.getElementById('model_id').value;
     const model = document.getElementById('filter-models').value;
     const fuelConsumption = document.getElementById('fuel_consumption').value;
     const power = document.getElementById('power').value;
-    const data = JSON.stringify({
-        name: name,
-        price: price,
-        model: {id:model} ,
-        fuelConsumption: fuelConsumption,
-        power:power
-    });
+    let data;
+    if (model === '') {
+         data = JSON.stringify({
+            name: name,
+            price: price,
+            fuelConsumption: fuelConsumption,
+            power:power
+        });
+    } else {
+         data = JSON.stringify({
+            name: name,
+            price: price,
+            model: {id: model},
+            fuelConsumption: fuelConsumption,
+            power: power
+        });
+    }
     const oDataSelect = `/admin/engines`;
     $.ajax({
         url:oDataSelect,
@@ -45,6 +54,9 @@ function createEngine(){
                 }
                 if (jqXHR.responseJSON.fieldErrors[i].field === 'power') {
                     document.getElementById("error_power").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
+                }
+                if (jqXHR.responseJSON.fieldErrors[i].field === 'model') {
+                    document.getElementById("error_model").innerHTML = jqXHR.responseJSON.fieldErrors[i].error;
                 }
             }
         }

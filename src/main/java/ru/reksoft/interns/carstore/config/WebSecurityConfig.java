@@ -69,7 +69,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                         "/engines/{id}","/models","/models/{id}",
                         "/adminIndex",
                         "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor","/createEngine","/carsHtml","/createModel",
-                        "/registrationAdmin","/createCar","/personalArea","/basket","/accessError","/orders","/basketStory"
+                        "/registrationAdmin","/createCar","/personalArea","/basket","/accessError","/orders","/basketStory","/payment"
                 ).permitAll()
                 .antMatchers("/users/mine").authenticated()
                 .antMatchers(

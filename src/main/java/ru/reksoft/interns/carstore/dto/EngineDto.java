@@ -27,8 +27,8 @@ public class EngineDto {
     /**
      * цена за двигатель
      */
-    @NotNull(message = " поле цена не должно быть пустым")
     @DecimalMin(value = "10.0", inclusive = true,message = "цена должна быть не мееньше 10")
+    @NotNull(message = " поле цена не должно быть пустым")
     private BigDecimal price;
 
     /**

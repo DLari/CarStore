@@ -53,7 +53,7 @@ const editStatus = (e) => {
     let order = orders.find(item=>item.id===orderId);
     const userId = order.users.id;
     const autoId = order.autoInStock.id;
-    const oDataSelect = `admin/orders/delivered/${userId}`;
+    const oDataSelect = `admin/orders/delivered/${userId}/${orderId}`;
     $.ajax({
         url:oDataSelect,
         type:"PUT",

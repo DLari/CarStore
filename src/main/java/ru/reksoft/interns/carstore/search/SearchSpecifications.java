@@ -96,4 +96,31 @@ public class SearchSpecifications {
             }
         };
     }
+
+    public static Specification<Orders> findAllDeliveredOrders() {
+        return new Specification<Orders>() {
+
+            public Predicate toPredicate(Root<Orders> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.equal(root.get(Orders_.dictOrderStatus).get(DictOrderStatus_.id),4);
+            }
+        };
+    }
+
+    public static Specification<Orders> findAllNotDeliveredOrders() {
+        return new Specification<Orders>() {
+
+            public Predicate toPredicate(Root<Orders> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.lessThanOrEqualTo(root.get(Orders_.dictOrderStatus).get(DictOrderStatus_.id),3);
+            }
+        };
+    }
+
+    public static Specification<Orders> findOrdersById(Integer id) {
+        return new Specification<Orders>() {
+
+            public Predicate toPredicate(Root<Orders> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.equal(root.get(Orders_.users).get(Users_.id),id);
+            }
+        };
+    }
 }

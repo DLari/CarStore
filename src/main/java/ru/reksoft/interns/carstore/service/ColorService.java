@@ -31,7 +31,6 @@ public class ColorService {
     }
 
     public List<ColorDTO> findColorAll() {
-
         return colorRepository.findAll(
                 SearchSpecifications.findAllNotRemovedColor()
         ).stream().map(colorMapper::toDto).collect(Collectors.toList());

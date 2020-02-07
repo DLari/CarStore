@@ -113,7 +113,7 @@ const getUserFio = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         success: (data) => {
-            if (data.rule !== 'admin') {
+            if (data.role !== 'admin') {
                 window.location.replace("http://localhost:8080/accessError");
             }
             const elements = $('#fioItems').children();

@@ -26,7 +26,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 
 	    Users users = usersRepository.getByLogin(username);
 	    if (users!=null) {
-	        return new User(users.getLogin(),users.getPassword(), Arrays.asList(new SimpleGrantedAuthority(users.getRule())));
+	        return new User(users.getLogin(),users.getPassword(), Arrays.asList(new SimpleGrantedAuthority(users.getRole())));
         }
 	    else {
 	        throw new UsernameNotFoundException("User not found with username: " + username);

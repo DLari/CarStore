@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>createCar</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -12,7 +18,7 @@
 <select id="filter-colors">
     <option value="">-</option>
 </select>
-<span id="error_color"></span><br>
+<span id="error_color" ></span><br>
 <br>
 
 
@@ -20,19 +26,19 @@
 <select id="filter-engines">
     <option value="">-</option>
 </select>
-<span id="error_engine"></span><br>
+<span id="error_engine" ></span><br>
 <br>
 
 Модель
 <select id="filter-models">
     <option value="">-</option>
 </select>
-<span id="error_model"></span><br>
+<span id="error_model" ></span><br>
 <br>
 
 <label><b>Количество</b></label>
 <input id="presence" autocomplete="on" type="text" name="presence">
-<span id="error_presence"></span>
+<span id="error_presence" ></span>
 <br>
 
 <button type="button" onclick="createCar()">Создать</button>

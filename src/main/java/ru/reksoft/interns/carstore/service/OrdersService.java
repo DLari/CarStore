@@ -107,6 +107,20 @@ public List<OrdersDto> getListOrders() {
         return ordersRepository.findAll(Sort.by("date")).stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 
+    public void updateDateOfPayment(Integer id) {
+        List<OrdersDto> ordersDtoList = getOrderNew(id);
+        for (OrdersDto item: ordersDtoList) {
+            if (item.getDictOrderStatus().getId() == 3) {
+                LocalDate localDate = LocalDate.now();
+                Date date = Date.valueOf(localDate);
+                item.setDateOfPayment(date);
+                ordersRepository.saveAndFlush(ordersMapper.toEntity(item));
+//                item.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(3)));
+//                ordersRepository.saveAndFlush(ordersMapper.toEntity(item));
+            }
+        }
+    }
+
     public OrdersDto create(OrdersDto newOrder) {
 
         LocalDate localDate = LocalDate.now();

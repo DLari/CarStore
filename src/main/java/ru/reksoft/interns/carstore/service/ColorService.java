@@ -23,9 +23,6 @@ public class ColorService {
     @Autowired
     private ColorMapper colorMapper;
 
-    @Autowired
-    private ColorService colorService;
-
     public ColorDTO getById(Integer id) {
         return colorMapper.toDto(colorRepository.getById(id));
     }
@@ -37,7 +34,7 @@ public class ColorService {
     }
 
     public ColorsPageDto findColorForFilter() {
-        List<SelectItemDto> colors = colorService.findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> colors = findColorAll().stream().map(colorMapper::toSelectItemDto).collect(Collectors.toList());
         return new ColorsPageDto(){{
             Colors = colors;
         }};

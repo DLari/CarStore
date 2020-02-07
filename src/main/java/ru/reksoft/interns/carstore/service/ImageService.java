@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 @Service
-public class imageService {
+public class ImageService {
 
     public byte[] getImage() throws IOException {
 

@@ -59,10 +59,16 @@ public class Orders {
     private String orderNumber;
 
     /**
-     * дата заказа
+     * дата сборки заказа
      */
     @Column( name = "date")
     private Date date;
+
+    /**
+     * дата оплаты заказа
+     */
+    @Column( name = "date_of_payment")
+    private Date dateOfPayment;
 
     public AutoInStock getAutoInStock() {
         return autoInStock;
@@ -110,6 +116,14 @@ public class Orders {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Date getDateOfPayment() {
+        return dateOfPayment;
+    }
+
+    public void setDateOfPayment(Date dateOfPayment) {
+        this.dateOfPayment = dateOfPayment;
     }
 
     public String getOrderNumber() {

@@ -64,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/swagger-resources/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
 
-                .antMatchers("/index","/login","/cars/search/","/cars/{id}","/users","/images","/cars","/registration","cars**"
+                .antMatchers("/index","/login","/cars/search/","/cars/{id}","/users","/image","/images","/cars","/registration","cars**"
                         ,"/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
                         "/engines/{id}","/models","/models/{id}",
                         "/adminIndex",

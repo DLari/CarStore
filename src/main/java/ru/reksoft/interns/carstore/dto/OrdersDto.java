@@ -1,10 +1,6 @@
 package ru.reksoft.interns.carstore.dto;
 
-
-
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import java.math.BigDecimal;
 import java.sql.Date;
 
@@ -47,10 +43,14 @@ public class OrdersDto {
     private String orderNumber;
 
     /**
-     * дата заказа
+     * дата сборки заказа
      */
-  //  @NotNull(message = " поле дата не должно быть пустым")
     private Date date;
+
+    /**
+     * дата сборки заказа
+     */
+    private Date dateOfPayment;
 
     public AutoInStockDto getAutoInStock() {
         return autoInStock;
@@ -106,5 +106,13 @@ public class OrdersDto {
 
     public void setOrderNumber(String orderNumber) {
         this.orderNumber = orderNumber;
+    }
+
+    public Date getDateOfPayment() {
+        return dateOfPayment;
+    }
+
+    public void setDateOfPayment(Date dateOfPayment) {
+        this.dateOfPayment = dateOfPayment;
     }
 }

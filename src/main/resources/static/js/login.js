@@ -26,7 +26,7 @@ const logIn = () =>{
 };
 
 const userRedirect = (user) =>{
-    if (user.rule === 'admin')
+    if (user.role === 'admin')
         window.location.replace("http://localhost:8080/adminIndex");
     else  window.location.replace("http://localhost:8080/index");
     // switch (user.rule) {

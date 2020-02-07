@@ -74,6 +74,12 @@ public class OrdersController {
     public void  toPaid(@PathVariable Integer idUser)  {
          ordersService.toPaid(idUser);
     }
+
+    @RequestMapping(value = "/updateDateOfPayment/{idUser}",method = RequestMethod.PUT)
+    public void  updateDateOfPayment(@PathVariable Integer idUser)  {
+        ordersService.updateDateOfPayment(idUser);
+    }
+
 //    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
 //    public void delete(@PathVariable Integer id) {
 //        ordersService.toCanceled(id);

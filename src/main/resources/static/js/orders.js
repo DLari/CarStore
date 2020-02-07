@@ -27,6 +27,15 @@ function renderHTML(items) {
 }
 
 function createHTMLByElem(item) {
+    let dateOfBirthPayment = new Date (item.dateOfPayment);
+    let yearPayment = dateOfBirthPayment.getFullYear();
+    let monthPayment = dateOfBirthPayment.getMonth();
+    let dayPayment = dateOfBirthPayment.getDay();
+
+    let dateOfBirth = new Date (item.date);
+    let year = dateOfBirth.getFullYear();
+    let month = dateOfBirth.getMonth();
+    let day = dateOfBirth.getDay();
     return `<tr id="${item.id}">
                 <td>${item.id}</td>
                 <td>${item.autoInStock.color.name}</td>
@@ -41,7 +50,8 @@ function createHTMLByElem(item) {
                 <td>${item.users.fio}</td>
                 <td>${item.users.phoneNumber}</td>
                 <td>${item.users.address}</td>
-                <td>${item.date}</td>
+                <td>${day}.${month} ${year}</td>
+                <td>${dayPayment}.${monthPayment} ${yearPayment}</td>
                 <td>${item.orderNumber}</td>
                  <td>${item.autoInStock.presence}</td>
                  <td>${item.price}</td>

@@ -72,9 +72,13 @@ function renderHTML(item) {
 }
 
 function createHTMLByElem(item) {
+    let dateOfBirth = new Date (item.dateOfBirth);
+    let year = dateOfBirth.getFullYear();
+    let month = dateOfBirth.getMonth();
+    let day = dateOfBirth.getDay();
     return `<tr id="${item.id}">
                 <td>${item.fio}</td>
-                <td>${item.dateOfBirth}</td>
+                <td>${day}.${month} ${year}</td>
                 <td>${item.phoneNumber}</td>
                 <td>${item.address}</td>
                 <td>

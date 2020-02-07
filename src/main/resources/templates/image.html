@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>image</title>
 </head>
  <body>
- <img src="" alt="альтернативный текст">
+
+ <img src="/images" alt="альтернативный текст">
+ <button type="button" onclick="getImage()">Создать</button>
+
+
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+ <script type="text/javascript" th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+ <script type="text/javascript" th:src="@{/webjars/image.js/}"></script>
  </body>
 </html>

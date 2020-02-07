@@ -150,10 +150,10 @@ public class MainController {
         return "payment";
     }
 
-//    @RequestMapping(value = {"/image" }, method = RequestMethod.GET)
-//    public String image(Model model) {
-//        model.addAttribute("message", message);
-//        return "image";
-//    }
+    @RequestMapping(value = {"/image" }, method = RequestMethod.GET)
+    public String image(Model model) {
+        model.addAttribute("message", message);
+        return "image";
+    }
 
 }

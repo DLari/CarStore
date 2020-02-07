@@ -208,12 +208,23 @@ const renderHTML = (items)=> {
     tbody.insertAdjacentHTML('afterbegin',html);
 };
 
+// <button type="button" onclick="getAutoById(event)">Подробнее</button>
 const createHTMLByElem = (item) =>{
     return `<tr id="${item.id}">
                 <td>${item.model.name}</td>
-                <td>${item.price}</td>
+                  <td>${item.price}</td>
+                <td>${item.engine.name}</td>
+                <td>${item.engine.power}</td>
+                <td>${item.engine.fuelConsumption}</td>
+                <td>${item.model.name}</td>
+                <td>${item.model.lenghtCarcass}</td>
+                <td>${item.model.widthCarcass}</td>
+                <td>${item.model.dictCarcass.name}</td>
+                <td>${item.color.name}</td>
+                <td><div style="height: 120px">
+    <img src="/images"  style="height: 100%" />
+</div></td>
                 <td>
-                    <button type="button" onclick="getAutoById(event)">Подробнее</button>
                     <button type="button" onclick="createOrder(event)">Добавить в корзину</button>
                 </td>
           </tr>`

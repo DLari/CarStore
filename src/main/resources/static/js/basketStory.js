@@ -33,6 +33,10 @@ function renderHTML(items) {
 }
 
 function createHTMLByElem(item) {
+    let dateOfBirth = new Date (item.dateOfPayment);
+    let year = dateOfBirth.getFullYear();
+    let month = dateOfBirth.getMonth();
+    let day = dateOfBirth.getDay();
     return `<tr id="${item.id}">   
                <td>${item.users.fio}</td>
                <td>${item.users.address}</td>
@@ -46,6 +50,7 @@ function createHTMLByElem(item) {
                 <td>${item.autoInStock.engine.fuelConsumption}</td>
                 <td>${item.autoInStock.color.name}</td>
                 <td>${item.orderNumber}</td>
+                <td>${day}.${month} ${year}</td>
                 <td>${item.price}</td>
                 <td> 
                 </td>

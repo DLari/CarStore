@@ -15,11 +15,8 @@ public class ImageController  {
     private ImageService imageService;
 
 
-    @GetMapping(value = "")
-    public @ResponseBody byte[] getImage() throws IOException {
-
-        File image = new File("C:\\Users\\dlarin\\images\\3audiq8.jpg");
-        InputStream in = new FileInputStream (image);
-        return IOUtils.toByteArray(in);
+    @GetMapping(value = "/{name}")
+    public @ResponseBody byte[] getImage(@PathVariable String name) throws IOException {
+        return imageService.getImage(name);
     }
 }

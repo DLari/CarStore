@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                 .antMatchers("/webjars/**").permitAll()
 
                 .antMatchers("/index","/login","/cars/search/","/cars/{id}","/users","/image","/images","/cars","/registration","cars**"
-                        ,"/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
+                        ,"/colors","/colors/{id}","/carcass","/carcass/{id}","/engines","/images/**",
                         "/engines/{id}","/models","/models/{id}",
                         "/adminIndex",
                         "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor","/createEngine","/carsHtml","/createModel",

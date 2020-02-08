@@ -1,29 +1,35 @@
 package ru.reksoft.interns.carstore.service;
 
-import org.apache.logging.log4j.core.util.IOUtils;
+import java.io.File;
+import java.io.FilenameFilter;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Service;
 
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.Objects;
 
 @Service
 public class ImageService {
 
-    public byte[] getImage() throws IOException {
+    public byte[] getImage(String modelName) throws IOException {
 
-        byte[] imageInByte;
-        BufferedImage bImage = ImageIO.read(new File("C://Users//dlarin//images//3audiq8.jpg"));
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ImageIO.write(bImage, "jpg", bos );
-        bos.flush();
-        imageInByte = bos.toByteArray();
-        bos.close();
-        return imageInByte;
+        String pathDefault = "C:\\Users\\dlarin\\images\\default.jpg";
+        String pathToFile = "C:\\Users\\dlarin\\images\\";
+        String pathToModel = pathToFile + modelName + ".jpg";
+        File imageModel = new File(pathToModel);
+       boolean f = imageModel.exists();
+        InputStream in;
+       if (f)
+            in = new FileInputStream (imageModel);
+       else {
+           File imageDefault = new File(pathDefault);
+           in = new FileInputStream(imageDefault);
+       }
+        return IOUtils.toByteArray(in);
     }
 }
 

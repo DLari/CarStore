@@ -22,8 +22,7 @@ public class EngineService {
     @Autowired
     private EngineMapper engineMapper;
 
-    @Autowired
-    private EngineService engineService;
+
 
     public EngineDto getEngine(Integer id) {
         return engineMapper.toDto(engineRepository.getById(id));
@@ -35,7 +34,7 @@ public class EngineService {
 
 
     public EnginesPageDto findEngineForFilter() {
-        List<SelectItemDto> engines = engineService.findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> engines = findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
         return new EnginesPageDto(){{
             engines = engines;
         }};

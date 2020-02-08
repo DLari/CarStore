@@ -29,9 +29,6 @@ public class ModelService {
     private ModelMapperr modelMapper;
 
     @Autowired
-    private ModelService modelService;
-
-    @Autowired
     private ModelMapperr modelMapperr;
 
     public ModelDto getModel(Integer id) {
@@ -43,7 +40,7 @@ public class ModelService {
     }
 
     public ModelsPageDto findModelforFilter() {
-        List<SelectItemDto> models = modelService.findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> models = findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
         return new ModelsPageDto(){{
             models = models;
         }};

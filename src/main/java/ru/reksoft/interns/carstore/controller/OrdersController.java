@@ -30,7 +30,7 @@ public class OrdersController {
         return ordersService.getListOrders();
     }
 
-    @GetMapping("/mineDelivered")
+    @GetMapping("/mineDeliveredPaid")
     public List<OrdersDto> getListOrders2() {
         return ordersService.getListOrders2();
     }

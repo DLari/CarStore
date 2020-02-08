@@ -104,6 +104,7 @@ public class AutoInStockService {
                         .and(SearchSpecifications.findColorId(colorId))
                         .and(SearchSpecifications.findCarcassId(carcassId))
                         .and(SearchSpecifications.findEngineId(engineId))
+                .and(SearchSpecifications.findAutoInStock())
                 , pageable);
 
         List<AutoInStock> autoInStockList = autoInStockPage.getContent();

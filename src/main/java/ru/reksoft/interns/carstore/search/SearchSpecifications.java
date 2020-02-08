@@ -106,11 +106,20 @@ public class SearchSpecifications {
         };
     }
 
-    public static Specification<Orders> findAllNotDeliveredOrders() {
+    public static Specification<Orders> findAllPaidOrders() {
         return new Specification<Orders>() {
 
             public Predicate toPredicate(Root<Orders> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-                return cb.lessThanOrEqualTo(root.get(Orders_.dictOrderStatus).get(DictOrderStatus_.id),3);
+                return cb.equal(root.get(Orders_.dictOrderStatus).get(DictOrderStatus_.id),3);
+            }
+        };
+    }
+
+    public static Specification<Orders> findAllNotDeliveredNotPaidOrders() {
+        return new Specification<Orders>() {
+
+            public Predicate toPredicate(Root<Orders> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.lessThanOrEqualTo(root.get(Orders_.dictOrderStatus).get(DictOrderStatus_.id),2);
             }
         };
     }
@@ -123,4 +132,14 @@ public class SearchSpecifications {
             }
         };
     }
+
+    public static Specification<AutoInStock> findAutoInStock() {
+        return new Specification<AutoInStock>() {
+
+            public Predicate toPredicate(Root<AutoInStock> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                return cb.greaterThan(root.get(AutoInStock_.presence),0);
+            }
+        };
+    }
+
 }

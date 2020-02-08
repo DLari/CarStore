@@ -55,10 +55,12 @@ function createHTMLByElem(item) {
                 <td>${item.orderNumber}</td>
                  <td>${item.autoInStock.presence}</td>
                  <td>${item.price}</td>
-                <td><button type="button" onclick="editStatus(event)">Перевести в статус доставлено</button></td>
+                <td><button type="button" onclick="editStatus(event)" >Перевести в статус доставлено</button></td>
           </tr>`}
 
 const editStatus = (e) => {
+    // document.getElementById('${e.currentTarget.parentElement}').style.display = 'none';
+
     const orderId = +e.currentTarget.parentElement.parentElement.id;
     let order = orders.find(item=>item.id===orderId);
     const userId = order.users.id;

@@ -4,7 +4,7 @@ $(document).ready(() => {
 
 
 const getOrder = () => {
-    const oDataSelect = `/orders/mineDelivered`;
+    const oDataSelect = `/orders/mineDeliveredPaid`;
     $.ajax({
         url:oDataSelect,
         type:"GET",

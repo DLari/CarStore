@@ -74,7 +74,9 @@ public List<OrdersDto> getListOrders() {
 
         UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
         Integer idUser = usersDto.getId();
-        return ordersRepository.findAll(SearchSpecifications.findAllDeliveredOrders().and(SearchSpecifications.findOrdersById(idUser)))
+        return ordersRepository.findAll( (SearchSpecifications.findAllDeliveredOrders().or(SearchSpecifications.findAllPaidOrders()) )
+                .and(SearchSpecifications.findOrdersById(idUser))
+                )
                 .stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 
@@ -82,7 +84,7 @@ public List<OrdersDto> getListOrders() {
 
         UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
         Integer idUser = usersDto.getId();
-        return ordersRepository.findAll(SearchSpecifications.findAllNotDeliveredOrders().and(SearchSpecifications.findOrdersById(idUser)))
+        return ordersRepository.findAll(SearchSpecifications.findAllNotDeliveredNotPaidOrders().and(SearchSpecifications.findOrdersById(idUser)))
                 .stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 

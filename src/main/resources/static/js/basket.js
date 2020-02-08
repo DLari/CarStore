@@ -11,7 +11,7 @@ const getOrder = () => {
         type:"GET",
         headers: headers,
         success: (data) => {
-            if (data!== '') {
+            if (data != '') {
                 renderHTML(data);
                 orders = data;
                 let totalPrice = 0;

@@ -64,6 +64,7 @@ public class Users {
     /**
      * роль
      */
+   // @Enumerated(EnumType.STRING)
     @Column( name = "role")
      private String role;
 //    private enum role{ADMIN,USER}

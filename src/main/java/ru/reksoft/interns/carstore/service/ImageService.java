@@ -1,25 +1,21 @@
 package ru.reksoft.interns.carstore.service;
 
 import java.io.File;
-import java.io.FilenameFilter;
-
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.Objects;
+
 
 @Service
 public class ImageService {
 
-    public byte[] getImage(String modelName) throws IOException {
+    public byte[] getImage(Integer id) throws IOException {
 
         String pathDefault = "C:\\Users\\dlarin\\images\\default.jpg";
         String pathToFile = "C:\\Users\\dlarin\\images\\";
-        String pathToModel = pathToFile + modelName + ".jpg";
+        String pathToModel = pathToFile + id + ".jpg";
         File imageModel = new File(pathToModel);
        boolean f = imageModel.exists();
         InputStream in;
@@ -30,6 +26,16 @@ public class ImageService {
            in = new FileInputStream(imageDefault);
        }
         return IOUtils.toByteArray(in);
+    }
+
+    public void uploadImage (MultipartFile file) throws IOException {
+
+        String pathToFile = "C:\\Users\\dlarin\\images\\";
+        //InputStream inputStream = file.getInputStream();
+        byte[] bytes = file.getBytes();
+        try (FileOutputStream fos = new FileOutputStream(pathToFile)){
+            fos.write(bytes);
+        }
     }
 }
 

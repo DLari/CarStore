@@ -100,7 +100,7 @@ const getModels = () => {
 };
 
 const renderFiltersModel = (data) => {
-    const elemModels = data.Models;
+    const elemModels = data.models;
 
     let htmlModels ='';
     for (let el of elemModels) {
@@ -112,7 +112,7 @@ const renderFiltersModel = (data) => {
 };
 
 const renderFiltersEngine = (data) => {
-    const elemModels = data.Engines;
+    const elemModels = data.engines;
 
     let htmlModels ='';
     for (let el of elemModels) {

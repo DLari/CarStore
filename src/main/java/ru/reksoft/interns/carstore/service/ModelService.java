@@ -40,9 +40,9 @@ public class ModelService {
     }
 
     public ModelsPageDto findModelforFilter() {
-        List<SelectItemDto> models = findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> modelsList = findModelAll().stream().map(modelMapperr::toSelectItemDto).collect(Collectors.toList());
         return new ModelsPageDto(){{
-            models = models;
+            models = modelsList;
         }};
     }
 

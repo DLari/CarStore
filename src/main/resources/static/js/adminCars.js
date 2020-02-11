@@ -97,10 +97,44 @@ function createHTMLByElem(CarsItems) {
                 <td>${CarsItems.presence}</td>
                 <td>
                     <button type="button" onclick="getCarsById(event)">Edit</button>
-                    <button type="button" onclick="deleteCarById(event)">Delete</button>
+                    <button type="button" onclick="deleteCarById(event)">Delete</button>   
+                    <input type="file" class="file" name="file" type="hidden"/>
+                    <button type="button" id="but_upload"  onclick="uploadImage(event)">Загрузить изображение</button>   
                 </td>
           </tr>`
 }
+
+// <input type="button" class="button" value="Загрузить изображение" id="but_upload">
+
+const uploadImage = (event) => {
+        const modelId = event.currentTarget.parentElement.parentElement.id;
+        const inputContainer = $(`#${modelId} input[type=file]`);
+        let fd = new FormData();
+        let files = inputContainer[0].files[0];
+        fd.append('file',files);
+        fd.append('modelId', modelId);
+       // let requestHeaders = {...headers};
+       // requestHeaders['Content-Type'] = 'multipart/form-data';
+  //  requestHeaders['Accept'] = 'multipart/form-data';
+    //'multipart/form-data';
+        $.ajax({
+            url: '/admin/images/upload',
+            type: 'POST',
+            headers:   {'Authorization': `Bearer ${localStorage.getItem('token')}`},
+            //requestHeaders
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function() {
+                console.log(1);
+               // window.location.replace("http://localhost:8080/carsHtml")
+            },
+            // error: function () {
+            //        alert('file not uploaded');
+            // }
+        });
+};
+
 const getUserFio = () => {
     const oDataSelect = `/users/mine`;
     $.ajax({

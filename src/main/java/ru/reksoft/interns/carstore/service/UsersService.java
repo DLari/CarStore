@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.reksoft.interns.carstore.entity.Role;
 import ru.reksoft.interns.carstore.mapper.UsersMapper;
 import ru.reksoft.interns.carstore.dao.UsersRepository;
 import ru.reksoft.interns.carstore.dto.UsersDto;
@@ -37,7 +38,7 @@ public class UsersService {
 
         Integer id=newUser.getId();
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-        newUser.setRole("user");
+        newUser.setRole(Role.user);
         Users users= usersRepository.saveAndFlush(usersMapper.toEntity(newUser));
         UsersDto usersDto=usersMapper.toDto(users);
         return usersDto;
@@ -47,7 +48,7 @@ public class UsersService {
 
         Integer id=newUser.getId();
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
-        newUser.setRole("admin");
+        newUser.setRole(Role.admin);
         Users users= usersRepository.saveAndFlush(usersMapper.toEntity(newUser));
         UsersDto usersDto=usersMapper.toDto(users);
         return usersDto;
@@ -56,7 +57,7 @@ public class UsersService {
     public UsersDto update(Integer id, UsersDto usersDto) {
 
         Users users= usersRepository.getById(id);
-        usersDto.setRole("user");
+        usersDto.setRole(Role.user);
         usersMapper.updateUser(usersDto,users);
         return usersDto;
     }

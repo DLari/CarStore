@@ -66,7 +66,7 @@ function createHTMLByElem(item) {
                 <td>${item.color.name}</td>
                 <td>
                     <button type="button" onclick="getCarsById(event)">Edit</button>
-                    <button type="button" onclick="deleteCarsById(event)">Delete</button>
+                    <button type="button" onclick="deleteCarsById(event)">Delete</button>     
                 </td>
           </tr>`
 }

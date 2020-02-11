@@ -64,10 +64,21 @@ public class Users {
     /**
      * роль
      */
-   // @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column( name = "role")
-     private String role;
-//    private enum role{ADMIN,USER}
+    private Role role;
+
+//    public Users(String fio, Date dateOfBirth, String login, String password, String phoneNumber, String address, Role role) {
+//        this.fio = fio;
+//        this.dateOfBirth = dateOfBirth;
+//        this.login = login;
+//        this.password = password;
+//        this.phoneNumber = phoneNumber;
+//        this.address = address;
+//        this.role = role;
+//    }
+    //private enum role{ADMIN,USER};
+   //  private String role;
 
     public List<Orders> getOrders() {
         return orders;
@@ -118,11 +129,13 @@ public class Users {
     }
 
     public String getRole() {
-        return role;
+       return role.toString();
+      //  return role.name();
+        //return role;
     }
 
-    public void setRole(String rule) {
-        this.role = rule;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getPhoneNumber() {

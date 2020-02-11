@@ -57,9 +57,7 @@ function createHTMLByElem(item) {
     return `<tr id="${item.id}">
                 <td>${item.id}</td>
                 <td>${item.name}</td>
-                <td>
-                    <button type="button" onclick="getCarcassById(event)">Edit</button>
-                    <button type="button" onclick="deleteCarcassById(event)">Delete</button>
+                <td>    
                 </td>
           </tr>`
 }

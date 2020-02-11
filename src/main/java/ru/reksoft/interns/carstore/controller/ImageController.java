@@ -15,8 +15,8 @@ public class ImageController  {
     private ImageService imageService;
 
 
-    @GetMapping(value = "/{name}")
-    public @ResponseBody byte[] getImage(@PathVariable String name) throws IOException {
-        return imageService.getImage(name);
+    @GetMapping(value = "/{id}")
+    public @ResponseBody byte[] getImage(@PathVariable Integer id) throws IOException {
+        return imageService.getImage(id);
     }
 }

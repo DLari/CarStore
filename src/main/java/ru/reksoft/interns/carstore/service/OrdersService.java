@@ -200,8 +200,10 @@ public List<OrdersDto> getListOrders() {
                 ordersDto = item;
             }
         }
-        ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(4)));
-        ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
+        if (ordersDto.getDictOrderStatus().getId() == 3) {
+            ordersDto.setDictOrderStatus(dictOrderStatusMapper.toDto(dictOrderStatusRepository.getById(4)));
+            ordersRepository.saveAndFlush(ordersMapper.toEntity(ordersDto));
+        }
         return ordersDto;
     }
 }

@@ -72,12 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
                         "/registrationAdmin","/createCar","/personalArea","/basket","/accessError","/orders","/basketStory","/payment"
                 ).permitAll()
                 .antMatchers("/users/mine").authenticated()
-                .antMatchers(
-//                        "/adminIndex", "/colorsHtml", "/enginesHtml","/modelsHtml","/carcassHtml","/createColor",
-//                        "/colors","/colors/{id}","/carcass","/carcass/{id}","/engines",
-//                        "/engines/{id}","/models","/models/{id}",
-                      //  "/adminIndex",
-                        "/admin/**").hasAnyAuthority("admin")
+                .antMatchers("/admin/**").hasAnyAuthority("admin")
                 .anyRequest().hasAnyAuthority("user")
 
                 .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()

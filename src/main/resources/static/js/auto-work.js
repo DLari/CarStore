@@ -210,7 +210,7 @@ const renderHTML = (items)=> {
 
 // <button type="button" onclick="getAutoById(event)">Подробнее</button>
 const createHTMLByElem = (item) =>{
-    let modelName = item.model.name;
+    let modelId = item.model.id;
     return `<tr id="${item.id}">
                 <td>${item.model.name}</td>
                   <td>${item.price}</td>
@@ -223,7 +223,7 @@ const createHTMLByElem = (item) =>{
                 <td>${item.model.dictCarcass.name}</td>
                 <td>${item.color.name}</td>
                 <td><div style="height: 120px">
-    <img src="/images/${modelName}"  style="height: 100%" />
+    <img src="/images/${modelId}"  style="height: 100%" />
 </div></td>
                 <td>
                     <button type="button" onclick="createOrder(event)">Добавить в корзину</button>

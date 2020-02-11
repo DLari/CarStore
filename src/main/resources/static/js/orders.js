@@ -32,6 +32,10 @@ function createHTMLByElem(item) {
     let monthPayment = dateOfBirthPayment.getMonth();
     let dayPayment = dateOfBirthPayment.getDay();
 
+    let display= 'block';
+    if (item.dictOrderStatus.name === 'доставлено')
+        display = 'none';
+
     let dateOfBirth = new Date (item.date);
     let year = dateOfBirth.getFullYear();
     let month = dateOfBirth.getMonth();
@@ -54,14 +58,15 @@ function createHTMLByElem(item) {
                 <td>${dayPayment}.${monthPayment} ${yearPayment}</td>
                 <td>${item.orderNumber}</td>
                  <td>${item.autoInStock.presence}</td>
-                 <td>${item.price}</td>
-                <td><button type="button" onclick="editStatus(event)" >Перевести в статус доставлено</button></td>
+                 <td>${item.price}</td> 
+                <td><button type="button" style="display:${display}" onclick="editStatus(event)" >Перевести в статус доставлено</button></td>
           </tr>`}
 
 const editStatus = (e) => {
-    // document.getElementById('${e.currentTarget.parentElement}').style.display = 'none';
-
     const orderId = +e.currentTarget.parentElement.parentElement.id;
+
+   // e.currentTarget.parentElement.parentNode.children[orderId].style.display = "none";
+
     let order = orders.find(item=>item.id===orderId);
     const userId = order.users.id;
     const autoId = order.autoInStock.id;

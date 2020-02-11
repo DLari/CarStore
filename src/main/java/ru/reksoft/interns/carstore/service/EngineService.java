@@ -34,9 +34,9 @@ public class EngineService {
 
 
     public EnginesPageDto findEngineForFilter() {
-        List<SelectItemDto> engines = findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
+        List<SelectItemDto> enginesList = findEngineAll().stream().map(engineMapper::toSelectItemDto).collect(Collectors.toList());
         return new EnginesPageDto(){{
-            engines = engines;
+            engines = enginesList;
         }};
     }
 

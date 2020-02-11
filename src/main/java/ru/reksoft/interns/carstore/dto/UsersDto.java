@@ -1,6 +1,8 @@
 package ru.reksoft.interns.carstore.dto;
 
 
+import ru.reksoft.interns.carstore.entity.Role;
+
 import javax.validation.constraints.*;
 import java.sql.Date;
 
@@ -56,7 +58,7 @@ public class UsersDto {
      * роль
      */
     @Null
-    private String role;
+    private Role role;
 
     public Integer getId() {
         return id;
@@ -99,11 +101,11 @@ public class UsersDto {
     }
 
     public String getRole() {
-        return role;
+        return role.toString();
     }
 
-    public void setRole(String rule) {
-        this.role = rule;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getPhoneNumber() {

@@ -76,7 +76,7 @@ const getModels = () => {
     });
 };
 const renderFilters = (data) => {
-    const elemModels = data.Models;
+    const elemModels = data.models;
 
     let htmlModels ='';
     for (let el of elemModels) {

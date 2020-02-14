@@ -31,13 +31,13 @@ public class OrdersController {
     }
 
     @GetMapping("/mineDeliveredPaid")
-    public List<OrdersDto> getListOrders2() {
-        return ordersService.getListOrders2();
+    public List<OrdersDto> getDeliveredPaidOrders() {
+        return ordersService.getDeliveredPaidOrders();
     }
 
     @GetMapping("/mineBasket")
-    public List<OrdersDto> getListOrders3() {
-        return ordersService.getListOrders3();
+    public List<OrdersDto> getOrdersFromBacket() {
+        return ordersService.getOrdersFromBacket();
     }
 
     @PostMapping("")
@@ -80,19 +80,4 @@ public class OrdersController {
         ordersService.updateDateOfPayment(idUser);
     }
 
-//    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-//    public void delete(@PathVariable Integer id) {
-//        ordersService.toCanceled(id);
-//    }
-
-//    @PutMapping(value = "/canceled")
-//    public OrdersDto  toCanceled()  {
-//       return ordersService.toCanceled();
-//    }
-//
-//    @PutMapping(value = "/confirmed")
-//    public OrdersDto  toConfirmed()  {
-//        return ordersService.toConfirmed();
-//    }
-//
 }

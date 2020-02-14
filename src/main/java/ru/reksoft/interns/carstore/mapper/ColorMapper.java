@@ -1,5 +1,6 @@
 package ru.reksoft.interns.carstore.mapper;
 
+import lombok.Setter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -40,4 +41,7 @@ public class ColorMapper {
         return color;
     }
 
+    public void setModelMapper(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
+    }
 }

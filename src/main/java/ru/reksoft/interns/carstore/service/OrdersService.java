@@ -70,7 +70,7 @@ public List<OrdersDto> getListOrders() {
 
 
 
-    public List<OrdersDto> getListOrders2() {
+    public List<OrdersDto> getDeliveredPaidOrders() {
 
         UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
         Integer idUser = usersDto.getId();
@@ -80,7 +80,7 @@ public List<OrdersDto> getListOrders() {
                 .stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 
-    public List<OrdersDto> getListOrders3() {
+    public List<OrdersDto> getOrdersFromBacket() {
 
         UsersDto usersDto = usersMapper.toDto(usersRepository.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName()));
         Integer idUser = usersDto.getId();
@@ -105,7 +105,7 @@ public List<OrdersDto> getListOrders() {
         return ordersRepository.findAll().stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 
-    public List<OrdersDto> findOrders2() {
+    public List<OrdersDto> findOrdersWithSortDate() {
         return ordersRepository.findAll(Sort.by("date")).stream().map(ordersMapper::toDto).collect(Collectors.toList());
     }
 

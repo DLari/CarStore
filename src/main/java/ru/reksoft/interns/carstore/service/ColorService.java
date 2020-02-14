@@ -61,4 +61,8 @@ public class ColorService {
         colorRepository.saveAndFlush(color);
         return reternId;
     }
+
+    public void setColorMapper(ColorMapper colorMapper) {
+        this.colorMapper = colorMapper;
+    }
 }

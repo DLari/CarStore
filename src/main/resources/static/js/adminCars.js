@@ -3,6 +3,8 @@
 //     "Accept":"application/json",
 //     'Authorization': `Bearer ${localStorage.getItem('token')}`
 // };
+let orders = [];
+
 $(document).ready(() => {
     getCars();
     getUserFio();
@@ -16,6 +18,7 @@ const getCars = () => {
         headers: headers,
         success: (data) => {
             renderHTML(data);
+            orders = data;
         }, error:function (jqXHR,textStatus,errorThrown) {
         }
     });
@@ -55,6 +58,17 @@ const openEditCarModel = (data) => {
 
     let inputPresencee = document.getElementById('presence');
     inputPresencee.value = data.presence;
+
+    let modelId = data.model.id;
+    let autoId = data.id;
+
+    let html = `<input type="file" class="file" name="file" type="hidden"/>
+        <button type="button" id="but_upload"  onclick="uploadImage(event,${modelId},${autoId})">Загрузить изображение</button> 
+        <span id="imageDownolad"></span>`;
+    let tbody = document.getElementById('image');
+    tbody.insertAdjacentHTML('afterbegin',html);
+
+
 };
 
 const deleteCarById = (e)=>{
@@ -97,26 +111,20 @@ function createHTMLByElem(CarsItems) {
                 <td>${CarsItems.presence}</td>
                 <td>
                     <button type="button" onclick="getCarsById(event)">Edit</button>
-                    <button type="button" onclick="deleteCarById(event)">Delete</button>   
-                    <input type="file" class="file" name="file" type="hidden"/>
-                    <button type="button" id="but_upload"  onclick="uploadImage(event)">Загрузить изображение</button>   
+                    <button type="button" onclick="deleteCarById(event)">Delete</button>              
                 </td>
           </tr>`
 }
 
-// <input type="button" class="button" value="Загрузить изображение" id="but_upload">
 
-const uploadImage = (event) => {
-        const modelId = event.currentTarget.parentElement.parentElement.id;
-        const inputContainer = $(`#${modelId} input[type=file]`);
+const uploadImage = (event,inputIdModel,autoId) => {
+
+
+        const inputContainer = $(`input[type=file]`);
         let fd = new FormData();
         let files = inputContainer[0].files[0];
         fd.append('file',files);
-        fd.append('modelId', modelId);
-       // let requestHeaders = {...headers};
-       // requestHeaders['Content-Type'] = 'multipart/form-data';
-  //  requestHeaders['Accept'] = 'multipart/form-data';
-    //'multipart/form-data';
+    fd.append('modelId', inputIdModel);
         $.ajax({
             url: '/admin/images/upload',
             type: 'POST',
@@ -126,12 +134,10 @@ const uploadImage = (event) => {
             contentType: false,
             processData: false,
             success: function() {
-                console.log(1);
-               // window.location.replace("http://localhost:8080/carsHtml")
+                let htmlImageDownoladSpan = 'изображение загружено';
+                let body = document.getElementById('imageDownolad');
+                body.insertAdjacentHTML('afterbegin',htmlImageDownoladSpan);
             },
-            // error: function () {
-            //        alert('file not uploaded');
-            // }
         });
 };
 

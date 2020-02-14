@@ -16,19 +16,19 @@ import javax.persistence.criteria.Root;
 public class SearchSpecifications {
 
     public static Specification<AutoInStock> findColorId(Integer id) {
-    return new Specification<AutoInStock>() {
+        return new Specification<AutoInStock>() {
 
-        public Predicate toPredicate(Root<AutoInStock> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-          if(id==null) {
-              return cb.and();
-          }
-          else {
-              return cb.equal(root.get(AutoInStock_.color).get(Color_.id),id);
-          }
-        }
-    };
-}
-        public static Specification<AutoInStock> findModelId(Integer id) {
+            public Predicate toPredicate(Root<AutoInStock> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                if (id == null) {
+                    return cb.and();
+                } else {
+                    return cb.equal(root.get(AutoInStock_.color).get(Color_.id), id);
+                }
+            }
+        };
+    }
+
+    public static Specification<AutoInStock> findModelId(Integer id) {
         return new Specification<AutoInStock>() {
 
             public Predicate toPredicate(Root<AutoInStock> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
@@ -36,11 +36,11 @@ public class SearchSpecifications {
                 if (id == null) {
                     return cb.and();
                 } else {
-                    return cb.equal(root.get(AutoInStock_.model).get(ru.reksoft.interns.carstore.entity.Model_.id),id);
+                    return cb.equal(root.get(AutoInStock_.model).get(ru.reksoft.interns.carstore.entity.Model_.id), id);
                 }
-                }
-            };
-        }
+            }
+        };
+    }
 
     public static Specification<AutoInStock> findEngineId(Integer id) {
         return new Specification<AutoInStock>() {

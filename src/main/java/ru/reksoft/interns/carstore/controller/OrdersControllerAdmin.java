@@ -14,9 +14,9 @@ public class OrdersControllerAdmin {
     @Autowired
     private OrdersService ordersService;
     @GetMapping("")
-    public List<OrdersDto> read(){
+    public List<OrdersDto> findOrdersWithSortDate(){
 
-        return ordersService.findOrders2();
+        return ordersService.findOrdersWithSortDate();
     }
 
     @PutMapping(value = "/delivered/{id}/{autoId}")

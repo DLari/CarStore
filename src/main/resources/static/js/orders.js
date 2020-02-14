@@ -29,8 +29,8 @@ function renderHTML(items) {
 function createHTMLByElem(item) {
     let dateOfBirthPayment = new Date (item.dateOfPayment);
     let yearPayment = dateOfBirthPayment.getFullYear();
-    let monthPayment = dateOfBirthPayment.getMonth();
-    let dayPayment = dateOfBirthPayment.getDay();
+    let monthPayment = dateOfBirthPayment.getMonth() + 1;
+    let dayPayment = dateOfBirthPayment.getDate();
 
     let display= 'block';
     if (item.dictOrderStatus.name === 'доставлено')
@@ -38,8 +38,8 @@ function createHTMLByElem(item) {
 
     let dateOfBirth = new Date (item.date);
     let year = dateOfBirth.getFullYear();
-    let month = dateOfBirth.getMonth();
-    let day = dateOfBirth.getDay();
+    let month = dateOfBirth.getMonth() + 1;
+    let day = dateOfBirth.getDate();
     return `<tr id="${item.id}">
                 <td>${item.id}</td>
                 <td>${item.autoInStock.color.name}</td>

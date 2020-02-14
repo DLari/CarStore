@@ -48,8 +48,8 @@ public class ColorService {
 
     public ColorDTO update(Integer id, ColorDTO colorDTO) {
 
-        Color color = colorRepository.getById(id);
-        colorMapper.updateMapper(colorDTO, color);
+        //Color color = colorRepository.getById(id);
+       colorRepository.saveAndFlush( colorMapper.updateMapper(colorDTO, colorRepository.getById(id)));
         return colorDTO;
     }
 

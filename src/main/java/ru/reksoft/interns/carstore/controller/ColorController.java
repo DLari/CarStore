@@ -40,4 +40,9 @@ public final class ColorController{
     public ColorsPageDto readFilter(){
         return colorService.findColorForFilter();
     }
+
+    public void setColorService(ColorService colorService) {
+        this.colorService = colorService;
+    }
+
 }

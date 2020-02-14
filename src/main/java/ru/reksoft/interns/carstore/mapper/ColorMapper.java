@@ -37,7 +37,7 @@ public class ColorMapper {
         color.setName(colorDTO.getName());
         color.setPrice(colorDTO.getPrice());
     //    color.setRemoved(colorDTO.getRemoved());
-        colorRepository.saveAndFlush(color);
+//        colorRepository.saveAndFlush(color);
         return color;
     }
 

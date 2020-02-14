@@ -14,6 +14,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.domain.Specification;
 import ru.reksoft.interns.carstore.dao.ColorRepository;
 import ru.reksoft.interns.carstore.dto.ColorDTO;
+import ru.reksoft.interns.carstore.dto.ColorsPageDto;
+import ru.reksoft.interns.carstore.dto.SelectItemDto;
 import ru.reksoft.interns.carstore.entity.Color;
 import ru.reksoft.interns.carstore.mapper.ColorMapper;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
@@ -99,4 +101,31 @@ public class MockitoColorServiceTest {
 
     }
 
+    @Test
+    public void testUpdate() {
+        Color color = new Color();
+        color.setId(1);
+        color.setName("зеленый");
+        when(colorRepository.saveAndFlush(any(Color.class))).thenReturn(color);
+        when(colorRepository.getById(1)).thenReturn(color);
+
+        ColorDTO newColor = new ColorDTO();
+        newColor.setName("зеленый");
+        newColor.setId(1);
+        ColorDTO color1 = colorService.update(1,newColor);
+        assertEquals(1, color1.getId().longValue());
+        assertEquals("зеленый", color1.getName());
+    }
+
+    @Test
+    public void testDelete() {
+        Color color = new Color();
+        color.setId(1);
+        color.setName("зеленый");
+        when(colorRepository.saveAndFlush(any(Color.class))).thenReturn(color);
+        when(colorRepository.getById(1)).thenReturn(color);
+
+        Integer returnedId = colorService.delete(1);
+        assertEquals(1, returnedId);
+    }
 }

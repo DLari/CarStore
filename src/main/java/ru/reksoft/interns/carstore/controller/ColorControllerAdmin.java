@@ -3,7 +3,7 @@ package ru.reksoft.interns.carstore.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.reksoft.interns.carstore.dto.ColorDTO;
+import ru.reksoft.interns.carstore.dto.ColorDto;
 import ru.reksoft.interns.carstore.exceptions.NotValidException;
 import ru.reksoft.interns.carstore.service.ColorService;
 
@@ -17,7 +17,7 @@ public class ColorControllerAdmin {
     private ColorService colorService;
 
     @PostMapping("")
-    public ColorDTO create(@RequestBody @Valid ColorDTO newColor, BindingResult bindingResult) throws NotValidException {
+    public ColorDto create(@RequestBody @Valid ColorDto newColor, BindingResult bindingResult) throws NotValidException {
 
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {
@@ -29,8 +29,8 @@ public class ColorControllerAdmin {
     }
 
     @PutMapping(value = "/{id}")
-    public ColorDTO update(@PathVariable Integer id, @RequestBody @Valid ColorDTO colorDto,
-                          BindingResult bindingResult) throws NotValidException {
+    public ColorDto update(@PathVariable Integer id, @RequestBody @Valid ColorDto colorDto,
+                           BindingResult bindingResult) throws NotValidException {
 
         bindingResult.getAllErrors();
         if (bindingResult.hasErrors()) {

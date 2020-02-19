@@ -62,12 +62,16 @@ const openEditCarModel = (data) => {
     let modelId = data.model.id;
     let autoId = data.id;
 
+    let htmlCansel = `<button type="button" id="but_cansel"  onclick="refresh()">Отменить</button>`;
+    let tbodycansel = document.getElementById('image');
+    tbodycansel.insertAdjacentHTML('afterbegin',htmlCansel);
+
     let html = `<input type="file" class="file" name="file" type="hidden"/>
         <button type="button" id="but_upload"  onclick="uploadImage(event,${modelId},${autoId})">Загрузить изображение</button> 
         <span id="imageDownolad"></span>`;
+
     let tbody = document.getElementById('image');
     tbody.insertAdjacentHTML('afterbegin',html);
-
 
 };
 
@@ -87,6 +91,10 @@ const deleteCarById = (e)=>{
     });
 };
 
+const refresh = ()=>{
+    window.location.replace("http://localhost:8080/carsHtml");
+} ;
+
 function renderHTML(CarsItems) {
     let html = '';
     for(let item of CarsItems) {
@@ -98,6 +106,7 @@ function renderHTML(CarsItems) {
 
 // <button type="button" onclick="deleteCarById(event)">Delete</button>
 function createHTMLByElem(CarsItems) {
+    let modelId = CarsItems.model.id;
     return `<tr id="${CarsItems.id}">
                 <td>${CarsItems.id}</td>
                 <td>${CarsItems.price}</td>
@@ -110,6 +119,9 @@ function createHTMLByElem(CarsItems) {
                 <td>${CarsItems.model.dictCarcass.name}</td>
                 <td>${CarsItems.color.name}</td>
                 <td>${CarsItems.presence}</td>
+                  <td><div style="height: 120px">
+    <img src="/images/${modelId}"  style="height: 100%" />
+</div></td>
                 <td>
                     <button type="button" onclick="getCarsById(event)">Edit</button>  
                 </td>
@@ -137,6 +149,7 @@ const uploadImage = (event,inputIdModel,autoId) => {
                 let htmlImageDownoladSpan = 'изображение загружено';
                 let body = document.getElementById('imageDownolad');
                 body.insertAdjacentHTML('afterbegin',htmlImageDownoladSpan);
+                refresh();
             },
         });
 };

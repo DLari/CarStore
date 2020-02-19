@@ -8,37 +8,24 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultMatcher;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-import ru.reksoft.interns.carstore.dto.ColorDTO;
-import ru.reksoft.interns.carstore.entity.Color;
+import ru.reksoft.interns.carstore.dto.ColorDto;
 import ru.reksoft.interns.carstore.service.ColorService;
 
 import java.math.BigDecimal;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.Mockito.*;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -69,7 +56,7 @@ public class MockitoColorControllerTest {
 
     @Test
     public void getColor() throws Exception {
-        ColorDTO first = new ColorDTO();
+        ColorDto first = new ColorDto();
         first.setPrice(BigDecimal.valueOf(18000));
         first.setId(1);
 
@@ -84,13 +71,13 @@ public class MockitoColorControllerTest {
 
     @Test
     public void getListColors() throws Exception {
-        ColorDTO first = new ColorDTO();
+        ColorDto first = new ColorDto();
         first.setPrice(BigDecimal.valueOf(35000));
         first.setId(1);
-        ColorDTO second = new ColorDTO();
+        ColorDto second = new ColorDto();
         second.setId(2);
         second.setPrice(BigDecimal.valueOf(35000));
-        List<ColorDTO> list = new ArrayList<>();
+        List<ColorDto> list = new ArrayList<>();
         list.add(first);
         list.add(second);
 

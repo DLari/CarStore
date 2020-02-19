@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import ru.reksoft.interns.carstore.dao.ColorRepository;
-import ru.reksoft.interns.carstore.dto.ColorDTO;
+import ru.reksoft.interns.carstore.dto.ColorDto;
 import ru.reksoft.interns.carstore.mapper.ColorMapper;
 import ru.reksoft.interns.carstore.service.ColorService;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class MainController {
     @Autowired
     private ColorService colorService;
 
-    private static List<ColorDTO> colors = new ArrayList<>();
+    private static List<ColorDto> colors = new ArrayList<>();
     @Value("${welcome.message}")
     private String message;
 

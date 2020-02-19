@@ -17,12 +17,17 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 "/webjars/**",
                 "/img/**",
                 "/css/**",
-                "/js/**")
+                "/js/**"
+        ,"swagger-ui.html"
+        )
                 .addResourceLocations(
                         "classpath:/META-INF/resources/webjars/",
                         "classpath:/static/img/",
                         "classpath:/static/css/",
-                        "classpath:/static/js/");
+                        "classpath:/static/js/"
+                ,"classpath:/META-INF/resources/swagger-ui.html","classpath:/META-INF/resources/webjars/"
+                );
+
     }
 
     @Override

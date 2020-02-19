@@ -1,14 +1,5 @@
 package ru.reksoft.interns.carstore.dto;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import ru.reksoft.interns.carstore.entity.Color;
-import ru.reksoft.interns.carstore.entity.Engine;
-import ru.reksoft.interns.carstore.entity.Model;
-import ru.reksoft.interns.carstore.mapper.ColorMapper;
-import ru.reksoft.interns.carstore.mapper.EngineMapper;
-import ru.reksoft.interns.carstore.mapper.ModelMapperr;
-
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
@@ -38,7 +29,7 @@ public class AutoInStockDto {
      * ссылка на соответствующий цвет
      */
     @NotNull(message = " поле цвет не должно быть пустым")
-    private ColorDTO color;
+    private ColorDto color;
 
     /**
      * ссылка на соответствующий двигатель
@@ -50,7 +41,7 @@ public class AutoInStockDto {
 
     public AutoInStockDto(){}
 
-    public AutoInStockDto(Integer id, EngineDto engine, ModelDto model, ColorDTO color, Integer presence, BigDecimal price) {
+    public AutoInStockDto(Integer id, EngineDto engine, ModelDto model, ColorDto color, Integer presence, BigDecimal price) {
         this.id = id;
         this.engine = engine;
         this.model = model;
@@ -83,11 +74,11 @@ public class AutoInStockDto {
         this.model = model;
     }
 
-    public ColorDTO getColor() {
+    public ColorDto getColor() {
         return color;
     }
 
-    public void setColor(ColorDTO color) {
+    public void setColor(ColorDto color) {
         this.color = color;
     }
 

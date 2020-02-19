@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 /**
  * цвет
  */
-public class ColorDTO {
+public class ColorDto {
 
     /**
      * id
@@ -41,9 +41,9 @@ public class ColorDTO {
      */
     //private Boolean removed;
 
-    public ColorDTO(){}
+    public ColorDto(){}
 
-    public ColorDTO(String name, BigDecimal price,String colorCode) {
+    public ColorDto(String name, BigDecimal price, String colorCode) {
         this.name=name;
         this.price=price;
         this.colorCode=colorCode;

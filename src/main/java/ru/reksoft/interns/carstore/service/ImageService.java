@@ -17,28 +17,26 @@ public class ImageService {
 
     public byte[] getImage(Integer id) throws IOException {
 
-//        String pathDefault = "C:\\Users\\dlarin\\images\\default.jpg";
-        String pathDefault = "C:\\Users\\dlarin\\IdeaProjects2\\CarStore\\CarStore\\src\\main\\resources\\image\\default.jpg";
-      //  String pathToFile = "C:\\Users\\dlarin\\images\\";
+        String pathDefault = pathToFiles + "default.jpg";
         String pathToModel = pathToFiles + id + ".jpg";
         File imageModel = new File(pathToModel);
         InputStream in;
-       if (imageModel.exists()) {
-           in = new FileInputStream(imageModel);
-       } else {
-           File imageDefault = new File(pathDefault);
-           in = new FileInputStream(imageDefault);
-       }
+        if (imageModel.exists()) {
+            in = new FileInputStream(imageModel);
+        } else {
+            File imageDefault = new File(pathDefault);
+            in = new FileInputStream(imageDefault);
+        }
         return IOUtils.toByteArray(in);
     }
 
-    public void uploadImage (String modelId, MultipartFile file) throws IOException {
+    public void uploadImage(String modelId, MultipartFile file) throws IOException {
 
         if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 BufferedOutputStream stream =
-                        new BufferedOutputStream(new FileOutputStream(new File(pathToFiles + modelId+".jpg" )));
+                        new BufferedOutputStream(new FileOutputStream(new File(pathToFiles + modelId + ".jpg")));
                 stream.write(bytes);
                 stream.close();
 

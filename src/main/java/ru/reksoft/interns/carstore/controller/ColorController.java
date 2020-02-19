@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ru.reksoft.interns.carstore.dto.ColorDTO;
+import ru.reksoft.interns.carstore.dto.ColorDto;
 import ru.reksoft.interns.carstore.dto.ColorsPageDto;
 import ru.reksoft.interns.carstore.service.ColorService;
 import java.util.List;
@@ -24,15 +24,15 @@ public final class ColorController{
 
     @GetMapping("/{id}")
     @ResponseBody
-    public ColorDTO getById(@PathVariable("id")  Integer id){
+    public ColorDto getById(@PathVariable("id")  Integer id){
         LOGGER.info( "getById");
-        ColorDTO color = colorService.getById(id);
+        ColorDto color = colorService.getById(id);
         return color;
     }
 
     @GetMapping("")
     @ResponseBody
-    public List<ColorDTO> read(){
+    public List<ColorDto> read(){
       return colorService.findColorAll();
     }
 

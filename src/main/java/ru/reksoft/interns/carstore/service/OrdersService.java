@@ -1,6 +1,5 @@
 package ru.reksoft.interns.carstore.service;
 
-import liquibase.pro.packaged.D;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,10 +7,7 @@ import org.springframework.stereotype.Service;
 import ru.reksoft.interns.carstore.dao.AutoInStockRepository;
 import ru.reksoft.interns.carstore.dao.DictOrderStatusRepository;
 import ru.reksoft.interns.carstore.dao.UsersRepository;
-import ru.reksoft.interns.carstore.dto.AutoInStockDto;
-import ru.reksoft.interns.carstore.dto.ColorDTO;
 import ru.reksoft.interns.carstore.dto.UsersDto;
-import ru.reksoft.interns.carstore.entity.AutoInStock;
 import ru.reksoft.interns.carstore.entity.Orders;
 import ru.reksoft.interns.carstore.mapper.AutoInStockMapper;
 import ru.reksoft.interns.carstore.mapper.DictOrderStatusMapper;
@@ -21,11 +17,8 @@ import ru.reksoft.interns.carstore.dto.OrdersDto;
 import ru.reksoft.interns.carstore.mapper.UsersMapper;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 
-import java.math.BigDecimal;
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;

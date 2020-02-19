@@ -9,22 +9,17 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.jpa.domain.Specification;
 import ru.reksoft.interns.carstore.dao.ColorRepository;
-import ru.reksoft.interns.carstore.dto.ColorDTO;
-import ru.reksoft.interns.carstore.dto.ColorsPageDto;
-import ru.reksoft.interns.carstore.dto.SelectItemDto;
+import ru.reksoft.interns.carstore.dto.ColorDto;
 import ru.reksoft.interns.carstore.entity.Color;
 import ru.reksoft.interns.carstore.mapper.ColorMapper;
 import ru.reksoft.interns.carstore.search.SearchSpecifications;
 import ru.reksoft.interns.carstore.service.ColorService;
 
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -60,7 +55,7 @@ public class MockitoColorServiceTest {
         color.setName("зеленый");
         when(colorRepository.getById(1)).thenReturn(color);
 
-        ColorDTO color1 = colorService.getById(1);
+        ColorDto color1 = colorService.getById(1);
         assertEquals(1, color1.getId().longValue());
         assertEquals("зеленый", color1.getName());
 
@@ -77,7 +72,7 @@ public class MockitoColorServiceTest {
         Specification<Color> specification = SearchSpecifications.findAllNotRemovedColor();
         when(colorRepository.findAll(any(Specification.class))).thenReturn(list);
 
-        List<ColorDTO> color1 = colorService.findColorAll();
+        List<ColorDto> color1 = colorService.findColorAll();
 
         assertEquals(1, color1.size());
      //   assertEquals("зеленый", color1);
@@ -91,10 +86,10 @@ public class MockitoColorServiceTest {
         color.setName("зеленый");
         when(colorRepository.saveAndFlush(any(Color.class))).thenReturn(color);
 
-        ColorDTO newColor = new ColorDTO();
+        ColorDto newColor = new ColorDto();
         newColor.setName("зеленый");
         newColor.setId(1);
-        ColorDTO color1 = colorService.create(newColor);
+        ColorDto color1 = colorService.create(newColor);
         assertEquals(1, color1.getId().longValue());
         assertEquals("зеленый", color1.getName());
 
@@ -108,10 +103,10 @@ public class MockitoColorServiceTest {
         when(colorRepository.saveAndFlush(any(Color.class))).thenReturn(color);
         when(colorRepository.getById(1)).thenReturn(color);
 
-        ColorDTO newColor = new ColorDTO();
+        ColorDto newColor = new ColorDto();
         newColor.setName("зеленый");
         newColor.setId(1);
-        ColorDTO color1 = colorService.update(1,newColor);
+        ColorDto color1 = colorService.update(1,newColor);
         assertEquals(1, color1.getId().longValue());
         assertEquals("зеленый", color1.getName());
     }

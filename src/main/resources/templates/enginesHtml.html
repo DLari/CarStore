@@ -7,8 +7,11 @@
         span{
             color: red;
         }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
     </style>
-
 </head>
 </head>
 <header>
@@ -58,17 +61,17 @@
     <br>
 
     <label><b>Цена</b></label>
-    <input id="price" autocomplete="on" type="text" name="price">
+    <input id="price" autocomplete="on" type="number" name="price">
     <span id="errorPrice"></span><br>
     <br>
 
     <label><b>Расход топлива</b></label>
-    <input id="fuel_consumption" autocomplete="on" type="text" name="fuel_consumption">
+    <input id="fuel_consumption" autocomplete="on" type="number" name="fuel_consumption">
     <span id="error_fuel_consumption"></span><br>
     <br>
 
     <label><b>Мощность</b></label>
-    <input id="power" autocomplete="on" type="text" name="power">
+    <input id="power" autocomplete="on" type="number" name="power">
     <span id="error_power"></span><br>
 
     <button type="button" onclick="editEngine()">Изменить</button>

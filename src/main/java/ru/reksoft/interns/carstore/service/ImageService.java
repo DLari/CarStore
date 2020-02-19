@@ -22,11 +22,10 @@ public class ImageService {
       //  String pathToFile = "C:\\Users\\dlarin\\images\\";
         String pathToModel = pathToFiles + id + ".jpg";
         File imageModel = new File(pathToModel);
-       boolean f = imageModel.exists();
         InputStream in;
-       if (f)
-            in = new FileInputStream (imageModel);
-       else {
+       if (imageModel.exists()) {
+           in = new FileInputStream(imageModel);
+       } else {
            File imageDefault = new File(pathDefault);
            in = new FileInputStream(imageDefault);
        }

@@ -22,6 +22,7 @@ function createUser(){
         "Accept":"application/json"},
         data: data,
         success: function() {
+            alert("Регистрация прошла успешно. Вы будете переведены на главную страницу");
             window.location.replace("http://localhost:8080/index");
         },
         error: function(jqXHR,textStatus,errorThrown,data) {

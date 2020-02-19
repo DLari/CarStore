@@ -96,6 +96,7 @@ function renderHTML(CarsItems) {
     tbody.insertAdjacentHTML('afterbegin',html);
 }
 
+// <button type="button" onclick="deleteCarById(event)">Delete</button>
 function createHTMLByElem(CarsItems) {
     return `<tr id="${CarsItems.id}">
                 <td>${CarsItems.id}</td>
@@ -110,8 +111,7 @@ function createHTMLByElem(CarsItems) {
                 <td>${CarsItems.color.name}</td>
                 <td>${CarsItems.presence}</td>
                 <td>
-                    <button type="button" onclick="getCarsById(event)">Edit</button>
-                    <button type="button" onclick="deleteCarById(event)">Delete</button>              
+                    <button type="button" onclick="getCarsById(event)">Edit</button>  
                 </td>
           </tr>`
 }

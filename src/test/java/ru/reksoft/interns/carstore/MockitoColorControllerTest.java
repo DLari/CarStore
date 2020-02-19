@@ -1,68 +1,107 @@
 package ru.reksoft.interns.carstore;
 
+
+
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
+import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestContext;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultActions;
+import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import ru.reksoft.interns.carstore.controller.ColorController;
-import ru.reksoft.interns.carstore.dao.ColorRepository;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 import ru.reksoft.interns.carstore.dto.ColorDTO;
-import ru.reksoft.interns.carstore.mapper.ColorMapper;
+import ru.reksoft.interns.carstore.entity.Color;
 import ru.reksoft.interns.carstore.service.ColorService;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import java.math.BigDecimal;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import static org.assertj.core.internal.bytebuddy.matcher.ElementMatchers.is;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+
+//@RunWith(SpringJUnit4ClassRunner.class)
+
+//@ContextConfiguration(classes = {CarstoreApplication.class
+//       // , WebAppContext.class
+//})
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = CarstoreApplication.class
+        //, webEnvironment= SpringBootTest.WebEnvironment.NONE
+)
+@WebAppConfiguration
 public class MockitoColorControllerTest {
-
-    @Autowired
-    private MockMvc mvc;
 
     @Mock
     private ColorService colorService;
 
-    @Mock
-    private ColorRepository colorRepository;
+    @Autowired
+    public WebApplicationContext context;
 
-    @InjectMocks
-    private ColorController colorController;
+    public MockMvc mockMvc;
 
     @Before
-    public void init() {
-        MockitoAnnotations.initMocks(this);
-        ColorMapper mapper = new ColorMapper();
-        mapper.setModelMapper(new ModelMapper());
-        colorService.setColorMapper(mapper);
-        colorController.setColorService(colorService);
+    public void setUp() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+    }
+
+    @Test
+    public void getColor() throws Exception {
+        ColorDTO first = new ColorDTO();
+        first.setPrice(BigDecimal.valueOf(18000));
+        first.setId(1);
+
+        when(colorService.getById(1)).thenReturn(first);
+        mockMvc.perform(get("/colors/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.price").value(35000));
     }
 
 
-//    @Test
-//    public void getColorByIdAPI() throws Exception {
-//       final ResultActions resultActions = mvc.perform( MockMvcRequestBuilders
-//                .get("/colors/{id}", 1)
-//                .accept(MediaType.APPLICATION_JSON_VALUE));
-//       resultActions.andExpect(jsonPath.)
-//
-//    }
-//
-//    @Test
-//    public void testCreareByAPI() throws Exception {
-//        ColorDTO colorDTO = new ColorDTO();
-//        colorDTO.setId(1);
-//        colorDTO.setName("зеленый");
-//        MvcResult result = mvc.perform(MockMvcRequestBuilders.get("/сolors/1")
-//                .content(ClassToStringUtils.parse(colorDTO)).contentType(MediaType.APPLICATION_JSON)
-//                .accept(MediaType.APPLICATION_JSON))
-//                .andReturn();
-//    }
+    @Test
+    public void getListColors() throws Exception {
+        ColorDTO first = new ColorDTO();
+        first.setPrice(BigDecimal.valueOf(35000));
+        first.setId(1);
+        ColorDTO second = new ColorDTO();
+        second.setId(2);
+        second.setPrice(BigDecimal.valueOf(35000));
+        List<ColorDTO> list = new ArrayList<>();
+        list.add(first);
+        list.add(second);
+
+        when(colorService.findColorAll()).thenReturn(list);
+        mockMvc.perform(get("/colors")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$[0].id").value(list.get(0).getId()))
+                .andExpect(jsonPath("$[0].price").value(list.get(0).getPrice()))
+                .andExpect(jsonPath("$[1].id").value(list.get(1).getId()))
+                .andExpect(jsonPath("$[1].price").value(list.get(1).getPrice()));
+    }
 
 }

@@ -44,7 +44,6 @@ public class MockitoColorServiceTest {
     private ColorService colorService;
 
 
-
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
